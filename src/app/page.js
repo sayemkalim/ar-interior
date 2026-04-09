@@ -249,38 +249,38 @@ function Hero() {
         <div className="room-wireframe">
           <svg viewBox="0 0 700 500" fill="none" xmlns="http://www.w3.org/2000/svg">
             {/* Floor */}
-            <polygon points="50,320 350,480 650,320 350,160" fill="rgba(201,169,110,0.02)" stroke="rgba(201,169,110,0.15)" strokeWidth="1" />
+            <polygon points="50,320 350,480 650,320 350,160" fill="rgba(201,169,110,0.05)" stroke="rgba(201,169,110,0.35)" strokeWidth="1" />
             {/* Floor grid lines */}
-            <line x1="150" y1="267" x2="550" y2="267" stroke="rgba(201,169,110,0.06)" strokeWidth="0.6" />
-            <line x1="50" y1="320" x2="650" y2="320" stroke="rgba(201,169,110,0.06)" strokeWidth="0.6" />
-            <line x1="200" y1="374" x2="500" y2="214" stroke="rgba(201,169,110,0.05)" strokeWidth="0.6" />
-            <line x1="350" y1="160" x2="350" y2="480" stroke="rgba(201,169,110,0.05)" strokeWidth="0.6" />
-            <line x1="250" y1="107" x2="250" y2="427" stroke="rgba(201,169,110,0.04)" strokeWidth="0.6" />
-            <line x1="450" y1="107" x2="450" y2="427" stroke="rgba(201,169,110,0.04)" strokeWidth="0.6" />
+            <line x1="150" y1="267" x2="550" y2="267" stroke="rgba(201,169,110,0.15)" strokeWidth="0.6" />
+            <line x1="50" y1="320" x2="650" y2="320" stroke="rgba(201,169,110,0.15)" strokeWidth="0.6" />
+            <line x1="200" y1="374" x2="500" y2="214" stroke="rgba(201,169,110,0.12)" strokeWidth="0.6" />
+            <line x1="350" y1="160" x2="350" y2="480" stroke="rgba(201,169,110,0.12)" strokeWidth="0.6" />
+            <line x1="250" y1="107" x2="250" y2="427" stroke="rgba(201,169,110,0.08)" strokeWidth="0.6" />
+            <line x1="450" y1="107" x2="450" y2="427" stroke="rgba(201,169,110,0.08)" strokeWidth="0.6" />
             {/* Left wall */}
-            <polygon points="50,60 50,320 350,480 350,220" fill="rgba(201,169,110,0.015)" stroke="rgba(201,169,110,0.12)" strokeWidth="1" />
+            <polygon points="50,60 50,320 350,480 350,220" fill="rgba(201,169,110,0.04)" stroke="rgba(201,169,110,0.3)" strokeWidth="1" />
             {/* Left wall panels */}
-            <line x1="50" y1="130" x2="350" y2="290" stroke="rgba(201,169,110,0.07)" strokeWidth="0.6" />
-            <line x1="50" y1="200" x2="350" y2="360" stroke="rgba(201,169,110,0.07)" strokeWidth="0.6" />
-            <line x1="50" y1="270" x2="350" y2="430" stroke="rgba(201,169,110,0.07)" strokeWidth="0.6" />
-            <line x1="150" y1="60" x2="150" y2="320" stroke="rgba(201,169,110,0.05)" strokeWidth="0.6" />
-            <line x1="250" y1="60" x2="250" y2="320" stroke="rgba(201,169,110,0.05)" strokeWidth="0.6" />
+            <line x1="50" y1="130" x2="350" y2="290" stroke="rgba(201,169,110,0.18)" strokeWidth="0.6" />
+            <line x1="50" y1="200" x2="350" y2="360" stroke="rgba(201,169,110,0.18)" strokeWidth="0.6" />
+            <line x1="50" y1="270" x2="350" y2="430" stroke="rgba(201,169,110,0.18)" strokeWidth="0.6" />
+            <line x1="150" y1="60" x2="150" y2="320" stroke="rgba(201,169,110,0.1)" strokeWidth="0.6" />
+            <line x1="250" y1="60" x2="250" y2="320" stroke="rgba(201,169,110,0.1)" strokeWidth="0.6" />
             {/* Right wall */}
-            <polygon points="350,220 650,60 650,320 350,480" fill="rgba(201,169,110,0.01)" stroke="rgba(201,169,110,0.1)" strokeWidth="1" />
+            <polygon points="350,220 650,60 650,320 350,480" fill="rgba(201,169,110,0.03)" stroke="rgba(201,169,110,0.25)" strokeWidth="1" />
             {/* Right wall panels */}
-            <line x1="350" y1="290" x2="650" y2="130" stroke="rgba(201,169,110,0.06)" strokeWidth="0.6" />
-            <line x1="350" y1="360" x2="650" y2="200" stroke="rgba(201,169,110,0.06)" strokeWidth="0.6" />
-            <line x1="450" y1="220" x2="450" y2="480" stroke="rgba(201,169,110,0.04)" strokeWidth="0.6" />
-            <line x1="550" y1="220" x2="550" y2="480" stroke="rgba(201,169,110,0.04)" strokeWidth="0.6" />
+            <line x1="350" y1="290" x2="650" y2="130" stroke="rgba(201,169,110,0.15)" strokeWidth="0.6" />
+            <line x1="350" y1="360" x2="650" y2="200" stroke="rgba(201,169,110,0.15)" strokeWidth="0.6" />
+            <line x1="450" y1="220" x2="450" y2="480" stroke="rgba(201,169,110,0.1)" strokeWidth="0.6" />
+            <line x1="550" y1="220" x2="550" y2="480" stroke="rgba(201,169,110,0.1)" strokeWidth="0.6" />
             {/* Sofa wireframe */}
-            <polygon points="160,340 280,400 340,370 220,310" fill="rgba(201,169,110,0.04)" stroke="rgba(201,169,110,0.3)" strokeWidth="1.2" />
-            <polygon points="160,310 280,370 280,400 160,340" fill="rgba(201,169,110,0.03)" stroke="rgba(201,169,110,0.2)" strokeWidth="1" />
-            <polygon points="160,310 280,370 340,345 220,285" fill="rgba(201,169,110,0.05)" stroke="rgba(201,169,110,0.25)" strokeWidth="1" />
-            <polygon points="160,340 280,400 340,370 220,310" fill="none" stroke="rgba(201,169,110,0.6)" strokeWidth="0.5" filter="url(#glow)" />
+            <polygon points="160,340 280,400 340,370 220,310" fill="rgba(201,169,110,0.1)" stroke="rgba(201,169,110,0.5)" strokeWidth="1.2" />
+            <polygon points="160,310 280,370 280,400 160,340" fill="rgba(201,169,110,0.08)" stroke="rgba(201,169,110,0.4)" strokeWidth="1" />
+            <polygon points="160,310 280,370 340,345 220,285" fill="rgba(201,169,110,0.12)" stroke="rgba(201,169,110,0.45)" strokeWidth="1" />
+            <polygon points="160,340 280,400 340,370 220,310" fill="none" stroke="rgba(201,169,110,0.8)" strokeWidth="0.5" filter="url(#glow)" />
             {/* Coffee table */}
-            <polygon points="260,370 330,405 380,382 310,347" fill="rgba(201,169,110,0.03)" stroke="rgba(201,169,110,0.25)" strokeWidth="1" />
-            <line x1="260" y1="370" x2="265" y2="390" stroke="rgba(201,169,110,0.2)" strokeWidth="0.8" />
-            <line x1="380" y1="382" x2="385" y2="402" stroke="rgba(201,169,110,0.2)" strokeWidth="0.8" />
+            <polygon points="260,370 330,405 380,382 310,347" fill="rgba(201,169,110,0.1)" stroke="rgba(201,169,110,0.45)" strokeWidth="1" />
+            <line x1="260" y1="370" x2="265" y2="390" stroke="rgba(201,169,110,0.4)" strokeWidth="0.8" />
+            <line x1="380" y1="382" x2="385" y2="402" stroke="rgba(201,169,110,0.4)" strokeWidth="0.8" />
             {/* Floor lamp */}
             <line x1="490" y1="200" x2="500" y2="360" stroke="rgba(201,169,110,0.4)" strokeWidth="1.2" />
             <ellipse cx="495" cy="200" rx="18" ry="8" fill="none" stroke="rgba(201,169,110,0.5)" strokeWidth="1" />
