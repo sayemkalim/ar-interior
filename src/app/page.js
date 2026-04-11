@@ -22,7 +22,7 @@ const SERVICE_ICONS = {
 
 // ─── DATA ───────────────────────────────────────────────────────────
 const NAV_LINKS = [
-  { href: '#services', label: 'Services' },
+  { href: '/services', label: 'Services' },
   { href: '#about', label: 'About' },
   { href: '#gallery', label: 'Gallery' },
   { href: '#process', label: 'Process' },
@@ -128,6 +128,17 @@ function useScrolled(threshold = 50) {
   return scrolled
 }
 
+function useActiveAnchor() {
+  const [active, setActive] = useState('')
+  useEffect(() => {
+    const handle = () => setActive(window.location.pathname + window.location.hash)
+    window.addEventListener('hashchange', handle)
+    handle()
+    return () => window.removeEventListener('hashchange', handle)
+  }, [])
+  return active
+}
+
 function useReveal() {
   useEffect(() => {
     const ro = new IntersectionObserver(
@@ -187,12 +198,13 @@ function useParticles() {
 function Navbar() {
   const scrolled = useScrolled()
   const [menuOpen, setMenuOpen] = useState(false)
+  const activeAnchor = useActiveAnchor()
 
   return (
     <nav id="navbar" className={scrolled ? 'scrolled' : ''}>
       <div className="nav-inner">
         {/* Logo as SVG text since base64 is embedded in original */}
-        <a href="#hero" className="nav-logo" style={{ textDecoration: 'none' }}>
+        <a href="/" className="nav-logo" style={{ textDecoration: 'none' }}>
           <svg width="120" height="40" viewBox="0 0 120 40" fill="none">
             <text x="4" y="28" fontFamily="'Playfair Display', serif" fontSize="22" fontWeight="700" fill="#C9A96E">AR</text>
             <text x="38" y="28" fontFamily="'DM Sans', sans-serif" fontSize="11" fontWeight="600" fill="rgba(232,224,212,0.8)" letterSpacing="3">INTERIORS</text>
@@ -201,11 +213,14 @@ function Navbar() {
         </a>
         <div className="nav-sep" />
         <ul className={`nav-links${menuOpen ? ' mobile-open' : ''}`}>
-          {NAV_LINKS.map((l, i) => (
-            <li key={i}>
-              <a href={l.href} onClick={() => setMenuOpen(false)}>{l.label}</a>
-            </li>
-          ))}
+          {NAV_LINKS.map((l, i) => {
+            const isActive = activeAnchor === l.href || activeAnchor.endsWith(l.href) || (l.href === '/services' && activeAnchor.startsWith('/services'))
+            return (
+              <li key={i}>
+                <a href={l.href} className={isActive ? 'active' : ''} onClick={() => setMenuOpen(false)}>{l.label}</a>
+              </li>
+            )
+          })}
         </ul>
         <div className="nav-cta">
           <a href="tel:+919XXXXXXXXX" className="nav-phone">+91 9X-XXXX-XXXX</a>
@@ -642,33 +657,106 @@ function Gallery() {
 
 function Process() {
   const steps = [
-    { num: '01', tag: 'STEP_ONE', title: 'Free Consultation', desc: 'We visit your site, understand your vision, take measurements, and discuss budget — all at zero cost to you.' },
-    { num: '02', tag: 'STEP_TWO', title: 'Design Presentation', desc: 'Our designers present 3D renders and detailed design concepts within 5 working days. Multiple iterations until you love it.' },
-    { num: '03', tag: 'STEP_THREE', title: 'Itemized Quotation', desc: 'A transparent, itemized quote with no hidden costs. You know exactly what you\'re getting and at what price.' },
-    { num: '04', tag: 'STEP_FOUR', title: 'Execution & Delivery', desc: 'Our skilled craftsmen execute the design with precision. Daily progress updates and a dedicated project manager throughout.' },
-    { num: '05', tag: 'STEP_FIVE', title: 'Handover & Warranty', desc: 'Final walkthrough, snagging, and handover. Your 10-year woodwork warranty card is issued on handover day.' },
+    { num: '01', tag: '// INIT . FREE', title: 'Free Consultation', desc: 'Share your vision. We listen, understand your style, budget & timeline.' },
+    { num: '02', tag: '// SURVEY . ONSITE', title: 'Site Visit', desc: 'Designer visits for precise measurements and full site assessment.' },
+    { num: '03', tag: '// RENDER . 72HR', title: '3D Design & Quote', desc: 'Photorealistic renders & itemized quote within 72 hours.' },
+    { num: '04', tag: '// BUILD . LIVE', title: 'Production', desc: 'Factory & site work simultaneously. WhatsApp updates every 48 hrs.' },
+    { num: '05', tag: '// DONE . WARRANTY', title: 'Handover', desc: 'Walkthrough, snag fixing & 10-year warranty docs. Move in!' },
   ]
   return (
-    <section id="process" className="section" style={{ background: 'var(--obsidian, #07070d)' }}>
+    <section id="process" className="section" style={{ background: 'var(--obsidian, #07070d)', padding: '120px 0' }}>
       <div className="container">
-        <div className="reveal" style={{ textAlign: 'center', maxWidth: 540, margin: '0 auto' }}>
-          <span className="label">// PROCESS.FLOW</span>
-          <h2 className="heading">How We <em>Work</em></h2>
-          <div className="divider" style={{ margin: '18px auto 20px' }} />
+        <div className="reveal visible" style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto', marginBottom: 80 }}>
+          <span className="label" style={{ fontSize: 10, letterSpacing: '2px', color: 'var(--gold)', marginBottom: 16 }}>// WORKFLOW.STEPS</span>
+          <h2 className="heading" style={{ fontSize: '48px', marginBottom: 24 }}>Your Journey, <em style={{ fontStyle: 'italic', color: 'var(--gold)' }}>Step by Step</em></h2>
+          <p style={{ color: 'rgba(232, 224, 212, 0.6)', fontSize: 16 }}>Clear, stress-free — from the first call to the final walkthrough.</p>
         </div>
-        <div className="process-timeline">
+        <div className="process-horiz">
           {steps.map((s, i) => (
-            <div className="pt-row reveal" key={i}>
-              <div className="pt-num">{s.num}</div>
-              <div className="pt-body">
-                <div className="pt-tag">{s.tag}</div>
-                <h4>{s.title}</h4>
-                <p>{s.desc}</p>
-              </div>
+            <div className="ph-step reveal visible" key={i} style={{ transitionDelay: `${i * 0.15}s` }}>
+              <div className="ph-circle">{s.num}</div>
+              <div className="ph-tag">{s.tag}</div>
+              <h4 className="ph-title">{s.title}</h4>
+              <p className="ph-desc">{s.desc}</p>
             </div>
           ))}
         </div>
       </div>
+      <style>{`
+        .process-horiz {
+          position: relative;
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 20px;
+          max-width: 1200px;
+          margin: 60px auto 0;
+        }
+        .process-horiz::before {
+          content: '';
+          position: absolute;
+          top: 40px;
+          left: 10%;
+          right: 10%;
+          height: 1px;
+          background: rgba(201, 169, 110, 0.2);
+          z-index: 1;
+        }
+        .ph-step {
+          text-align: center;
+          position: relative;
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .ph-circle {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          border: 1px solid rgba(201, 169, 110, 0.3);
+          background: #07070d;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: 'Playfair Display', serif;
+          font-size: 20px;
+          color: #C9A96E;
+          font-style: italic;
+          font-weight: 600;
+          margin-bottom: 24px;
+          transition: all 0.4s;
+          position: relative;
+        }
+        .ph-step:hover .ph-circle {
+          border-color: #C9A96E;
+          box-shadow: 0 0 20px rgba(201, 169, 110, 0.15);
+          transform: scale(1.05);
+        }
+        .ph-tag {
+          font-size: 9px;
+          font-family: monospace;
+          color: rgba(201, 169, 110, 0.5);
+          letter-spacing: 0.15em;
+          margin-bottom: 12px;
+        }
+        .ph-title {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 16px;
+          font-weight: 600;
+          color: #fff;
+          margin-bottom: 12px;
+        }
+        .ph-desc {
+          font-size: 13px;
+          color: rgba(232, 224, 212, 0.5);
+          line-height: 1.6;
+          max-width: 220px;
+        }
+        @media (max-width: 1024px) {
+          .process-horiz { grid-template-columns: 1fr; gap: 60px; }
+          .process-horiz::before { display: none; }
+        }
+      `}</style>
     </section>
   )
 }
