@@ -46,8 +46,8 @@ function useReveal() {
 // ─── SHARED DATA ──────────────────────────────────────────────────────
 
 const NAV_LINKS = [
-  { href: '/services', label: 'Services' },
   { href: '/#about', label: 'About' },
+  { href: '/services', label: 'Services' },
   { href: '/#gallery', label: 'Gallery' },
   { href: '/#process', label: 'Process' },
   { href: '/#pricing', label: 'Pricing' },

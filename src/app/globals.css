@@ -3097,3 +3097,27 @@ footer {
     height: 42px;
   }
 }
+
+/* ═══ MOBILE HORIZONTAL SLIDERS ═══ */
+@media (max-width: 1024px) {
+  .test-grid {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    flex-wrap: nowrap !important;
+    gap: 16px !important;
+    padding-bottom: 24px !important;
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .test-grid::-webkit-scrollbar {
+    display: none !important; /* Webkit */
+  }
+
+  .tc {
+    flex: 0 0 85% !important;
+    scroll-snap-align: center !important;
+    min-width: 280px;
+  }
+}

@@ -22,8 +22,8 @@ const SERVICE_ICONS = {
 
 // ─── DATA ───────────────────────────────────────────────────────────
 const NAV_LINKS = [
-  { href: '/services', label: 'Services' },
   { href: '#about', label: 'About' },
+  { href: '/services', label: 'Services' },
   { href: '#gallery', label: 'Gallery' },
   { href: '#process', label: 'Process' },
   { href: '#pricing', label: 'Pricing' },
@@ -43,7 +43,7 @@ const SERVICES = [
 ]
 
 const USP_PANELS = [
-  { id: 'USP_01', title: '45-Day Delivery', desc: 'Contractual 45-day delivery — or we pay the penalty. We have honoured this promise across 850+ projects.', fill: 95 },
+  { id: 'USP_01', title: '10-Year Structural Warranty', desc: 'Every piece of woodwork backed by a decade-long warranty. No fine print. Documented in your handover certificate.', fill: 95 },
   { id: 'USP_02', title: '10-Year Warranty', desc: 'Industry-leading 10-year warranty on all woodwork and modular furniture. Quality you can trust for decades.', fill: 88 },
   { id: 'USP_03', title: 'Transparent Pricing', desc: 'No hidden costs. Itemized quotations with fixed pricing. What we quote is what you pay.', fill: 100 },
   { id: 'USP_04', title: 'Dedicated Manager', desc: 'A single point of contact throughout your project — from design consultation to final handover.', fill: 90 },
@@ -443,7 +443,7 @@ function Hero({ isFormOpen, setIsFormOpen }) {
         <div className="form-sep">// OR //</div>
         <a href="https://wa.me/919XXXXXXXXX" className="btn btn-wa" target="_blank" rel="noopener noreferrer" style={{ width: '100%', justifyContent: 'center' }}>
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
           </svg>
           WHATSAPP NOW
         </a>
@@ -666,14 +666,14 @@ function Process() {
   return (
     <section id="process" className="section" style={{ background: 'var(--obsidian, #07070d)', padding: '120px 0' }}>
       <div className="container">
-        <div className="reveal visible" style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto', marginBottom: 80 }}>
+        <div className="reveal" style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto', marginBottom: 80 }}>
           <span className="label" style={{ fontSize: 10, letterSpacing: '2px', color: 'var(--gold)', marginBottom: 16 }}>// WORKFLOW.STEPS</span>
           <h2 className="heading" style={{ fontSize: '48px', marginBottom: 24 }}>Your Journey, <em style={{ fontStyle: 'italic', color: 'var(--gold)' }}>Step by Step</em></h2>
           <p style={{ color: 'rgba(232, 224, 212, 0.6)', fontSize: 16 }}>Clear, stress-free — from the first call to the final walkthrough.</p>
         </div>
         <div className="process-horiz">
           {steps.map((s, i) => (
-            <div className="ph-step reveal visible" key={i} style={{ transitionDelay: `${i * 0.15}s` }}>
+            <div className="ph-step reveal" key={i} style={{ transitionDelay: `${i * 0.15}s` }}>
               <div className="ph-circle">{s.num}</div>
               <div className="ph-tag">{s.tag}</div>
               <h4 className="ph-title">{s.title}</h4>
@@ -824,6 +824,28 @@ function Testimonials() {
           ))}
         </div>
       </div>
+      <style>{`
+        @media (max-width: 1024px) {
+          .test-grid {
+            display: flex !important;
+            overflow-x: auto !important;
+            scroll-snap-type: x mandatory !important;
+            -webkit-overflow-scrolling: touch !important;
+            flex-wrap: nowrap !important;
+            gap: 16px !important;
+            padding-bottom: 24px !important;
+            scrollbar-width: none;
+          }
+          .test-grid::-webkit-scrollbar {
+            display: none !important;
+          }
+          .tc {
+            flex: 0 0 85% !important;
+            scroll-snap-align: center !important;
+            min-width: 280px;
+          }
+        }
+      `}</style>
     </section>
   )
 }
@@ -992,8 +1014,8 @@ export default function Home() {
       <main>
         <Hero isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
         <TrustBar />
-        <Services />
         <About />
+        <Services />
         <USP />
         <Gallery />
         <Process />
