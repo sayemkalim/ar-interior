@@ -905,6 +905,65 @@ body {
   font-weight: 600;
 }
 
+.hero-body {
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(232, 224, 212, 0.7);
+  max-width: 580px;
+  margin-bottom: 40px;
+  animation: fadeIn 1s ease 1s both;
+}
+
+.hero-stats-bar {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 60px;
+  animation: fadeIn 1s ease 1.2s both;
+}
+
+.hsb-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100px;
+}
+
+.hsb-num {
+  font-family: var(--font-playfair);
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.hsb-lbl {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: rgba(232, 224, 212, 0.45);
+  margin-top: 14px;
+  font-weight: 600;
+}
+
+.hsb-sep {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, rgba(201, 169, 110, 0.25), transparent);
+}
+
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  animation: fadeIn 1s ease 1.4s both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .hero-metrics {
   display: flex;
   gap: 0;

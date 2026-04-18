@@ -6,7 +6,7 @@ import {
   Layers, Home as HomeIcon, Shield, Check, X, Plus, Phone, Star, ChevronDown,
   MessageCircle, Clock, Award, DollarSign, UserCheck, Eye,
   Sparkles, CircleCheck, CircleDot, MapPin, Mail,
-  Box, Cpu, Droplet, Wind, Zap, Frame, Globe
+  Box, Cpu, Droplet, Wind, Zap, Frame, Globe, Monitor, Tv, Video
 } from 'lucide-react'
 import { FaInstagram, FaFacebookF, FaYoutube, FaLinkedinIn } from 'react-icons/fa6'
 import { motion } from 'framer-motion'
@@ -21,6 +21,8 @@ const SERVICE_ICONS = {
   '06': UtensilsCrossed,
   '07': Layers,
   '08': HomeIcon,
+  '09': Wind,
+  '10': Monitor,
 }
 
 // ─── DATA ───────────────────────────────────────────────────────────
@@ -35,62 +37,90 @@ const NAV_LINKS = [
 ]
 
 const SERVICES = [
-  { num: '01', title: 'Living Room', desc: 'Luxurious living spaces crafted to reflect your personality and lifestyle.', tag: 'RESIDENTIAL' },
-  { num: '02', title: 'Modular Kitchen', desc: 'Sleek, functional modular kitchens built for the modern Indian home.', tag: 'MODULAR' },
-  { num: '03', title: 'Master Bedroom', desc: 'Serene, sophisticated bedroom retreats tailored to your taste.', tag: 'RESIDENTIAL' },
-  { num: '04', title: 'Office Interiors', desc: 'Productive, inspiring commercial spaces that reflect your brand identity.', tag: 'COMMERCIAL' },
-  { num: '05', title: 'Bathroom Design', desc: 'Elegant bathrooms with premium fixtures and smart storage solutions.', tag: 'RESIDENTIAL' },
-  { num: '06', title: 'Dining Room', desc: 'Beautiful dining spaces where every meal becomes an occasion.', tag: 'RESIDENTIAL' },
-  { num: '07', title: 'False Ceiling', desc: 'Creative false ceiling designs to elevate every room\'s aesthetic.', tag: 'SPECIALTY' },
-  { num: '08', title: 'Full Home Design', desc: 'End-to-end interior design for your entire home — one team, one vision.', tag: 'COMPLETE' },
+  { num: '01', title: 'Living Room Interior Design Pune', desc: 'Elegant, personalized spaces designed to match your lifestyle.', tag: 'RESIDENTIAL' },
+  { num: '02', title: 'Modular Kitchen Designers Pune', desc: 'Stylish and highly functional kitchens for modern living.', tag: 'MODULAR' },
+  { num: '03', title: 'Bedroom Interior Designers Pune', desc: 'Calm, refined spaces crafted for comfort and relaxation.', tag: 'RESIDENTIAL' },
+  { num: '04', title: 'Office Interiors', desc: 'Smart, productive workspaces that align with your brand identity.', tag: 'COMMERCIAL' },
+  { num: '05', title: 'Bathroom Design', desc: 'Premium, well-designed bathrooms with modern fixtures and efficient storage.', tag: 'RESIDENTIAL' },
+  { num: '06', title: 'Dining Room', desc: 'Thoughtfully designed spaces that make every meal special.', tag: 'RESIDENTIAL' },
+  { num: '07', title: 'False Ceiling', desc: 'Innovative ceiling designs that enhance the look of every room.', tag: 'SPECIALTY' },
+  { num: '08', title: 'Full Home Design', desc: 'Complete interior solutions in Pune with a seamless, unified approach.', tag: 'COMPLETE' },
+  { num: '09', title: 'Terrace Design', desc: 'Cozy, well-finished terraces with outdoor seating, BBQ decks, and penthouse styling.', tag: 'SPECIALTY' },
+  { num: '10', title: 'Home Theater', desc: 'Sleek, soundproof home theaters with an immersive audio-visual experience.', tag: 'LUXURY' },
 ]
 
 const USP_PANELS = [
-  { id: 'USP_01', title: '10-Year Structural Warranty', desc: 'Every piece of woodwork backed by a decade-long warranty. No fine print. Documented in your handover certificate.', fill: 95 },
-  { id: 'USP_02', title: '10-Year Warranty', desc: 'Industry-leading 10-year warranty on all woodwork and modular furniture. Quality you can trust for decades.', fill: 88 },
-  { id: 'USP_03', title: 'Transparent Pricing', desc: 'No hidden costs. Itemized quotations with fixed pricing. What we quote is what you pay.', fill: 100 },
-  { id: 'USP_04', title: 'Dedicated Manager', desc: 'A single point of contact throughout your project — from design consultation to final handover.', fill: 90 },
+  { id: 'USP_01', title: '10-Year Structural Warranty', desc: 'Every piece of woodwork is backed by a decade-long warranty, documented in your handover certificate. No fine print.', fill: 100 },
+  { id: 'USP_02', title: 'Transparent Pricing & Interior Design Packages', desc: 'No hidden costs. Our interior design packages in Pune come with itemized, fixed-price quotations. What we quote is what you pay.', fill: 95 },
+  { id: 'USP_03', title: 'Dedicated Project Manager', desc: 'A single point of contact throughout your project from design consultation to final handover.', fill: 90 },
+  { id: 'USP_04', title: 'Labour Safety', desc: 'As trusted interior contractors in Pune, we follow strict on-site safety protocols, with a fully trained and insured workforce.', fill: 98 },
+  { id: 'USP_05', title: 'Garbage is our responsibility', desc: 'We ensure all debris generated during the project is cleared and taken away by our team, keeping your space clean and hassle-free.', fill: 100 },
 ]
 
 const TESTIMONIALS = [
-  { name: 'Priya S.', loc: 'BANER · 3BHK', text: 'AR Interiors transformed our apartment beyond expectations. The attention to detail and quality of work is exceptional. Delivered exactly on time!', initials: 'PS' },
-  { name: 'Rahul M.', loc: 'HINJEWADI · VILLA', text: 'The team understood our vision perfectly. Our villa looks straight out of a magazine. Worth every rupee invested.', initials: 'RM' },
-  { name: 'Sneha K.', loc: 'AUNDH · 2BHK', text: 'Extremely professional service. The modular kitchen they designed for us is both beautiful and highly functional.', initials: 'SK' },
-  { name: 'Amit P.', loc: 'KOREGAON PARK', text: 'Hired AR Interiors for our office fit-out. The result is stunning — our clients are always impressed when they walk in.', initials: 'AP' },
-  { name: 'Kavitha R.', loc: 'WAKAD · 3BHK', text: 'From concept to completion in 40 days! The quality of materials and craftsmanship is top-notch. Highly recommended.', initials: 'KR' },
-  { name: 'Suresh N.', loc: 'KOTHRUD · BUNGALOW', text: 'AR Interiors delivered a masterpiece. Our bungalow is now the talk of the neighbourhood. Five star service!', initials: 'SN' },
+  { name: 'Priya S.', loc: 'Banker, 3 BHK', text: 'A R Interiors delivered our home interior design services in Pune beyond all expectations. The attention to detail is exceptional. Delivered exactly on time!', initials: 'PS' },
+  { name: 'Rahul M.', loc: 'Hinjewadi Villa', text: 'The best interior designers in Pune, hands down. Our villa looks straight out of a magazine. Worth every rupee.', initials: 'RM' },
+  { name: 'Sneha K.', loc: 'Aundh, 2 BHK', text: 'Extremely professional. The modular kitchen designers in Pune they recommended were brilliant. Beautiful and highly functional.', initials: 'SK' },
+  { name: 'Amit P.', loc: 'Koregaon Park', text: 'Hired A R Interiors for our office fit-out. The result is stunning. Our clients are always impressed when they walk in.', initials: 'AP' },
+  { name: 'Kavitha R.', loc: 'Wakad, 3 BHK', text: 'Concept to completion in 40 days! The quality of materials and craftsmanship in these modern home interiors is top-notch. Highly recommended.', initials: 'KR' },
+  { name: 'Suresh N.', loc: 'Kothrud Bungalow', text: 'A R Interiors delivered a masterpiece. Our bungalow is now the talk of the neighbourhood. Five-star reliable interior contractors in Pune!', initials: 'SN' },
 ]
 
 const FAQS = [
-  { q: 'What is your typical project timeline?', a: 'We contractually guarantee 45-day delivery for standard apartments (2-3BHK). Larger projects like villas and bungalows take 60-90 days. Your dedicated project manager will give you a precise timeline during consultation.' },
-  { q: 'Do you provide a warranty on your work?', a: 'Yes — we offer an industry-leading 10-year warranty on all woodwork and modular furniture. This covers manufacturing defects and structural issues. Hardware and accessories carry a 2-year warranty.' },
-  { q: 'What areas do you serve in Pune?', a: 'We serve all areas across Pune including Baner, Aundh, Hinjewadi, Wakad, Kothrud, Koregaon Park, Viman Nagar, Kalyani Nagar, and surrounding areas. We also take outstation projects.' },
-  { q: 'What is included in the free site visit?', a: 'Our free site visit includes measurement of all spaces, discussion of your requirements and budget, preliminary design ideas, and a detailed itemized quotation — all at no charge and with no obligation.' },
-  { q: 'Can I customize the designs?', a: 'Absolutely. Every project is 100% custom-designed to your preferences, lifestyle, and budget. We do not use template designs. Your home will be unique.' },
-  { q: 'What materials do you use?', a: 'We use only premium materials — BWR/BWP grade plywood, high-quality laminates, quartz and granite surfaces, and branded hardware. We are happy to show you samples and explain the specifications.' },
+  { 
+    q: 'What is your typical project timeline?', 
+    a: 'We contractually guarantee 45-day delivery for standard 2 BHK and 3 BHK apartments making us one of the most reliable interior contractors in Pune for on-time delivery. Larger projects like villas take 60–90 days. Your dedicated project manager will provide a precise timeline during the free consultation.' 
+  },
+  {
+    q: 'How much does 2 BHK interior design cost in Pune?',
+    a: 'The 2 BHK interior design cost in Pune starts at ₹699 per sq.ft with our Essential package. For a fully furnished 2 BHK, the typical budget ranges from ₹5L to ₹12L depending on materials, scope, and finishes. We provide fixed, itemized quotes so there are no surprises.'
+  },
+  { 
+    q: 'Do you provide a warranty on your work?', 
+    a: 'Yes, as one of the best interior designers in Pune, we offer an industry-leading 10-year warranty on all woodwork and modular furniture. This covers manufacturing defects and structural issues. Hardware and accessories carry a 2-year warranty.' 
+  },
+  { 
+    q: 'What areas in Pune do you serve?', 
+    a: 'As professional interior designers near you across Pune, we serve Baner, Aundh, Hinjewadi, Wakad, Kothrud, Koregaon Park, Viman Nagar, Kalyani Nagar, and surrounding areas. We also take outstation projects.' 
+  },
+  {
+    q: 'Is labour safety a priority on your construction sites?',
+    a: 'Absolutely, labour safety is our top priority. As safe construction interior services providers in Pune, we follow strict on-site safety protocols on every project. All our workers are trained, equipped with appropriate safety gear, and insured. We conduct regular site safety audits and ensure full compliance with construction safety standards.'
+  },
+  { 
+    q: 'Can I customize the designs?', 
+    a: 'Every project is 100% custom-designed to your preferences, lifestyle, and budget. We do not use template designs, your home will be unique. From living room interior design in Pune to bedroom interior design, every space is tailored to you.' 
+  },
+  { 
+    q: 'What materials do you use for modular kitchens and interiors?', 
+    a: 'We use only premium materials - BWR/BWP grade plywood, high-quality laminates, quartz and granite surfaces, and branded hardware. Our modular kitchen designers in Pune are happy to show you samples and explain all specifications during your free site visit.' 
+  },
+  { 
+    q: 'What is included in the free site visit?', 
+    a: 'Our free site visit includes measurement of all spaces, discussion of your requirements and budget, preliminary design ideas, and a detailed itemized quotation — all at no charge and with no obligation. Book yours today with Pune\'s best interior designers.' 
+  },
 ]
 
 const PRICING_PLANS = [
   {
     id: 'PLAN_01',
-    name: 'Essential',
-    price: '₹699',
-    unit: 'per sq.ft · onwards',
+    name: 'Essential — Low Cost Interior Designers Pune',
+    price: '₹10 Lakh',
+    unit: 'onwards',
     features: [
       { text: 'Modular kitchen + wardrobes', on: true },
-      { text: 'False ceiling in living & master', on: true },
-      { text: 'Premium laminates finish', on: true },
+      { text: 'False ceiling in living & master bedroom', on: true },
+      { text: 'Premium laminate finish', on: true },
       { text: 'Dedicated project manager', on: true },
-      { text: 'Custom furniture pieces', on: false },
-      { text: 'Premium Italian laminates', on: false },
+      { text: 'Custom furniture pieces', on: true },
     ],
     featured: false,
   },
   {
     id: 'PLAN_02',
-    name: 'Premium',
-    price: '₹999',
-    unit: 'per sq.ft · onwards',
+    name: 'Premium — Home Interior Design Services Pune',
+    price: '₹20 Lakh',
+    unit: 'onwards',
     badge: 'MOST POPULAR',
     features: [
       { text: 'Complete home interior design', on: true },
@@ -98,15 +128,15 @@ const PRICING_PLANS = [
       { text: 'Premium Italian laminates', on: true },
       { text: 'Dedicated project manager', on: true },
       { text: 'Lighting design & installation', on: true },
-      { text: 'Smart home integration', on: false },
+      { text: 'Smart home integration', on: true },
     ],
     featured: true,
   },
   {
     id: 'PLAN_03',
-    name: 'Luxury',
-    price: '₹1499',
-    unit: 'per sq.ft · onwards',
+    name: 'Luxury — Modern Home Interiors Pune',
+    price: '₹30 Lakh',
+    unit: 'onwards',
     features: [
       { text: 'Full luxury interior package', on: true },
       { text: 'Imported materials & finishes', on: true },
@@ -365,14 +395,34 @@ function Hero({ isFormOpen, setIsFormOpen }) {
         <div className="hero-inner">
           <div className="hero-badge">
             <span className="badge-pulse" />
-            PUNE_STUDIO — EST. 2012
+            A R INTERIORS — BEST INTERIOR DESIGNERS IN PUNE SINCE 2012
           </div>
           <h1 className="hero-title">
             <span className="title-line"><span className="title-line-inner">Design Spaces</span></span>
             <span className="title-line"><span className="title-line-inner">That <em>Tell Your Story</em></span></span>
           </h1>
+          <p className="hero-body reveal">
+            Pune&apos;s most trusted home interior design services studio. We have transformed 850+ homes across Pune from compact 1 BHKs to sprawling bungalows with modern, functional, and beautiful interiors.
+          </p>
 
-          <div className="hero-btns">
+          <div className="hero-stats-bar reveal">
+            <div className="hsb-item">
+              <span className="hsb-num">500+</span>
+              <span className="hsb-lbl">PROJECTS</span>
+            </div>
+            <div className="hsb-sep" />
+            <div className="hsb-item">
+              <span className="hsb-num">12+</span>
+              <span className="hsb-lbl">EXPERIENCE</span>
+            </div>
+            <div className="hsb-sep" />
+            <div className="hsb-item">
+              <span className="hsb-num">94%</span>
+              <span className="hsb-lbl">SATISFACTION</span>
+            </div>
+          </div>
+
+          <div className="hero-btns reveal">
             <a href="#cta-section" className="btn btn-gold">
               <ArrowRight size={14} strokeWidth={2.5} />
               GET FREE ESTIMATE
@@ -450,9 +500,9 @@ function Hero({ isFormOpen, setIsFormOpen }) {
 function TrustBar() {
   const items = [
     '✦ 850+ Projects Completed', '✦ 45-Day Delivery Guaranteed', '✦ 10-Year Woodwork Warranty',
-    '✦ Free Site Visit', '✦ Transparent Pricing', '✦ 12 Years Experience', '✦ 98% Client Satisfaction',
+    '✦ Free Site Visit', '✦ Transparent Pricing', '✦ 12 Years Experience', '✦ 94% Client Satisfaction',
     '✦ 850+ Projects Completed', '✦ 45-Day Delivery Guaranteed', '✦ 10-Year Woodwork Warranty',
-    '✦ Free Site Visit', '✦ Transparent Pricing', '✦ 12 Years Experience', '✦ 98% Client Satisfaction',
+    '✦ Free Site Visit', '✦ Transparent Pricing', '✦ 12 Years Experience', '✦ 94% Client Satisfaction',
   ]
   return (
     <div className="trust-bar">
@@ -472,12 +522,12 @@ function Services() {
   return (
     <section id="services" className="section">
       <div className="container">
-        <div className="reveal" style={{ textAlign: 'center', maxWidth: 540, margin: '0 auto 60px' }}>
+        <div className="reveal" style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 60px' }}>
           <span className="label">// SERVICES.ARRAY</span>
           <h2 className="heading">What We <em>Design</em></h2>
           <div className="divider" style={{ margin: '18px auto 20px' }} />
           <p className="subtext" style={{ margin: '0 auto' }}>
-            From modular kitchens to complete home transformations — every space, crafted with precision.
+            From modular kitchen designers in Pune to complete home transformations - every space, crafted with precision.
           </p>
         </div>
         <div className="services-grid">
@@ -504,17 +554,14 @@ function About() {
       <div className="container">
         <div className="about-grid">
           <div className="reveal">
-            <span className="label">// ABOUT.AR_INTERIORS</span>
-            <h2 className="heading">12 Years of <em>Crafting</em> Dream Homes</h2>
+            <span className="label">// ABOUT A R INTERIORS</span>
+            <h2 className="heading">12 Years of <em>Crafting</em> Dream Homes in Pune</h2>
             <div className="divider" />
             <p className="subtext">
-              AR Interiors is Pune&apos;s most trusted interior design studio. Since 2012, we have transformed
-              850+ homes across Pune — from compact 1BHKs to sprawling bungalows.
+              A R Interiors is Pune&apos;s most trusted name in home interior design services. Since 2012, our team of 35+ designers, project managers, and skilled craftsmen has delivered modern home interiors in Pune across 850+ projects from compact 2 and 3 BHK apartments to expansive villas.
             </p>
             <p className="subtext" style={{ marginTop: 12 }}>
-              Our team of 35+ designers, project managers, and craftsmen work together to deliver interiors
-              that are beautiful, functional, and built to last. Every project gets a dedicated manager,
-              a fixed timeline, and our legendary 10-year warranty.
+              Whether you&apos;re looking for low cost interior designers in Pune or a premium full-home transformation, our team delivers on time, on budget, and beyond expectations. Every project comes with a dedicated project manager, fixed timeline, and our legendary 10-year woodwork warranty.
             </p>
             <div style={{ display: 'flex', gap: 12, marginTop: 28, flexWrap: 'wrap' }}>
               <a href="#cta-section" className="btn btn-gold">Start Your Project</a>
@@ -524,10 +571,10 @@ function About() {
           <div className="reveal d2">
             <div className="stat-cube-grid">
               {[
-                { num: '850', suffix: '+', label: 'Projects Delivered' },
-                { num: '12', suffix: ' Yrs', label: 'In Business' },
-                { num: '35', suffix: '+', label: 'Expert Designers' },
-                { num: '45', suffix: 'd', label: 'Avg Delivery' },
+                { num: '500', suffix: '+', label: 'Projects Delivered' },
+                { num: '12', suffix: '+', label: 'Years in Business' },
+                { num: '94', suffix: '%', label: 'Client Satisfaction' },
+                { num: '45', suffix: 'd', label: 'Fast Delivery' },
               ].map((s, i) => (
                 <div className="stat-cube" key={i}>
                   <span className="cube-num" data-target={parseInt(s.num)} data-suffix={s.suffix}>0</span>
@@ -550,9 +597,9 @@ function USP() {
   return (
     <section id="usp" className="section">
       <div className="container">
-        <div className="reveal" style={{ textAlign: 'center', maxWidth: 540, margin: '0 auto' }}>
+        <div className="reveal" style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto' }}>
           <span className="label">// WHY.AR_INTERIORS</span>
-          <h2 className="heading">Why Choose <em>Us</em></h2>
+          <h2 className="heading">Why We&apos;re the <em>Best Interior Designers</em> in Pune</h2>
           <div className="divider" style={{ margin: '18px auto 20px' }} />
         </div>
         <div className="usp-dashboard">
@@ -734,19 +781,19 @@ function Partners() {
 
 function Process() {
   const steps = [
-    { num: '01', tag: '// INIT . FREE', title: 'Free Consultation', desc: 'Share your vision. We listen, understand your style, budget & timeline.' },
-    { num: '02', tag: '// SURVEY . ONSITE', title: 'Site Visit', desc: 'Designer visits for precise measurements and full site assessment.' },
-    { num: '03', tag: '// RENDER . 72HR', title: '3D Design & Quote', desc: 'Photorealistic renders & itemized quote within 72 hours.' },
-    { num: '04', tag: '// BUILD . LIVE', title: 'Production', desc: 'Factory & site work simultaneously. WhatsApp updates every 48 hrs.' },
-    { num: '05', tag: '// DONE . WARRANTY', title: 'Handover', desc: 'Walkthrough, snag fixing & 10-year warranty docs. Move in!' },
+    { num: '01', tag: '// INIT . FREE', title: 'Free Consultation', desc: 'Share your vision. Our professional interior designers near you listen and understand your style, budget, and timeline.' },
+    { num: '02', tag: '// SURVEY . ONSITE', title: 'Site Visit', desc: 'Our designer visits for precise measurements and full site assessment at no charge.' },
+    { num: '03', tag: '// RENDER . 72HR', title: '3D Design & Quote', desc: 'Photorealistic renders and itemised quote delivered within 72 hours.' },
+    { num: '04', tag: '// BUILD . LIVE', title: 'Production', desc: 'Factory and site work run simultaneously. WhatsApp updates every 48 hours.' },
+    { num: '05', tag: '// DONE . WARRANTY', title: 'Handover', desc: 'Walkthrough, snag-fixing, and 10-year warranty docs. Move in!' },
   ]
   return (
     <section id="process" className="section" style={{ background: 'var(--obsidian, #07070d)', padding: '120px 0' }}>
       <div className="container">
-        <div className="reveal" style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto', marginBottom: 80 }}>
+        <div className="reveal" style={{ textAlign: 'center', maxWidth: 740, margin: '0 auto', marginBottom: 80 }}>
           <span className="label" style={{ fontSize: 10, letterSpacing: '2px', color: 'var(--gold)', marginBottom: 16 }}>// WORKFLOW.STEPS</span>
-          <h2 className="heading" style={{ fontSize: '48px', marginBottom: 24 }}>Your Journey, <em style={{ fontStyle: 'italic', color: 'var(--gold)' }}>Step by Step</em></h2>
-          <p style={{ color: 'rgba(232, 224, 212, 0.6)', fontSize: 16 }}>Clear, stress-free — from the first call to the final walkthrough.</p>
+          <h2 className="heading" style={{ fontSize: '48px', marginBottom: 24 }}>Your Journey With the <em>Best Interior Designers</em> in Pune - Step by Step</h2>
+          <p style={{ color: 'rgba(232, 224, 212, 0.6)', fontSize: 16 }}>Clear, stress-free home interior design services from the first call to the final walkthrough.</p>
         </div>
         <div className="process-horiz">
           {steps.map((s, i) => (
@@ -842,11 +889,11 @@ function Pricing() {
   return (
     <section id="pricing" className="section">
       <div className="container">
-        <div className="reveal" style={{ textAlign: 'center', maxWidth: 540, margin: '0 auto' }}>
+        <div className="reveal" style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 60px' }}>
           <span className="label">// PRICING.CONFIG</span>
-          <h2 className="heading">Transparent <em>Pricing</em></h2>
+          <h2 className="heading">Transparent Interior Design <em>Packages</em> in Pune</h2>
           <div className="divider" style={{ margin: '18px auto 20px' }} />
-          <p className="subtext" style={{ margin: '0 auto' }}>No surprises. Fixed quotes. Quality guaranteed.</p>
+          <p className="subtext" style={{ margin: '0 auto' }}>No surprises. Fixed quotes. Quality guaranteed. We offer affordable interior design packages in Pune for every budget.</p>
         </div>
         <div className="pricing-grid">
           {PRICING_PLANS.map((plan) => (
@@ -879,9 +926,9 @@ function Testimonials() {
   return (
     <section id="testimonials" className="section">
       <div className="container">
-        <div className="reveal" style={{ textAlign: 'center', maxWidth: 540, margin: '0 auto' }}>
+        <div className="reveal" style={{ textAlign: 'center', maxWidth: 740, margin: '0 auto' }}>
           <span className="label">// CLIENT.REVIEWS</span>
-          <h2 className="heading">What Clients <em>Say</em></h2>
+          <h2 className="heading">What Pune Homeowners Say About Our <em>Interior Design Services</em></h2>
           <div className="divider" style={{ margin: '18px auto 20px' }} />
         </div>
         <div className="test-grid">
@@ -940,13 +987,16 @@ function CTA() {
         <div className="cta-wrap reveal">
           <div className="cta-left">
             <div className="cta-id">CTA_SECTION · BOOK_NOW</div>
-            <h2 className="heading">Ready to Transform Your <em>Space?</em></h2>
+            <h2 className="heading">Ready to Transform Your Space with <em>Pune&apos;s Best Interior Designers?</em></h2>
             <p className="subtext" style={{ marginTop: 14 }}>
-              Book your free site visit today. Our designer will visit your home, understand your vision,
-              and present design concepts within 5 working days.
+              Book your free site visit today. Our professional interior designers near you will visit your home, understand your vision, and present design concepts within 5 working days.
             </p>
             <div className="cta-offers">
-              {['Free site visit & measurement', 'No-obligation 3D design concepts', 'Fixed-price transparent quotation'].map((o, i) => (
+              {[
+                'Free site visit & measurement',
+                'No-obligation 3D design concepts',
+                'Fixed-price transparent quotation from reliable interior contractors in Pune'
+              ].map((o, i) => (
                 <div className="cta-oi" key={i}>
                   <div className="cta-ic">
                     <Check size={14} color="#C9A96E" strokeWidth={2.5} />
@@ -992,9 +1042,9 @@ function FAQ() {
   return (
     <section id="faq" className="section">
       <div className="container">
-        <div className="reveal" style={{ textAlign: 'center', maxWidth: 540, margin: '0 auto' }}>
+        <div className="reveal" style={{ textAlign: 'center', maxWidth: 740, margin: '0 auto' }}>
           <span className="label">// FAQ.DATABASE</span>
-          <h2 className="heading">Common <em>Questions</em></h2>
+          <h2 className="heading">Common Questions About Our <em>Interior Design Services</em> in Pune</h2>
           <div className="divider" style={{ margin: '18px auto 20px' }} />
         </div>
         <div className="faq-grid">
