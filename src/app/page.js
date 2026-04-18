@@ -5,8 +5,11 @@ import {
   ArrowRight, Sofa, CookingPot, Bed, Building2, ShowerHead, UtensilsCrossed,
   Layers, Home as HomeIcon, Shield, Check, X, Plus, Phone, Star, ChevronDown,
   MessageCircle, Clock, Award, DollarSign, UserCheck, Eye,
-  Sparkles, CircleCheck, CircleDot, MapPin, Mail
+  Sparkles, CircleCheck, CircleDot, MapPin, Mail,
+  Box, Cpu, Droplet, Wind, Zap, Frame, Globe
 } from 'lucide-react'
+import { FaInstagram, FaFacebookF, FaYoutube, FaLinkedinIn } from 'react-icons/fa6'
+import { motion } from 'framer-motion'
 
 // ─── ICON MAP ────────────────────────────────────────────────────────
 const SERVICE_ICONS = {
@@ -369,19 +372,6 @@ function Hero({ isFormOpen, setIsFormOpen }) {
             <span className="title-line"><span className="title-line-inner">That <em>Tell Your Story</em></span></span>
           </h1>
 
-          <div className="hero-metrics">
-            {[
-              { target: 850, suffix: '+', label: 'PROJECTS' },
-              { target: 12, suffix: '+ Yrs', label: 'EXPERIENCE' },
-              { target: 4.9, suffix: '★', label: 'RATING' },
-              { target: 45, suffix: 'd', label: 'DELIVERY' },
-            ].map((m, i) => (
-              <div className="hero-metric" key={i}>
-                <span className="metric-num" data-target={m.target} data-suffix={m.suffix}>0</span>
-                <span className="metric-lbl">{m.label}</span>
-              </div>
-            ))}
-          </div>
           <div className="hero-btns">
             <a href="#cta-section" className="btn btn-gold">
               <ArrowRight size={14} strokeWidth={2.5} />
@@ -651,6 +641,93 @@ function Gallery() {
           <a href="#cta-section" className="btn btn-gold">VIEW FULL PORTFOLIO →</a>
         </div>
       </div>
+    </section>
+  )
+}
+
+function Partners() {
+  const brands = [
+    { name: 'HÄFELE', icon: Cpu },
+    { name: 'HETTICH', icon: Zap },
+    { name: 'ASIAN PAINTS', icon: Droplet },
+    { name: 'KOHLER', icon: ShowerHead },
+    { name: 'JAQUAR', icon: Award },
+    { name: 'SAINT-GOBAIN', icon: Box },
+    { name: 'GREENLAM', icon: Frame },
+    { name: 'FABER', icon: Wind },
+    { name: 'ARISTO', icon: Layers },
+    { name: 'D-DECOR', icon: Globe },
+  ]
+
+  // Double the list for seamless loop
+  const loopLogos = [...brands, ...brands]
+
+  return (
+    <section id="partners" className="section" style={{ background: '#050508', overflow: 'hidden', padding: '40px 0' }}>
+      <div className="container">
+        <div className="reveal" style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 40px' }}>
+          <span className="label">// BRAND.ECOSYSTEM</span>
+          <h2 className="heading">Our <em>Partners</em></h2>
+          <div className="divider" style={{ margin: '18px auto 20px' }} />
+        </div>
+      </div>
+
+      <div className="marquee-container">
+        <motion.div
+          className="marquee-track"
+          animate={{ x: [0, -1035] }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        >
+          {loopLogos.map((b, i) => (
+            <div className="brand-logo" key={i}>
+              <b.icon size={68} strokeWidth={1} />
+              <span>{b.name}</span>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      <style>{`
+        .marquee-container {
+          width: 100%;
+          overflow: hidden;
+          position: relative;
+          padding: 40px 0;
+          background: rgba(201, 169, 110, 0.02);
+          border-top: 1px solid rgba(201, 169, 110, 0.05);
+          border-bottom: 1px solid rgba(201, 169, 110, 0.05);
+        }
+        .marquee-track {
+          display: flex;
+          gap: 60px;
+          width: max-content;
+        }
+        .brand-logo {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+          color: var(--gold);
+          font-family: var(--font-body);
+          font-size: 22px;
+          font-weight: 800;
+          letter-spacing: 0.3em;
+          white-space: nowrap;
+          opacity: 0.75;
+          transition: all 0.4s ease;
+        }
+        .brand-logo:hover {
+          opacity: 1;
+          transform: scale(1.03);
+          filter: drop-shadow(0 0 10px rgba(201, 169, 110, 0.2));
+        }
+        .brand-logo svg {
+          opacity: 1;
+        }
+      `}</style>
     </section>
   )
 }
@@ -950,7 +1027,16 @@ function Footer() {
             </svg>
             <p className="footer-desc">Pune&apos;s most trusted interior design studio. 850+ projects. 12 years. 45-day delivery guaranteed.</p>
             <div className="fsocial">
-              {['IG', 'FB', 'YT', 'IN'].map(s => <a key={s} href="#" className="fsb" aria-label={s}>{s}</a>)}
+              {[
+                { icon: FaInstagram, label: 'Instagram' },
+                { icon: FaFacebookF, label: 'Facebook' },
+                { icon: FaYoutube, label: 'Youtube' },
+                { icon: FaLinkedinIn, label: 'Linkedin' }
+              ].map((s, i) => (
+                <a key={i} href="#" className="fsb" aria-label={s.label}>
+                  <s.icon size={16} />
+                </a>
+              ))}
             </div>
           </div>
           <div>
@@ -1018,6 +1104,7 @@ export default function Home() {
         <Services />
         <USP />
         <Gallery />
+        <Partners />
         <Process />
         <Pricing />
         <Testimonials />

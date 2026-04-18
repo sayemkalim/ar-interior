@@ -64,7 +64,7 @@ const DETAILED_SERVICES = [
     subtitle: 'Where Elegance Meets Comfort',
     desc: 'The heart of your home deserves a design that speaks volumes. We create living spaces that balance aesthetics with family-centric comfort, using premium materials and lighting architectures.',
     features: ['Custom TV Units & Paneling', 'Ambient & Statement Lighting', 'Ergonomic Furniture Layout', 'Premium Wall Textures'],
-    image: '/services/living_room.png',
+    image: '/livingroom.jpg',
     fullDesc: 'Your living room is the showcase of your home, setting the tone for your entire living space. Our approach to living room design is rooted in the belief that these spaces must be both stunningly beautiful and supremely livable. We go beyond simply placing furniture; we craft holistic environments. We design custom feature walls that might include integrated modern fireplaces, bespoke shelving, or seamless TV units with hidden cable management.',
     benefits: [
       'Tailored layouts that maximize your specific room dimensions and family needs.',
@@ -78,7 +78,7 @@ const DETAILED_SERVICES = [
     subtitle: 'Precision Engineering for Your Culinary Journey',
     desc: 'Transform your cooking experience with our German-engineered modular kitchens. We prioritize workflow efficiency, high-grade hardware, and heat-resistant finishes.',
     features: ['Heat & Water Resistant Materials', 'Soft-close Blum Hardware', 'Intelligent Larder Units', 'Anti-scratch Acrylic Finishes'],
-    image: '/services/kitchen.png',
+    image: '/modularkitchen.jpg',
     fullDesc: 'We believe the kitchen is more than a place to cook; it’s a space where precision engineering meets daily life. Our modular kitchens are built on the principles of ergonomic efficiency and enduring quality. We deeply analyze your cooking habits to design the layout—optimizing the classic "work triangle" to minimize wasted movement. Our material selection focuses on combining striking aesthetics with extreme durability.',
     benefits: [
       'Ergonomically designed workflows to make cooking more enjoyable and less tiring.',
@@ -92,7 +92,7 @@ const DETAILED_SERVICES = [
     subtitle: 'Your Personal Sanctuary',
     desc: 'Retreat to a space designed for deep rest. Our bedroom designs focus on tranquility, clutter-free wardrobes, and luxury bedding textures.',
     features: ['Walk-in Closets & Wardrobes', 'Upholstered Designer Headboards', 'Integrated Bedside Control', 'Acoustic Soundproofing'],
-    image: '/services/wardrobe.png',
+    image: '/masterbedroom.jpg',
     fullDesc: 'Your master bedroom should be an absolute sanctuary—a retreat from the world designed specifically for relaxation and rejuvenation. Our design philosophy here centers on creating a calming, restorative atmosphere. We pay meticulous attention to acoustics, employing sound-dampening materials. We design custom walk-in closets or built-in wardrobes that not only look elegant but are highly functional.',
     benefits: [
       'A deeply relaxing environment scientifically proven to improve sleep quality.',
@@ -106,7 +106,7 @@ const DETAILED_SERVICES = [
     subtitle: 'Efficiency Redefined',
     desc: 'Commercial spaces that inspire productivity. We blend corporate branding with ergonomic excellence to create workspaces people love to visit.',
     features: ['Ergonomic Task Seating', 'Cable Management Solutions', 'Collaborative Zone Designs', 'Brand-Inspired Aesthetics'],
-    image: '/services/office.png',
+    image: '/Office.jpg',
     fullDesc: 'We understand that exceptional office design is a strategic business tool. It impacts employee productivity, well-being, and serves as a powerful physical representation of your brand to visiting clients. Our commercial interior design focuses on creating high-performance environments. We balance the need for focused, quiet work zones with vibrant, collaborative areas.',
     benefits: [
       'Increased team productivity through optimized layouts and ergonomic design.',
@@ -120,7 +120,7 @@ const DETAILED_SERVICES = [
     subtitle: 'Spa-Like Elegance at Home',
     desc: 'Transform your daily routine into a spa-like experience. We specialize in high-end bathroom renovations featuring premium fixtures and stunning tilework.',
     features: ['Custom Vanities', 'Walk-in Rain Showers', 'Freestanding Soaking Tubs', 'Radiant Floor Heating'],
-    image: '/services/bathroom.png',
+    image: '/Bathroom.jpg',
     fullDesc: 'We view the modern bathroom as a personal wellness retreat. Our luxury bathroom remodels are designed to evoke the ambiance of a five-star spa. We specialize in significant structural changes to optimize space, often replacing cramped tubs with expansive, curbless walk-in showers featuring rainfall heads and body jets. We utilize premium materials like large-format porcelain slabs or natural stone to create seamless surfaces.',
     benefits: [
       'A daily spa-like experience that significantly enhances your quality of life.',
@@ -134,7 +134,7 @@ const DETAILED_SERVICES = [
     subtitle: 'Where Every Meal is an Occasion',
     desc: 'Design beautiful dining spaces that cultivate connection and celebration with breathtaking central tables and ambient statement lighting.',
     features: ['Custom Dining Tables', 'Statement Chandeliers', 'Wine Cellar Integration', 'Flow-Oriented Layouts'],
-    image: '/services/dining.png',
+    image: '/Dinningroom.jpg',
     fullDesc: 'A dining room is the social anchor of a home. We craft dining spaces that balance opulence with welcoming warmth, ensuring every dinner party or family meal feels special. By utilizing striking lighting fixtures to anchor the room perfectly over custom-crafted dining tables, we create a distinct focal point. We also incorporate curated display cabinetry to elegantly showcase premium dishware or bar collections.',
     benefits: [
       'Perfectly scaled dining tables that fit your space and hosting needs seamlessly.',
@@ -148,7 +148,7 @@ const DETAILED_SERVICES = [
     subtitle: 'Elevating the Fifth Wall',
     desc: 'Transform plain ceilings into architectural masterpieces. Experience intricate false ceiling designs engineered to enhance both lighting and acoustics.',
     features: ['Intricate Cove Lighting', 'Acoustic Sound Baffling', 'Luxury Drop Chandeliers', 'Climate-Control Concealment'],
-    image: '/services/ceiling.png',
+    image: '/False Ceiling.jpg',
     fullDesc: 'The ceiling—often called the fifth wall—provides an immense opportunity to impact the feel of a room without utilizing floor space. Our designers specialize in creating dimensional false ceiling structures that intelligently conceal wiring, ductwork, and HVAC systems while delivering stunning visual interest. Integrated, multi-layered warm LED strip lighting highlights elegant geometric or organic ceiling contours, adding dramatic depth.',
     benefits: [
       'Dramatic enhancement of room height perception and architectural depth.',
@@ -162,7 +162,7 @@ const DETAILED_SERVICES = [
     subtitle: 'One Vision, Flawless Execution',
     desc: 'Experience pure peace of mind with our turnkey full home design service. From laying out conceptual blueprints to absolute final finishing, we handle it all.',
     features: ['Turnkey Execution', 'Dedicated Project Manager', 'Styling & Art Curation', 'Smart Home Integration'],
-    image: '/services/full_home.png',
+    image: '/fullInterior.jpg',
     fullDesc: 'Our flagship full-home service is designed for unmatched convenience and spectacular, cohesive results. We provide comprehensive, end-to-end design and execution for your entire property. Treating your home as a singular canvas ensures consistency of materials, architectural language, and color palettes across all rooms. A dedicated project manager handles everything from initial civil changes to the ultimate styling of art and accessories on handover day.',
     benefits: [
       'A completely cohesive design language that flows perfectly from room to room.',
@@ -497,17 +497,18 @@ export default function ServicesPage() {
 
         .sd-img-frame {
           position: relative;
-          padding-bottom: 100%;
           overflow: hidden;
           border-radius: 4px;
-          box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+          box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+          border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .sd-img {
-          position: absolute;
-          top: 0; left: 0; width: 100%; height: 100%;
-          object-fit: cover;
-          transition: transform 1s ease;
+          display: block;
+          width: 100%;
+          height: auto;
+          object-fit: contain;
+          transition: transform 1.2s cubic-bezier(0.2, 0, 0.2, 1);
         }
 
         .sd-img:hover {
