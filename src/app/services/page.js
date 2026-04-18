@@ -7,6 +7,8 @@ import {
   Briefcase, Star, Search, Plus, X 
 } from 'lucide-react'
 
+import { FaInstagram, FaFacebookF, FaYoutube, FaLinkedinIn } from 'react-icons/fa6'
+
 // ─── HOOKS ───────────────────────────────────────────────────────────
 
 function useScrolled() {
@@ -249,7 +251,10 @@ function Footer() {
             </svg>
             <p className="footer-desc">Pune&apos;s most trusted interior design studio. 850+ projects. 12 years. 45-day delivery guaranteed.</p>
             <div className="fsocial">
-              {['IG', 'FB', 'YT', 'IN'].map(s => <a key={s} href="#" className="fsb" aria-label={s}>{s}</a>)}
+              <a href="#" className="fsb" aria-label="Instagram"><FaInstagram size={16} /></a>
+              <a href="#" className="fsb" aria-label="Facebook"><FaFacebookF size={15} /></a>
+              <a href="#" className="fsb" aria-label="YouTube"><FaYoutube size={17} /></a>
+              <a href="#" className="fsb" aria-label="LinkedIn"><FaLinkedinIn size={16} /></a>
             </div>
           </div>
           <div>
