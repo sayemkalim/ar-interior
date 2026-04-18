@@ -29,6 +29,7 @@ const SERVICE_ICONS = {
 const NAV_LINKS = [
   { href: '#about', label: 'About' },
   { href: '/services', label: 'Services' },
+  { href: '/blogs', label: 'Blogs' },
   { href: '#gallery', label: 'Gallery' },
   { href: '#process', label: 'Process' },
   { href: '#pricing', label: 'Pricing' },

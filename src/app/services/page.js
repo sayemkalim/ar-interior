@@ -50,6 +50,7 @@ function useReveal() {
 const NAV_LINKS = [
   { href: '/#about', label: 'About' },
   { href: '/services', label: 'Services' },
+  { href: '/blogs', label: 'Blogs' },
   { href: '/#gallery', label: 'Gallery' },
   { href: '/#process', label: 'Process' },
   { href: '/#pricing', label: 'Pricing' },
@@ -174,6 +175,41 @@ const DETAILED_SERVICES = [
   }
 ]
 
+const FAQS = [
+  { 
+    q: 'What is your typical project timeline?', 
+    a: 'We contractually guarantee 45-day delivery for standard 2 BHK and 3 BHK apartments making us one of the most reliable interior contractors in Pune for on-time delivery. Larger projects like villas take 60–90 days. Your dedicated project manager will provide a precise timeline during the free consultation.' 
+  },
+  {
+    q: 'How much does 2 BHK interior design cost in Pune?',
+    a: 'The 2 BHK interior design cost in Pune starts at ₹699 per sq.ft with our Essential package. For a fully furnished 2 BHK, the typical budget ranges from ₹5L to ₹12L depending on materials, scope, and finishes. We provide fixed, itemized quotes so there are no surprises.'
+  },
+  { 
+    q: 'Do you provide a warranty on your work?', 
+    a: 'Yes, as one of the best interior designers in Pune, we offer an industry-leading 10-year warranty on all woodwork and modular furniture. This covers manufacturing defects and structural issues. Hardware and accessories carry a 2-year warranty.' 
+  },
+  { 
+    q: 'What areas in Pune do you serve?', 
+    a: 'As professional interior designers near you across Pune, we serve Baner, Aundh, Hinjewadi, Wakad, Kothrud, Koregaon Park, Viman Nagar, Kalyani Nagar, and surrounding areas. We also take outstation projects.' 
+  },
+  {
+    q: 'Is labour safety a priority on your construction sites?',
+    a: 'Absolutely, labour safety is our top priority. As safe construction interior services providers in Pune, we follow strict on-site safety protocols on every project. All our workers are trained, equipped with appropriate safety gear, and insured. We conduct regular site safety audits and ensure full compliance with construction safety standards.'
+  },
+  { 
+    q: 'Can I customize the designs?', 
+    a: 'Every project is 100% custom-designed to your preferences, lifestyle, and budget. We do not use template designs, your home will be unique. From living room interior design in Pune to bedroom interior design, every space is tailored to you.' 
+  },
+  { 
+    q: 'What materials do you use for modular kitchens and interiors?', 
+    a: 'We use only premium materials - BWR/BWP grade plywood, high-quality laminates, quartz and granite surfaces, and branded hardware. Our modular kitchen designers in Pune are happy to show you samples and explain all specifications during your free site visit.' 
+  },
+  { 
+    q: 'What is included in the free site visit?', 
+    a: 'Our free site visit includes measurement of all spaces, discussion of your requirements and budget, preliminary design ideas, and a detailed itemized quotation — all at no charge and with no obligation. Book yours today with Pune\'s best interior designers.' 
+  },
+]
+
 // ─── COMPONENTS ──────────────────────────────────────────────────────
 
 function Navbar() {
@@ -235,6 +271,32 @@ function FloatingActions({ isFormOpen, setIsFormOpen }) {
         </button>
       )}
     </div>
+  )
+}
+
+function FAQ() {
+  const [openIdx, setOpenIdx] = useState(null)
+  return (
+    <section id="faq" className="section" style={{ background: '#050508' }}>
+      <div className="container">
+        <div className="reveal" style={{ textAlign: 'center', maxWidth: 740, margin: '0 auto' }}>
+          <span className="label">// FAQ.DATABASE</span>
+          <h2 className="heading">Common Questions About Our <em>Interior Design Services</em> in Pune</h2>
+          <div className="divider" style={{ margin: '18px auto 20px' }} />
+        </div>
+        <div className="faq-grid" style={{ maxWidth: 800, margin: '60px auto 0' }}>
+          {FAQS.map((f, i) => (
+            <div className={`faq-item${openIdx === i ? ' open' : ''}`} key={i}>
+              <button className="faq-q" onClick={() => setOpenIdx(openIdx === i ? null : i)}>
+                {f.q}
+                <span>{openIdx === i ? '−' : '+'}</span>
+              </button>
+              <div className="faq-a">{f.a}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }
 
@@ -382,6 +444,7 @@ export default function ServicesPage() {
         </div>
       )}
 
+      <FAQ />
       <Footer />
 
       <style jsx global>{`
