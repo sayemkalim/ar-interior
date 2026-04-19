@@ -239,11 +239,7 @@ function Navbar() {
       <div className="nav-inner">
         {/* Logo as SVG text since base64 is embedded in original */}
         <a href="/" className="nav-logo" style={{ textDecoration: 'none' }}>
-          <svg width="120" height="40" viewBox="0 0 120 40" fill="none">
-            <text x="4" y="28" fontFamily="'Playfair Display', serif" fontSize="22" fontWeight="700" fill="#C9A96E">AR</text>
-            <text x="38" y="28" fontFamily="'DM Sans', sans-serif" fontSize="11" fontWeight="600" fill="rgba(232,224,212,0.8)" letterSpacing="3">INTERIORS</text>
-            <line x1="4" y1="33" x2="116" y2="33" stroke="rgba(201,169,110,0.3)" strokeWidth="0.5" />
-          </svg>
+          <img src="/logo.png" alt="AR Interiors" style={{ height: '40px', width: 'auto', display: 'block' }} />
         </a>
         <div className="nav-sep" />
         <ul className={`nav-links${menuOpen ? ' mobile-open' : ''}`}>
@@ -1072,10 +1068,7 @@ function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div>
-            <svg width="110" height="36" viewBox="0 0 110 36" fill="none" style={{ marginBottom: 14, opacity: 0.9 }}>
-              <text x="4" y="26" fontFamily="'Playfair Display', serif" fontSize="20" fontWeight="700" fill="#C9A96E">AR</text>
-              <text x="34" y="26" fontFamily="'DM Sans', sans-serif" fontSize="10" fontWeight="600" fill="rgba(232,224,212,0.7)" letterSpacing="2.5">INTERIORS</text>
-            </svg>
+            <img src="/logo.png" alt="AR Interiors" style={{ height: '36px', width: 'auto', marginBottom: 14, opacity: 0.9, display: 'block' }} />
             <p className="footer-desc">Pune&apos;s most trusted interior design studio. 850+ projects. 12 years. 45-day delivery guaranteed.</p>
             <div className="fsocial">
               {[
