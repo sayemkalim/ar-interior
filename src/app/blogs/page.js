@@ -1,11 +1,12 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import {
   ArrowRight, Search, Clock, User, Calendar,
   ChevronRight, ArrowLeft, X, Plus
 } from 'lucide-react'
 import { FaInstagram, FaFacebookF, FaYoutube, FaLinkedinIn } from 'react-icons/fa6'
+import Link from 'next/link'
 
 // ─── DATA ───────────────────────────────────────────────────────────
 
@@ -262,12 +263,26 @@ export default function BlogPage() {
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const [activeCategory, setActiveCategory] = useState('All')
+  const [dbBlogs, setDbBlogs] = useState([])
+  const [loadingBlogs, setLoadingBlogs] = useState(true)
+
+  useEffect(() => {
+    fetch('/api/blogs')
+      .then(r => r.json())
+      .then(data => {
+        if (data.success && data.data.length > 0) setDbBlogs(data.data)
+      })
+      .catch(() => {})
+      .finally(() => setLoadingBlogs(false))
+  }, [])
+
+  const allBlogs = dbBlogs.length > 0 ? dbBlogs : BLOGS
 
   const categories = ['All', 'Interior Design', 'Modular Kitchen', 'Materials', 'Commercial', 'Luxury', 'Specialty']
 
-  const filteredBlogs = BLOGS.filter(blog => {
-    const matchesSearch = blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      blog.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredBlogs = allBlogs.filter(blog => {
+    const matchesSearch = (blog.title || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (blog.excerpt || '').toLowerCase().includes(searchTerm.toLowerCase())
     const matchesCategory = activeCategory === 'All' || blog.category === activeCategory
     return matchesSearch && matchesCategory
   })
@@ -316,18 +331,22 @@ export default function BlogPage() {
 
       <section className="blog-grid-section">
         <div className="container">
-          {filteredBlogs.length > 0 ? (
+          {loadingBlogs ? (
+            <div className="no-results">
+              <div className="blog-loader"><span /><span /><span /></div>
+            </div>
+          ) : filteredBlogs.length > 0 ? (
             <div className="blog-grid">
-              {filteredBlogs.map(blog => (
-                <article className="blog-card" key={blog.id}>
+              {filteredBlogs.map((blog, idx) => (
+                <article className="blog-card" key={blog._id || blog.id || idx}>
                   <div className="bc-img-wrap">
-                    <img src={blog.image} alt={blog.title} className="bc-img" />
+                    <img src={blog.image || '/masterbedroom.jpg'} alt={blog.title} className="bc-img" />
                     <span className="bc-cat-tag">{blog.category}</span>
                   </div>
                   <div className="bc-inner">
                     <div className="bc-meta">
                       <span><Calendar size={12} /> {blog.date}</span>
-                      <span><Clock size={12} /> {blog.readTime}</span>
+                      {blog.readTime && <span><Clock size={12} /> {blog.readTime}</span>}
                     </div>
                     <h2 className="bc-title">{blog.title}</h2>
                     <p className="bc-excerpt">{blog.excerpt}</p>
@@ -335,9 +354,9 @@ export default function BlogPage() {
                       <div className="bc-author">
                         <User size={12} /> {blog.author}
                       </div>
-                      <a href="#" className="bc-link">
+                      <Link href={`/blogs/${blog.slug || blog.id}`} className="bc-link">
                         Read Story <ChevronRight size={14} />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </article>
@@ -732,6 +751,29 @@ export default function BlogPage() {
           font-family: var(--font-playfair);
           font-size: 24px;
           margin-bottom: 30px;
+        }
+
+        .blog-loader {
+          display: flex;
+          gap: 12px;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .blog-loader span {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: var(--gold);
+          animation: loaderPulse 1.2s ease-in-out infinite;
+        }
+
+        .blog-loader span:nth-child(2) { animation-delay: 0.2s; }
+        .blog-loader span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes loaderPulse {
+          0%, 100% { opacity: 0.2; transform: scale(0.8); }
+          50% { opacity: 1; transform: scale(1.2); }
         }
 
         @media (max-width: 1024px) {
