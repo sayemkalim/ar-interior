@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import {
   ArrowRight, Sofa, CookingPot, Bed, Building2, ShowerHead, UtensilsCrossed,
   Layers, Home as HomeIcon, Shield, Check, X, Plus, Phone, Star, ChevronDown,
+  ChevronLeft, ChevronRight,
   MessageCircle, Clock, Award, DollarSign, UserCheck, Eye,
   Sparkles, CircleCheck, CircleDot, MapPin, Mail,
   Box, Cpu, Droplet, Wind, Zap, Frame, Globe, Monitor, Tv, Video
@@ -11,19 +12,6 @@ import {
 import { FaInstagram, FaFacebookF, FaYoutube, FaLinkedinIn } from 'react-icons/fa6'
 import { motion } from 'framer-motion'
 
-// ─── ICON MAP ────────────────────────────────────────────────────────
-const SERVICE_ICONS = {
-  '01': Sofa,
-  '02': CookingPot,
-  '03': Bed,
-  '04': Building2,
-  '05': ShowerHead,
-  '06': UtensilsCrossed,
-  '07': Layers,
-  '08': HomeIcon,
-  '09': Wind,
-  '10': Monitor,
-}
 
 // ─── DATA ───────────────────────────────────────────────────────────
 const NAV_LINKS = [
@@ -37,18 +25,6 @@ const NAV_LINKS = [
   { href: '#faq', label: 'FAQ' },
 ]
 
-const SERVICES = [
-  { num: '01', title: 'Living Room Interior Design Pune', desc: 'Elegant, personalized spaces designed to match your lifestyle.', tag: 'RESIDENTIAL' },
-  { num: '02', title: 'Modular Kitchen Designers Pune', desc: 'Stylish and highly functional kitchens for modern living.', tag: 'MODULAR' },
-  { num: '03', title: 'Bedroom Interior Designers Pune', desc: 'Calm, refined spaces crafted for comfort and relaxation.', tag: 'RESIDENTIAL' },
-  { num: '04', title: 'Office Interiors', desc: 'Smart, productive workspaces that align with your brand identity.', tag: 'COMMERCIAL' },
-  { num: '05', title: 'Bathroom Design', desc: 'Premium, well-designed bathrooms with modern fixtures and efficient storage.', tag: 'RESIDENTIAL' },
-  { num: '06', title: 'Dining Room', desc: 'Thoughtfully designed spaces that make every meal special.', tag: 'RESIDENTIAL' },
-  { num: '07', title: 'False Ceiling', desc: 'Innovative ceiling designs that enhance the look of every room.', tag: 'SPECIALTY' },
-  { num: '08', title: 'Full Home Design', desc: 'Complete interior solutions in Pune with a seamless, unified approach.', tag: 'COMPLETE' },
-  { num: '09', title: 'Terrace Design', desc: 'Cozy, well-finished terraces with outdoor seating, BBQ decks, and penthouse styling.', tag: 'SPECIALTY' },
-  { num: '10', title: 'Home Theater', desc: 'Sleek, soundproof home theaters with an immersive audio-visual experience.', tag: 'LUXURY' },
-]
 
 const USP_PANELS = [
   { id: 'USP_01', title: '10-Year Structural Warranty', desc: 'Every piece of woodwork is backed by a decade-long warranty, documented in your handover certificate. No fine print.', fill: 100 },
@@ -68,37 +44,37 @@ const TESTIMONIALS = [
 ]
 
 const FAQS = [
-  { 
-    q: 'What is your typical project timeline?', 
-    a: 'We contractually guarantee 45-day delivery for standard 2 BHK and 3 BHK apartments making us one of the most reliable interior contractors in Pune for on-time delivery. Larger projects like villas take 60–90 days. Your dedicated project manager will provide a precise timeline during the free consultation.' 
+  {
+    q: 'What is your typical project timeline?',
+    a: 'We contractually guarantee 45-day delivery for standard 2 BHK and 3 BHK apartments making us one of the most reliable interior contractors in Pune for on-time delivery. Larger projects like villas take 60–90 days. Your dedicated project manager will provide a precise timeline during the free consultation.'
   },
   {
     q: 'How much does 2 BHK interior design cost in Pune?',
     a: 'The 2 BHK interior design cost in Pune starts at ₹699 per sq.ft with our Essential package. For a fully furnished 2 BHK, the typical budget ranges from ₹5L to ₹12L depending on materials, scope, and finishes. We provide fixed, itemized quotes so there are no surprises.'
   },
-  { 
-    q: 'Do you provide a warranty on your work?', 
-    a: 'Yes, as one of the best interior designers in Pune, we offer an industry-leading 10-year warranty on all woodwork and modular furniture. This covers manufacturing defects and structural issues. Hardware and accessories carry a 2-year warranty.' 
+  {
+    q: 'Do you provide a warranty on your work?',
+    a: 'Yes, as one of the best interior designers in Pune, we offer an industry-leading 10-year warranty on all woodwork and modular furniture. This covers manufacturing defects and structural issues. Hardware and accessories carry a 2-year warranty.'
   },
-  { 
-    q: 'What areas in Pune do you serve?', 
-    a: 'As professional interior designers near you across Pune, we serve Baner, Aundh, Hinjewadi, Wakad, Kothrud, Koregaon Park, Viman Nagar, Kalyani Nagar, and surrounding areas. We also take outstation projects.' 
+  {
+    q: 'What areas in Pune do you serve?',
+    a: 'As professional interior designers near you across Pune, we serve Baner, Aundh, Hinjewadi, Wakad, Kothrud, Koregaon Park, Viman Nagar, Kalyani Nagar, and surrounding areas. We also take outstation projects.'
   },
   {
     q: 'Is labour safety a priority on your construction sites?',
     a: 'Absolutely, labour safety is our top priority. As safe construction interior services providers in Pune, we follow strict on-site safety protocols on every project. All our workers are trained, equipped with appropriate safety gear, and insured. We conduct regular site safety audits and ensure full compliance with construction safety standards.'
   },
-  { 
-    q: 'Can I customize the designs?', 
-    a: 'Every project is 100% custom-designed to your preferences, lifestyle, and budget. We do not use template designs, your home will be unique. From living room interior design in Pune to bedroom interior design, every space is tailored to you.' 
+  {
+    q: 'Can I customize the designs?',
+    a: 'Every project is 100% custom-designed to your preferences, lifestyle, and budget. We do not use template designs, your home will be unique. From living room interior design in Pune to bedroom interior design, every space is tailored to you.'
   },
-  { 
-    q: 'What materials do you use for modular kitchens and interiors?', 
-    a: 'We use only premium materials - BWR/BWP grade plywood, high-quality laminates, quartz and granite surfaces, and branded hardware. Our modular kitchen designers in Pune are happy to show you samples and explain all specifications during your free site visit.' 
+  {
+    q: 'What materials do you use for modular kitchens and interiors?',
+    a: 'We use only premium materials - BWR/BWP grade plywood, high-quality laminates, quartz and granite surfaces, and branded hardware. Our modular kitchen designers in Pune are happy to show you samples and explain all specifications during your free site visit.'
   },
-  { 
-    q: 'What is included in the free site visit?', 
-    a: 'Our free site visit includes measurement of all spaces, discussion of your requirements and budget, preliminary design ideas, and a detailed itemized quotation — all at no charge and with no obligation. Book yours today with Pune\'s best interior designers.' 
+  {
+    q: 'What is included in the free site visit?',
+    a: 'Our free site visit includes measurement of all spaces, discussion of your requirements and budget, preliminary design ideas, and a detailed itemized quotation — all at no charge and with no obligation. Book yours today with Pune\'s best interior designers.'
   },
 ]
 
@@ -390,10 +366,7 @@ function Hero({ isFormOpen, setIsFormOpen }) {
       {/* LEFT CONTENT */}
       <div className="hero-content">
         <div className="hero-inner">
-          <div className="hero-badge">
-            <span className="badge-pulse" />
-            A R INTERIORS — BEST INTERIOR DESIGNERS IN PUNE SINCE 2012
-          </div>
+
           <h1 className="hero-title">
             <span className="title-line"><span className="title-line-inner">Design Spaces</span></span>
             <span className="title-line"><span className="title-line-inner">That <em>Tell Your Story</em></span></span>
@@ -402,22 +375,7 @@ function Hero({ isFormOpen, setIsFormOpen }) {
             Pune&apos;s most trusted home interior design services studio. We have transformed 850+ homes across Pune from compact 1 BHKs to sprawling bungalows with modern, functional, and beautiful interiors.
           </p>
 
-          <div className="hero-stats-bar reveal">
-            <div className="hsb-item">
-              <span className="hsb-num">500+</span>
-              <span className="hsb-lbl">PROJECTS</span>
-            </div>
-            <div className="hsb-sep" />
-            <div className="hsb-item">
-              <span className="hsb-num">12+</span>
-              <span className="hsb-lbl">EXPERIENCE</span>
-            </div>
-            <div className="hsb-sep" />
-            <div className="hsb-item">
-              <span className="hsb-num">94%</span>
-              <span className="hsb-lbl">SATISFACTION</span>
-            </div>
-          </div>
+
 
           <div className="hero-btns reveal">
             <a href="#cta-section" className="btn btn-gold">
@@ -427,12 +385,7 @@ function Hero({ isFormOpen, setIsFormOpen }) {
             <a href="#gallery" className="btn btn-outline">VIEW PORTFOLIO</a>
           </div>
         </div>
-        <div className="scroll-cue" onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}>
-          <span>SCROLL</span>
-          <div className="scroll-mouse">
-            <div className="scroll-dot" />
-          </div>
-        </div>
+
       </div>
 
       {/* RIGHT FORM PANEL */}
@@ -515,43 +468,14 @@ function TrustBar() {
   )
 }
 
-function Services() {
-  return (
-    <section id="services" className="section">
-      <div className="container">
-        <div className="reveal" style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 60px' }}>
-          <span className="label">// SERVICES.ARRAY</span>
-          <h2 className="heading">What We <em>Design</em></h2>
-          <div className="divider" style={{ margin: '18px auto 20px' }} />
-          <p className="subtext" style={{ margin: '0 auto' }}>
-            From modular kitchen designers in Pune to complete home transformations - every space, crafted with precision.
-          </p>
-        </div>
-        <div className="services-grid">
-          {SERVICES.map((s) => (
-            <div className="sc" key={s.num}>
-              <span className="sc-num">{s.num}</span>
-              <div className="sc-icon">
-                {(() => { const Icon = SERVICE_ICONS[s.num]; return <Icon size={20} /> })()}
-              </div>
-              <h3>{s.title}</h3>
-              <p>{s.desc}</p>
-              <span className="sc-tag">{s.tag}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
 
 function About() {
   return (
-    <section id="about" className="section">
+    <section id="about" className="section" style={{ background: '#121212' }}>
       <div className="container">
         <div className="about-grid">
           <div className="reveal">
-            <span className="label">// ABOUT A R INTERIORS</span>
+
             <h2 className="heading">12 Years of <em>Crafting</em> Dream Homes in Pune</h2>
             <div className="divider" />
             <p className="subtext">
@@ -568,7 +492,7 @@ function About() {
           <div className="reveal d2">
             <div className="stat-cube-grid">
               {[
-                { num: '500', suffix: '+', label: 'Projects Delivered' },
+                { num: '850', suffix: '+', label: 'Projects Delivered' },
                 { num: '12', suffix: '+', label: 'Years in Business' },
                 { num: '94', suffix: '%', label: 'Client Satisfaction' },
                 { num: '45', suffix: 'd', label: 'Fast Delivery' },
@@ -592,10 +516,10 @@ function About() {
 
 function USP() {
   return (
-    <section id="usp" className="section">
+    <section id="usp" className="section" style={{ background: '#000000' }}>
       <div className="container">
         <div className="reveal" style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto' }}>
-          <span className="label">// WHY.AR_INTERIORS</span>
+
           <h2 className="heading">Why We&apos;re the <em>Best Interior Designers</em> in Pune</h2>
           <div className="divider" style={{ margin: '18px auto 20px' }} />
         </div>
@@ -629,11 +553,11 @@ function Gallery() {
   const filters = ['all', 'living', 'kitchen', 'bedroom', 'dining', 'office']
 
   return (
-    <section id="gallery" className="section">
+    <section id="gallery" className="section" style={{ background: '#121212' }}>
       <div className="container">
         <div className="gallery-hdr">
           <div className="reveal">
-            <span className="label">// PORTFOLIO.GALLERY</span>
+
             <h2 className="heading">Our <em>Work</em></h2>
           </div>
           <div className="filter-tabs reveal d2">
@@ -663,7 +587,7 @@ function Gallery() {
               <div className="gp" style={{ background: item.color, paddingBottom: item.wide ? '52%' : '68%', position: 'relative' }}>
                 <div style={{
                   position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontFamily: "'Playfair Display', serif", fontSize: 'clamp(14px,2vw,22px)', color: 'rgba(201,169,110,0.5)',
+                  fontFamily: "'Poppins', sans-serif", fontSize: 'clamp(14px,2vw,22px)', color: 'rgba(201,169,110,0.5)',
                   letterSpacing: '0.15em', textTransform: 'uppercase',
                 }}>
                   {item.title}
@@ -707,10 +631,10 @@ function Partners() {
   const loopLogos = [...brands, ...brands]
 
   return (
-    <section id="partners" className="section" style={{ background: '#050508', overflow: 'hidden', padding: '40px 0' }}>
+    <section id="partners" className="section" style={{ background: '#000000', overflow: 'hidden' }}>
       <div className="container">
         <div className="reveal" style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 40px' }}>
-          <span className="label">// BRAND.ECOSYSTEM</span>
+
           <h2 className="heading">Our <em>Partners</em></h2>
           <div className="divider" style={{ margin: '18px auto 20px' }} />
         </div>
@@ -785,11 +709,11 @@ function Process() {
     { num: '05', tag: '// DONE . WARRANTY', title: 'Handover', desc: 'Walkthrough, snag-fixing, and 10-year warranty docs. Move in!' },
   ]
   return (
-    <section id="process" className="section" style={{ background: 'var(--obsidian, #07070d)', padding: '120px 0' }}>
+    <section id="process" className="section" style={{ background: '#121212' }}>
       <div className="container">
         <div className="reveal" style={{ textAlign: 'center', maxWidth: 740, margin: '0 auto', marginBottom: 80 }}>
-          <span className="label" style={{ fontSize: 10, letterSpacing: '2px', color: 'var(--gold)', marginBottom: 16 }}>// WORKFLOW.STEPS</span>
-          <h2 className="heading" style={{ fontSize: '48px', marginBottom: 24 }}>Your Journey With the <em>Best Interior Designers</em> in Pune - Step by Step</h2>
+
+          <h2 className="heading">Your Journey With the <em>Best Interior Designers</em> in Pune - Step by Step</h2>
           <p style={{ color: 'rgba(232, 224, 212, 0.6)', fontSize: 16 }}>Clear, stress-free home interior design services from the first call to the final walkthrough.</p>
         </div>
         <div className="process-horiz">
@@ -835,11 +759,11 @@ function Process() {
           height: 80px;
           border-radius: 50%;
           border: 1px solid rgba(201, 169, 110, 0.3);
-          background: #07070d;
+          background: #121212;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-family: 'Playfair Display', serif;
+          font-family: 'Poppins', sans-serif;
           font-size: 20px;
           color: #C9A96E;
           font-style: italic;
@@ -861,7 +785,7 @@ function Process() {
           margin-bottom: 12px;
         }
         .ph-title {
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'Poppins', sans-serif;
           font-size: 16px;
           font-weight: 600;
           color: #fff;
@@ -884,10 +808,10 @@ function Process() {
 
 function Pricing() {
   return (
-    <section id="pricing" className="section">
+    <section id="pricing" className="section" style={{ background: '#000000' }}>
       <div className="container">
         <div className="reveal" style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 60px' }}>
-          <span className="label">// PRICING.CONFIG</span>
+
           <h2 className="heading">Transparent Interior Design <em>Packages</em> in Pune</h2>
           <div className="divider" style={{ margin: '18px auto 20px' }} />
           <p className="subtext" style={{ margin: '0 auto' }}>No surprises. Fixed quotes. Quality guaranteed. We offer affordable interior design packages in Pune for every budget.</p>
@@ -920,51 +844,193 @@ function Pricing() {
 }
 
 function Testimonials() {
+  const [index, setIndex] = useState(TESTIMONIALS.length * 5) // Start deep in the buffer
+  const [containerWidth, setContainerWidth] = useState(0)
+  const carousel = useRef()
+  const intervalRef = useRef(null)
+
+  const total = TESTIMONIALS.length
+  // Create a massive buffer to avoid any "end" during a session
+  const items = Array(10).fill(TESTIMONIALS).flat()
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (carousel.current) {
+        setContainerWidth(carousel.current.offsetWidth)
+      }
+    }
+
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  const startAutoSlide = () => {
+    stopAutoSlide()
+    intervalRef.current = setInterval(() => {
+      setIndex(prev => prev + 1)
+    }, 5000)
+  }
+
+  const stopAutoSlide = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current)
+  }
+
+  useEffect(() => {
+    startAutoSlide()
+    return () => stopAutoSlide()
+  }, [])
+
+  // If we ever get too far in either direction, snap back toward the middle 
+  // with a non-animated update that preserves the visual state.
+  useEffect(() => {
+    if (index > total * 8) {
+      setIndex(total * 4)
+    } else if (index < total) {
+      setIndex(total * 5)
+    }
+  }, [index, total])
+
+  const handleNext = () => {
+    stopAutoSlide()
+    setIndex(prev => prev + 1)
+    startAutoSlide()
+  }
+
+  const handlePrev = () => {
+    stopAutoSlide()
+    setIndex(prev => prev - 1)
+    startAutoSlide()
+  }
+
+  const getX = () => {
+    if (typeof window === 'undefined') return 0
+    const isMobile = window.innerWidth <= 768
+    const cardW = isMobile ? 320 : 440
+    const gap = 24
+    const step = cardW + gap
+
+    const offset = (containerWidth / 2) - (cardW / 2)
+    return offset - (index * step)
+  }
+
   return (
-    <section id="testimonials" className="section">
+    <section id="testimonials" className="section" style={{ background: '#121212', overflow: 'hidden' }}>
       <div className="container">
-        <div className="reveal" style={{ textAlign: 'center', maxWidth: 740, margin: '0 auto' }}>
-          <span className="label">// CLIENT.REVIEWS</span>
+        <div className="reveal" style={{ textAlign: 'center', maxWidth: 740, margin: '0 auto 60px' }}>
           <h2 className="heading">What Pune Homeowners Say About Our <em>Interior Design Services</em></h2>
           <div className="divider" style={{ margin: '18px auto 20px' }} />
         </div>
-        <div className="test-grid">
-          {TESTIMONIALS.map((t, i) => (
-            <div className="tc reveal" key={i} style={{ '--delay': `${i * 0.1}s` }}>
-              <div className="stars">★★★★★</div>
-              <p className="tc-text">&ldquo;{t.text}&rdquo;</p>
-              <div className="tc-author">
-                <div className="tc-av">{t.initials}</div>
-                <div>
-                  <div className="tc-name">{t.name}</div>
-                  <div className="tc-loc">{t.loc}</div>
-                </div>
-                <span className="v-badge">VERIFIED</span>
-              </div>
-            </div>
-          ))}
+
+        <div className="carousel-wrapper">
+          <button onClick={handlePrev} className="sc-btn left" aria-label="Previous"><ChevronLeft size={24} /></button>
+          <button onClick={handleNext} className="sc-btn right" aria-label="Next"><ChevronRight size={24} /></button>
+
+          <motion.div ref={carousel} className="test-carousel" onMouseEnter={stopAutoSlide} onMouseLeave={startAutoSlide}>
+            <motion.div
+              drag="x"
+              dragConstraints={{ left: getX() - 1, right: getX() + 1 }} // Loosely constrained to allow snap
+              onDragEnd={(e, { offset, velocity }) => {
+                const swipeThreshold = 50
+                if (offset.x < -swipeThreshold) handleNext()
+                else if (offset.x > swipeThreshold) handlePrev()
+              }}
+              animate={{ x: getX() }}
+              transition={{ type: 'spring', damping: 30, stiffness: 100 }}
+              className="test-inner"
+            >
+              {items.map((t, i) => {
+                const isCenter = index === i
+                return (
+                  <div
+                    className={`tc ${isCenter ? 'active-slide' : ''}`}
+                    key={i}
+                    style={{
+                      opacity: isCenter ? 1 : 0.15,
+                      scale: isCenter ? 1 : 0.9,
+                      background: isCenter ? '#08080f' : 'transparent',
+                      borderColor: isCenter ? 'rgba(201, 169, 110, 0.4)' : 'rgba(255, 255, 255, 0.05)',
+                      boxShadow: isCenter ? '0 15px 50px rgba(0,0,0,0.6), 0 0 1px rgba(201,169,110,0.3)' : 'none',
+                      transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                      cursor: 'grab'
+                    }}
+                  >
+                    <div className="stars">★★★★★</div>
+                    <p className="tc-text" style={{
+                      color: isCenter ? 'rgba(232, 224, 212, 0.95)' : 'rgba(232, 224, 212, 0.35)',
+                      fontWeight: isCenter ? 500 : 400
+                    }}>&ldquo;{t.text}&rdquo;</p>
+                    <div className="tc-author">
+                      <div className="tc-av">{t.initials}</div>
+                      <div>
+                        <div className="tc-name">{t.name}</div>
+                        <div className="tc-loc">{t.loc}</div>
+                      </div>
+                      <span className="v-badge" style={{ opacity: isCenter ? 1 : 0.4, transform: isCenter ? 'scale(1)' : 'scale(0.9)' }}>VERIFIED</span>
+                    </div>
+                  </div>
+                )
+              })}
+            </motion.div>
+          </motion.div>
+
         </div>
       </div>
-      <style>{`
-        @media (max-width: 1024px) {
-          .test-grid {
-            display: flex !important;
-            overflow-x: auto !important;
-            scroll-snap-type: x mandatory !important;
-            -webkit-overflow-scrolling: touch !important;
-            flex-wrap: nowrap !important;
-            gap: 16px !important;
-            padding-bottom: 24px !important;
-            scrollbar-width: none;
+
+      <style jsx>{`
+        .carousel-wrapper {
+          position: relative;
+          width: 100%;
+        }
+        .sc-btn {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 60px;
+          height: 60px;
+          border: 1px solid rgba(201, 169, 110, 0.2);
+          background: rgba(5, 5, 8, 0.9);
+          backdrop-filter: blur(12px);
+          color: var(--gold);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          border-radius: 50%;
+          z-index: 100;
+        }
+        .sc-btn:hover {
+          background: var(--gold);
+          color: #050508;
+          border-color: var(--gold);
+          box-shadow: 0 0 40px rgba(201, 169, 110, 0.4);
+          transform: translateY(-50%) scale(1.1);
+        }
+        .sc-btn.left { left: 20px; }
+        .sc-btn.right { right: 20px; }
+        
+        .test-carousel {
+          overflow: visible;
+        }
+        .test-inner {
+          display: flex;
+          gap: 24px;
+          padding: 40px 0;
+        }
+        
+        @media (max-width: 1200px) {
+          .sc-btn.left { left: 10px; }
+          .sc-btn.right { right: 10px; }
+        }
+        @media (max-width: 768px) {
+          .sc-btn {
+            width: 44px;
+            height: 44px;
+            background: rgba(5, 5, 8, 0.7);
           }
-          .test-grid::-webkit-scrollbar {
-            display: none !important;
-          }
-          .tc {
-            flex: 0 0 85% !important;
-            scroll-snap-align: center !important;
-            min-width: 280px;
-          }
+          .sc-btn.left { left: 5px; }
+          .sc-btn.right { right: 5px; }
         }
       `}</style>
     </section>
@@ -979,7 +1045,7 @@ function CTA() {
     e.target.reset()
   }
   return (
-    <section id="cta-section" className="section">
+    <section id="cta-section" className="section" style={{ background: '#000000' }}>
       <div className="container">
         <div className="cta-wrap reveal">
           <div className="cta-left">
@@ -1037,10 +1103,10 @@ function CTA() {
 function FAQ() {
   const [openIdx, setOpenIdx] = useState(null)
   return (
-    <section id="faq" className="section">
+    <section id="faq" className="section" style={{ background: '#121212' }}>
       <div className="container">
         <div className="reveal" style={{ textAlign: 'center', maxWidth: 740, margin: '0 auto' }}>
-          <span className="label">// FAQ.DATABASE</span>
+
           <h2 className="heading">Common Questions About Our <em>Interior Design Services</em> in Pune</h2>
           <div className="divider" style={{ margin: '18px auto 20px' }} />
         </div>
@@ -1072,13 +1138,13 @@ function Footer() {
             <p className="footer-desc">Pune&apos;s most trusted interior design studio. 850+ projects. 12 years. 45-day delivery guaranteed.</p>
             <div className="fsocial">
               {[
-                { icon: FaInstagram, label: 'Instagram' },
-                { icon: FaFacebookF, label: 'Facebook' },
-                { icon: FaYoutube, label: 'Youtube' },
-                { icon: FaLinkedinIn, label: 'Linkedin' }
+                { icon: FaInstagram, label: 'Instagram', color: '#E4405F' },
+                { icon: FaFacebookF, label: 'Facebook', color: '#1877F2' },
+                { icon: FaYoutube, label: 'Youtube', color: '#FF0000' },
+                { icon: FaLinkedinIn, label: 'Linkedin', color: '#0A66C2' }
               ].map((s, i) => (
-                <a key={i} href="#" className="fsb" aria-label={s.label}>
-                  <s.icon size={16} />
+                <a key={i} href="#" className="fsb" aria-label={s.label} style={{ '--brand-color': s.color }}>
+                  <s.icon size={16} color="currentColor" />
                 </a>
               ))}
             </div>
@@ -1086,7 +1152,7 @@ function Footer() {
           <div>
             <div className="fh">Services</div>
             <ul className="fl">
-              {['Living Room', 'Modular Kitchen', 'Bedroom', 'Office Interiors', 'Full Home Design'].map(l => <li key={l}><a href="#services">{l}</a></li>)}
+              {['Living Room', 'Modular Kitchen', 'Bedroom', 'Office Interiors', 'Full Home Design'].map(l => <li key={l}><a href="/services">{l}</a></li>)}
             </ul>
           </div>
           <div>
@@ -1145,7 +1211,7 @@ export default function Home() {
         <Hero isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
         <TrustBar />
         <About />
-        <Services />
+
         <USP />
         <Gallery />
         <Partners />

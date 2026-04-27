@@ -176,7 +176,7 @@ function FAQ() {
     <section id="faq" className="section" style={{ background: '#050508' }}>
       <div className="container">
         <div className="reveal" style={{ textAlign: 'center', maxWidth: 740, margin: '0 auto' }}>
-          <span className="label">// FAQ.DATABASE</span>
+          {/* <span className="label">// FAQ.DATABASE</span> */}
           <h2 className="heading">Common Questions About Our <em>Interior Design Services</em> in Pune</h2>
           <div className="divider" style={{ margin: '18px auto 20px' }} />
         </div>
@@ -206,10 +206,16 @@ function Footer() {
             <img src="/logo.png" alt="AR Interiors" style={{ height: '36px', width: 'auto', marginBottom: 14, opacity: 0.9, display: 'block' }} />
             <p className="footer-desc">Pune&apos;s most trusted interior design studio. 850+ projects. 12 years. 45-day delivery guaranteed.</p>
             <div className="fsocial">
-              <a href="#" className="fsb" aria-label="Instagram"><FaInstagram size={16} /></a>
-              <a href="#" className="fsb" aria-label="Facebook"><FaFacebookF size={15} /></a>
-              <a href="#" className="fsb" aria-label="YouTube"><FaYoutube size={17} /></a>
-              <a href="#" className="fsb" aria-label="LinkedIn"><FaLinkedinIn size={16} /></a>
+              {[
+                { icon: FaInstagram, label: 'Instagram', color: '#E4405F' },
+                { icon: FaFacebookF, label: 'Facebook', color: '#1877F2' },
+                { icon: FaYoutube, label: 'Youtube', color: '#FF0000' },
+                { icon: FaLinkedinIn, label: 'Linkedin', color: '#0A66C2' }
+              ].map((s, i) => (
+                <a key={i} href="#" className="fsb" aria-label={s.label} style={{ '--brand-color': s.color }}>
+                  <s.icon size={16} />
+                </a>
+              ))}
             </div>
           </div>
           <div>
@@ -272,7 +278,7 @@ export default function BlogPage() {
       .then(data => {
         if (data.success && data.data.length > 0) setDbBlogs(data.data)
       })
-      .catch(() => {})
+      .catch(() => { })
       .finally(() => setLoadingBlogs(false))
   }, [])
 
@@ -439,7 +445,7 @@ export default function BlogPage() {
         }
 
         .bh-content h1 {
-          font-family: var(--font-playfair);
+          font-family: var(--font-poppins);
           font-size: clamp(40px, 6vw, 72px);
           margin: 20px 0;
         }
@@ -629,7 +635,7 @@ export default function BlogPage() {
         }
 
         .bc-title {
-          font-family: var(--font-playfair);
+          font-family: var(--font-poppins);
           font-size: 22px;
           margin-bottom: 14px;
           line-height: 1.4;
@@ -693,7 +699,7 @@ export default function BlogPage() {
         }
 
         .bn-left h2 {
-          font-family: var(--font-playfair);
+          font-family: var(--font-poppins);
           font-size: 42px;
           margin-bottom: 16px;
         }
@@ -748,7 +754,7 @@ export default function BlogPage() {
         }
 
         .no-results h3 {
-          font-family: var(--font-playfair);
+          font-family: var(--font-poppins);
           font-size: 24px;
           margin-bottom: 30px;
         }

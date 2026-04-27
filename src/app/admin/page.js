@@ -73,7 +73,7 @@ function LoginForm() {
 
 export default function AdminLoginPage() {
   return (
-    <div style={{ minHeight: '100vh', background: '#050508', backgroundImage: 'radial-gradient(ellipse 80% 60% at 20% 20%, rgba(201,169,110,0.05) 0%, transparent 60%)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 20px', fontFamily: 'var(--font-dm-sans)' }}>
+    <div style={{ minHeight: '100vh', background: '#050508', backgroundImage: 'radial-gradient(ellipse 80% 60% at 20% 20%, rgba(201,169,110,0.05) 0%, transparent 60%)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 20px', fontFamily: 'var(--font-poppins)' }}>
       <div style={{ width: '100%', maxWidth: 420 }}>
         <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(201,169,110,0.15)', borderRadius: 8, padding: '48px 40px' }}>
           <div style={{ textAlign: 'center', marginBottom: 32 }}>
@@ -81,7 +81,7 @@ export default function AdminLoginPage() {
           </div>
           <div style={{ textAlign: 'center', marginBottom: 36 }}>
             <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#C9A96E' }}>// SECURE ACCESS</span>
-            <h1 style={{ fontFamily: 'var(--font-playfair)', fontSize: 34, color: '#fff', margin: '12px 0 8px' }}>
+            <h1 style={{ fontFamily: 'var(--font-poppins)', fontSize: 34, color: '#fff', margin: '12px 0 8px' }}>
               Admin <em style={{ color: '#C9A96E', fontStyle: 'italic' }}>Portal</em>
             </h1>
             <p style={{ color: 'rgba(232,224,212,0.5)', fontSize: 14 }}>Sign in to manage your blog content</p>

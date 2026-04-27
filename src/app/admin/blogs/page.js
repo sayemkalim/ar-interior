@@ -145,12 +145,12 @@ function BlogForm({ initial, initialContent, onSuccess, editSlug }) {
       </div>
 
       <div style={{height:1,background:'rgba(255,255,255,0.05)',margin:'28px 0'}}/>
-      <h3 style={{fontFamily:'var(--font-playfair)',fontSize:20,color:'#fff',marginBottom:8}}>Content Blocks</h3>
+      <h3 style={{fontFamily:'var(--font-poppins)',fontSize:20,color:'#fff',marginBottom:8}}>Content Blocks</h3>
       <p style={{color:'rgba(232,224,212,0.5)',fontSize:13,marginBottom:20}}>Build the body of your blog post.</p>
       <ContentEditor content={content} setContent={setContent}/>
 
       <div style={{height:1,background:'rgba(255,255,255,0.05)',margin:'28px 0'}}/>
-      <h3 style={{fontFamily:'var(--font-playfair)',fontSize:20,color:'#fff',marginBottom:16}}>SEO Settings</h3>
+      <h3 style={{fontFamily:'var(--font-poppins)',fontSize:20,color:'#fff',marginBottom:16}}>SEO Settings</h3>
       <div style={{display:'flex',flexDirection:'column',gap:14}}>
         {[['seoTitle','SEO Title'],['seoDescription','SEO Description'],['seoKeywords','Keywords (comma separated)']].map(([name,label])=>(
           <div key={name} style={{display:'flex',flexDirection:'column',gap:6}}>
@@ -213,7 +213,7 @@ export default function AdminBlogsPage() {
   }
 
   return (
-    <div style={{background:'#050508',color:'#e8e0d4',minHeight:'100vh',fontFamily:'var(--font-dm-sans)'}}>
+    <div style={{background:'#050508',color:'#e8e0d4',minHeight:'100vh',fontFamily:'var(--font-poppins)'}}>
       {/* Header */}
       <div style={{padding:'24px 28px',borderBottom:'1px solid rgba(255,255,255,0.05)',background:'rgba(0,0,0,0.3)',display:'flex',justifyContent:'space-between',alignItems:'center',position:'sticky',top:0,zIndex:100,backdropFilter:'blur(20px)'}}>
         <div style={{display:'flex',alignItems:'center',gap:20}}>
@@ -231,7 +231,7 @@ export default function AdminBlogsPage() {
       <div style={{maxWidth:960,margin:'0 auto',padding:'40px 28px 100px'}}>
         {/* Title + tabs */}
         <div style={{marginBottom:36}}>
-          <h1 style={{fontFamily:'var(--font-playfair)',fontSize:36,color:'#fff',marginBottom:24}}>
+          <h1 style={{fontFamily:'var(--font-poppins)',fontSize:36,color:'#fff',marginBottom:24}}>
             Blog <em style={{color:'#C9A96E',fontStyle:'italic'}}>Management</em>
           </h1>
           <div style={{display:'flex',gap:4,background:'rgba(255,255,255,0.03)',padding:4,borderRadius:6,width:'fit-content',border:'1px solid rgba(255,255,255,0.06)'}}>
@@ -277,7 +277,7 @@ export default function AdminBlogsPage() {
                         {blog.category && <span style={{background:'rgba(201,169,110,0.1)',color:'#C9A96E',fontSize:10,fontWeight:800,textTransform:'uppercase',padding:'2px 8px',borderRadius:2,letterSpacing:1}}>{blog.category}</span>}
                         <span style={{fontSize:12,color:'rgba(232,224,212,0.35)'}}>{blog.date}</span>
                       </div>
-                      <div style={{fontFamily:'var(--font-playfair)',fontSize:17,color:'#fff',marginBottom:4,overflow:'hidden',whiteSpace:'nowrap',textOverflow:'ellipsis'}}>{blog.title}</div>
+                      <div style={{fontFamily:'var(--font-poppins)',fontSize:17,color:'#fff',marginBottom:4,overflow:'hidden',whiteSpace:'nowrap',textOverflow:'ellipsis'}}>{blog.title}</div>
                       <div style={{fontSize:12,color:'rgba(232,224,212,0.4)',fontFamily:'monospace'}}>/blogs/{blog.slug}</div>
                     </div>
                     <div style={{display:'flex',gap:10,flexShrink:0}}>
@@ -305,7 +305,7 @@ export default function AdminBlogsPage() {
         {tab==='create' && (
           <div style={{background:'rgba(255,255,255,0.02)',border:'1px solid rgba(255,255,255,0.05)',borderRadius:8,overflow:'hidden'}}>
             <div style={{padding:'20px 28px',borderBottom:'1px solid rgba(255,255,255,0.05)',background:'rgba(0,0,0,0.2)'}}>
-              <h2 style={{fontFamily:'var(--font-playfair)',fontSize:22,color:'#fff'}}>Create New Post</h2>
+              <h2 style={{fontFamily:'var(--font-poppins)',fontSize:22,color:'#fff'}}>Create New Post</h2>
             </div>
             <div style={{padding:28}}>
               <BlogForm onSuccess={()=>{ setTab('list'); fetchBlogs() }}/>
@@ -320,13 +320,13 @@ export default function AdminBlogsPage() {
               <button onClick={()=>setTab('list')} style={{background:'none',border:'none',color:'rgba(201,169,110,0.7)',cursor:'pointer',display:'flex',alignItems:'center',gap:6,fontSize:13}}>
                 <ArrowLeft size={16}/> Back to list
               </button>
-              <div style={{fontFamily:'var(--font-playfair)',fontSize:18,color:'#fff',overflow:'hidden',whiteSpace:'nowrap',textOverflow:'ellipsis'}}>
+              <div style={{fontFamily:'var(--font-poppins)',fontSize:18,color:'#fff',overflow:'hidden',whiteSpace:'nowrap',textOverflow:'ellipsis'}}>
                 Editing: <em style={{color:'#C9A96E'}}>{editBlog.title}</em>
               </div>
             </div>
             <div style={{background:'rgba(255,255,255,0.02)',border:'1px solid rgba(255,255,255,0.05)',borderRadius:8,overflow:'hidden'}}>
               <div style={{padding:'20px 28px',borderBottom:'1px solid rgba(255,255,255,0.05)',background:'rgba(0,0,0,0.2)'}}>
-                <h2 style={{fontFamily:'var(--font-playfair)',fontSize:22,color:'#fff'}}>Update Post</h2>
+                <h2 style={{fontFamily:'var(--font-poppins)',fontSize:22,color:'#fff'}}>Update Post</h2>
               </div>
               <div style={{padding:28}}>
                 <BlogForm

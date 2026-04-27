@@ -1,10 +1,12 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { 
-  ArrowRight, Shield, Check, Phone, Mail, 
-  Layout, Home as HomeIcon, Package, Coffee, 
-  Briefcase, Star, Search, Plus, X 
+import {
+  ArrowRight, Shield, Check, Phone, Mail,
+  Layout, Home as HomeIcon, Package, Coffee,
+  Briefcase, Star, Search, Plus, X,
+  Sofa, CookingPot, Bed, Building2, ShowerHead, UtensilsCrossed,
+  Layers, Wind, Monitor
 } from 'lucide-react'
 
 import { FaInstagram, FaFacebookF, FaYoutube, FaLinkedinIn } from 'react-icons/fa6'
@@ -56,6 +58,32 @@ const NAV_LINKS = [
   { href: '/#pricing', label: 'Pricing' },
   { href: '/#testimonials', label: 'Reviews' },
   { href: '/#faq', label: 'FAQ' },
+]
+
+const SERVICE_ICONS = {
+  '01': Sofa,
+  '02': CookingPot,
+  '03': Bed,
+  '04': Building2,
+  '05': ShowerHead,
+  '06': UtensilsCrossed,
+  '07': Layers,
+  '08': HomeIcon,
+  '09': Wind,
+  '10': Monitor,
+}
+
+const SERVICES = [
+  { num: '01', title: 'Living Room  Design Pune', desc: 'Elegant, personalized spaces designed to match your lifestyle.', tag: 'RESIDENTIAL', img: '/livingroom.jpg', detailedId: 'living-room' },
+  { num: '02', title: 'Modular Kitchen Designers Pune', desc: 'Stylish and highly functional kitchens for modern living.', tag: 'MODULAR', img: '/modularkitchen.jpg', detailedId: 'modular-kitchen' },
+  { num: '03', title: 'Bedroom Interior Designers Pune', desc: 'Calm, refined spaces crafted for comfort and relaxation.', tag: 'RESIDENTIAL', img: '/masterbedroom.jpg', detailedId: 'master-bedroom' },
+  { num: '04', title: 'Office Interiors', desc: 'Smart, productive workspaces that align with your brand identity.', tag: 'COMMERCIAL', img: '/Office.jpg', detailedId: 'office-interior' },
+  { num: '05', title: 'Bathroom Design', desc: 'Premium, well-designed bathrooms with modern fixtures and efficient storage.', tag: 'RESIDENTIAL', img: '/Bathroom.jpg', detailedId: 'bathroom-design' },
+  { num: '06', title: 'Dining Room', desc: 'Thoughtfully designed spaces that make every meal special.', tag: 'RESIDENTIAL', img: '/Dinningroom.jpg', detailedId: 'dining-room' },
+  { num: '07', title: 'False Ceiling', desc: 'Innovative ceiling designs that enhance the look of every room.', tag: 'SPECIALTY', img: '/False Ceiling.jpg', detailedId: 'false-ceiling' },
+  { num: '08', title: 'Full Home Design', desc: 'Complete interior solutions in Pune with a seamless, unified approach.', tag: 'COMPLETE', img: '/fullInterior.jpg', detailedId: 'full-home' },
+  { num: '09', title: 'Terrace Design', desc: 'Cozy, well-finished terraces with outdoor seating, BBQ decks, and penthouse styling.', tag: 'SPECIALTY', img: '/terrace.jpg', detailedId: 'terrace' },
+  { num: '10', title: 'Home Theater', desc: 'Sleek, soundproof home theaters with an immersive audio-visual experience.', tag: 'LUXURY', img: '/hometheater.jpg', detailedId: 'home-theater' },
 ]
 
 // ─── SERVICES DATA ───────────────────────────────────────────────────
@@ -176,37 +204,37 @@ const DETAILED_SERVICES = [
 ]
 
 const FAQS = [
-  { 
-    q: 'What is your typical project timeline?', 
-    a: 'We contractually guarantee 45-day delivery for standard 2 BHK and 3 BHK apartments making us one of the most reliable interior contractors in Pune for on-time delivery. Larger projects like villas take 60–90 days. Your dedicated project manager will provide a precise timeline during the free consultation.' 
+  {
+    q: 'What is your typical project timeline?',
+    a: 'We contractually guarantee 45-day delivery for standard 2 BHK and 3 BHK apartments making us one of the most reliable interior contractors in Pune for on-time delivery. Larger projects like villas take 60–90 days. Your dedicated project manager will provide a precise timeline during the free consultation.'
   },
   {
     q: 'How much does 2 BHK interior design cost in Pune?',
     a: 'The 2 BHK interior design cost in Pune starts at ₹699 per sq.ft with our Essential package. For a fully furnished 2 BHK, the typical budget ranges from ₹5L to ₹12L depending on materials, scope, and finishes. We provide fixed, itemized quotes so there are no surprises.'
   },
-  { 
-    q: 'Do you provide a warranty on your work?', 
-    a: 'Yes, as one of the best interior designers in Pune, we offer an industry-leading 10-year warranty on all woodwork and modular furniture. This covers manufacturing defects and structural issues. Hardware and accessories carry a 2-year warranty.' 
+  {
+    q: 'Do you provide a warranty on your work?',
+    a: 'Yes, as one of the best interior designers in Pune, we offer an industry-leading 10-year warranty on all woodwork and modular furniture. This covers manufacturing defects and structural issues. Hardware and accessories carry a 2-year warranty.'
   },
-  { 
-    q: 'What areas in Pune do you serve?', 
-    a: 'As professional interior designers near you across Pune, we serve Baner, Aundh, Hinjewadi, Wakad, Kothrud, Koregaon Park, Viman Nagar, Kalyani Nagar, and surrounding areas. We also take outstation projects.' 
+  {
+    q: 'What areas in Pune do you serve?',
+    a: 'As professional interior designers near you across Pune, we serve Baner, Aundh, Hinjewadi, Wakad, Kothrud, Koregaon Park, Viman Nagar, Kalyani Nagar, and surrounding areas. We also take outstation projects.'
   },
   {
     q: 'Is labour safety a priority on your construction sites?',
     a: 'Absolutely, labour safety is our top priority. As safe construction interior services providers in Pune, we follow strict on-site safety protocols on every project. All our workers are trained, equipped with appropriate safety gear, and insured. We conduct regular site safety audits and ensure full compliance with construction safety standards.'
   },
-  { 
-    q: 'Can I customize the designs?', 
-    a: 'Every project is 100% custom-designed to your preferences, lifestyle, and budget. We do not use template designs, your home will be unique. From living room interior design in Pune to bedroom interior design, every space is tailored to you.' 
+  {
+    q: 'Can I customize the designs?',
+    a: 'Every project is 100% custom-designed to your preferences, lifestyle, and budget. We do not use template designs, your home will be unique. From living room interior design in Pune to bedroom interior design, every space is tailored to you.'
   },
-  { 
-    q: 'What materials do you use for modular kitchens and interiors?', 
-    a: 'We use only premium materials - BWR/BWP grade plywood, high-quality laminates, quartz and granite surfaces, and branded hardware. Our modular kitchen designers in Pune are happy to show you samples and explain all specifications during your free site visit.' 
+  {
+    q: 'What materials do you use for modular kitchens and interiors?',
+    a: 'We use only premium materials - BWR/BWP grade plywood, high-quality laminates, quartz and granite surfaces, and branded hardware. Our modular kitchen designers in Pune are happy to show you samples and explain all specifications during your free site visit.'
   },
-  { 
-    q: 'What is included in the free site visit?', 
-    a: 'Our free site visit includes measurement of all spaces, discussion of your requirements and budget, preliminary design ideas, and a detailed itemized quotation — all at no charge and with no obligation. Book yours today with Pune\'s best interior designers.' 
+  {
+    q: 'What is included in the free site visit?',
+    a: 'Our free site visit includes measurement of all spaces, discussion of your requirements and budget, preliminary design ideas, and a detailed itemized quotation — all at no charge and with no obligation. Book yours today with Pune\'s best interior designers.'
   },
 ]
 
@@ -221,8 +249,8 @@ function Navbar() {
     <nav id="navbar" className={scrolled ? 'scrolled' : ''}>
       <div className="nav-inner">
         <a href="/" className="nav-logo" style={{ textDecoration: 'none' }}>
-           <img src="/logo.png" alt="AR Interiors" style={{ height: '40px', width: 'auto', display: 'block' }} />
-         </a>
+          <img src="/logo.png" alt="AR Interiors" style={{ height: '40px', width: 'auto', display: 'block' }} />
+        </a>
         <div className="nav-sep" />
         <ul className={`nav-links${menuOpen ? ' mobile-open' : ''}`}>
           {NAV_LINKS.map((l, i) => {
@@ -273,21 +301,22 @@ function FloatingActions({ isFormOpen, setIsFormOpen }) {
 function FAQ() {
   const [openIdx, setOpenIdx] = useState(null)
   return (
-    <section id="faq" className="section" style={{ background: '#050508' }}>
+    <section id="faq" className="section" style={{ background: '#121212' }}>
       <div className="container">
         <div className="reveal" style={{ textAlign: 'center', maxWidth: 740, margin: '0 auto' }}>
-          <span className="label">// FAQ.DATABASE</span>
           <h2 className="heading">Common Questions About Our <em>Interior Design Services</em> in Pune</h2>
           <div className="divider" style={{ margin: '18px auto 20px' }} />
         </div>
-        <div className="faq-grid" style={{ maxWidth: 800, margin: '60px auto 0' }}>
+        <div className="faq-grid">
           {FAQS.map((f, i) => (
-            <div className={`faq-item${openIdx === i ? ' open' : ''}`} key={i}>
-              <button className="faq-q" onClick={() => setOpenIdx(openIdx === i ? null : i)}>
+            <div className="faq-item reveal" key={i}>
+              <button className={`faq-q${openIdx === i ? ' open' : ''}`} onClick={() => setOpenIdx(openIdx === i ? null : i)}>
                 {f.q}
-                <span>{openIdx === i ? '−' : '+'}</span>
+                <div className="faq-ic">
+                  {openIdx === i ? <X size={10} strokeWidth={3} /> : <Plus size={10} strokeWidth={3} />}
+                </div>
               </button>
-              <div className="faq-a">{f.a}</div>
+              <div className={`faq-a${openIdx === i ? ' open' : ''}`}>{f.a}</div>
             </div>
           ))}
         </div>
@@ -306,10 +335,16 @@ function Footer() {
             <img src="/logo.png" alt="AR Interiors" style={{ height: '36px', width: 'auto', marginBottom: 14, opacity: 0.9, display: 'block' }} />
             <p className="footer-desc">Pune&apos;s most trusted interior design studio. 850+ projects. 12 years. 45-day delivery guaranteed.</p>
             <div className="fsocial">
-              <a href="#" className="fsb" aria-label="Instagram"><FaInstagram size={16} /></a>
-              <a href="#" className="fsb" aria-label="Facebook"><FaFacebookF size={15} /></a>
-              <a href="#" className="fsb" aria-label="YouTube"><FaYoutube size={17} /></a>
-              <a href="#" className="fsb" aria-label="LinkedIn"><FaLinkedinIn size={16} /></a>
+              {[
+                { icon: FaInstagram, label: 'Instagram', color: '#E4405F' },
+                { icon: FaFacebookF, label: 'Facebook', color: '#1877F2' },
+                { icon: FaYoutube, label: 'Youtube', color: '#FF0000' },
+                { icon: FaLinkedinIn, label: 'Linkedin', color: '#0A66C2' }
+              ].map((s, i) => (
+                <a key={i} href="#" className="fsb" aria-label={s.label} style={{ '--brand-color': s.color }}>
+                  <s.icon size={16} />
+                </a>
+              ))}
             </div>
           </div>
           <div>
@@ -347,12 +382,24 @@ function Footer() {
 export default function ServicesPage() {
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [selectedService, setSelectedService] = useState(null)
-  
+
+  // NEW: Detail Popup State
+  const [isDetailOpen, setIsDetailOpen] = useState(false)
+  const [activeDetail, setActiveDetail] = useState(null)
+
   useReveal()
 
   const openFormForService = (serviceId) => {
     setSelectedService(serviceId)
     setIsFormOpen(true)
+  }
+
+  const openDetail = (s) => {
+    const detail = DETAILED_SERVICES.find(d => d.id === s.detailedId)
+    if (detail) {
+      setActiveDetail(detail)
+      setIsDetailOpen(true)
+    }
   }
 
   return (
@@ -371,69 +418,95 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Detailed Services Sections (The "Pehle Jaisa" Staggered UI) */}
-      <section className="services-detail-list">
-        {DETAILED_SERVICES.map((s, i) => (
-          <div className="sd-row" key={s.id} style={{ flexDirection: i % 2 !== 0 ? 'row-reverse' : 'row' }}>
-            <div className="sd-text reveal">
-              <span className="sd-num">0{i + 1}</span>
-              <h2 className="sd-title">{s.title}</h2>
-              <h3 className="sd-subtitle">{s.subtitle}</h3>
-              <p className="sd-desc" style={{ fontWeight: 500, color: '#e8e0d4' }}>{s.desc}</p>
-              
-              <div className="sd-full-desc">
-                 <p>{s.fullDesc}</p>
-                 <div className="sd-benefits">
-                    <h4 style={{ color: 'var(--gold)', marginBottom: '8px', fontSize: '14px', letterSpacing: '1px' }}>KEY BENEFITS</h4>
-                    <ul>
-                      {s.benefits.map((b, idx) => (
-                        <li key={idx}><Check size={14} className="gold-text" style={{ flexShrink: 0, marginTop: '4px' }} /> <span>{b}</span></li>
-                      ))}
-                    </ul>
-                 </div>
+      <section className="services-grid-section" style={{ padding: '20px 0 40px' }}>
+        <div className="container">
+          <div className="services-grid">
+            {SERVICES.map((s) => (
+              <div className="service-card" key={s.num} onClick={() => openDetail(s)}>
+                <div className="sc-bg" style={{ backgroundImage: `url(${s.img})` }} />
+                <div className="sc-inner">
+                  <div className="sc-num">{s.num}</div>
+                  <h3 className="sc-title">{s.title.split(' Pune')[0].split(' Designers')[0]}</h3>
+                  <div className="sc-link">
+                    VIEW DETAILS <span>→</span>
+                  </div>
+                </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-              <ul className="sd-features">
-                {s.features.map((f, idx) => (
-                  <li key={idx}><Star size={14} className="gold-text" /> {f}</li>
-                ))}
-              </ul>
-              
-              <button className="btn btn-gold" style={{ marginTop: 32 }} onClick={() => openFormForService(s.id)}>
-                GET A QUOTE FOR THIS SERVICE
-              </button>
-            </div>
-            <div className="sd-image-wrap reveal">
-              <div className="sd-img-frame">
-                <img src={s.image} alt={s.title} className="sd-img" />
+      {/* Detailed Service Popup (Modal) */}
+      {isDetailOpen && activeDetail && (
+        <div className="detail-modal-overlay" onClick={() => setIsDetailOpen(false)}>
+          <div className="detail-modal-content reveal" onClick={e => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setIsDetailOpen(false)}>
+              <X size={24} />
+            </button>
+            <div className="dm-grid">
+              <div className="dm-image">
+                <img src={activeDetail.image} alt={activeDetail.title} />
+              </div>
+              <div className="dm-info">
+                <span className="dm-badge">ESTABLISHED EXCELLENCE</span>
+                <h2 className="dm-title">{activeDetail.title}</h2>
+                <h4 className="dm-subtitle">{activeDetail.subtitle}</h4>
+                <p className="dm-desc">{activeDetail.fullDesc}</p>
+
+                <div className="dm-features-wrap">
+                  <h4>KEY FEATURES</h4>
+                  <ul className="dm-features">
+                    {activeDetail.features.map((f, i) => (
+                      <li key={i}><Star size={14} className="gold-text" /> {f}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="dm-benefits-wrap">
+                  <h4>BENEFITS</h4>
+                  <ul className="dm-benefits">
+                    {activeDetail.benefits.map((b, i) => (
+                      <li key={i}><Check size={14} className="gold-text" /> {b}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <button className="btn btn-gold" style={{ marginTop: 20, width: '100%', justifyContent: 'center' }} onClick={() => {
+                  setIsDetailOpen(false);
+                  openFormForService(activeDetail.title);
+                }}>
+                  ENQUIRE FOR THIS SERVICE →
+                </button>
               </div>
             </div>
           </div>
-        ))}
-      </section>
+        </div>
+      )}
+
 
       {/* Hero Form Overlay */}
       {isFormOpen && (
         <div className="form-overlay" onClick={() => setIsFormOpen(false)}>
-           <div className="hero-form open" onClick={e => e.stopPropagation()}>
-             <button className="form-close" onClick={() => setIsFormOpen(false)}>
-               <X size={20} />
-             </button>
-             <h2 className="form-h">Consult With Specialists</h2>
-             <form onSubmit={e => { e.preventDefault(); alert('Request Received!'); setIsFormOpen(false); }}>
-               <div className="form-group"><input type="text" placeholder="Name" required /></div>
-               <div className="form-group"><input type="tel" placeholder="Mobile" required /></div>
-               <div className="form-group">
-                  <select required value={selectedService || ''} onChange={e => setSelectedService(e.target.value)}>
-                    <option value="" disabled>Select Service</option>
-                    {DETAILED_SERVICES.map(s => <option key={s.id} value={s.id}>{s.title}</option>)}
-                  </select>
-               </div>
-               <button type="submit" className="btn btn-gold" style={{ width: '100%', justifyContent: 'center' }}>
-                 SUBMIT REQUEST →
-               </button>
-             </form>
-           </div>
+          <div className="hero-form open" onClick={e => e.stopPropagation()}>
+            <button className="form-close" onClick={() => setIsFormOpen(false)}>
+              <X size={20} />
+            </button>
+            <h2 className="form-h">Consult With Specialists</h2>
+            <form onSubmit={e => { e.preventDefault(); alert('Request Received!'); setIsFormOpen(false); }}>
+              <div className="form-group"><input type="text" placeholder="Name" required /></div>
+              <div className="form-group"><input type="tel" placeholder="Mobile" required /></div>
+              <div className="form-group">
+                <select required value={selectedService || ''} onChange={e => setSelectedService(e.target.value)}>
+                  <option value="" disabled>Select Service</option>
+                  {DETAILED_SERVICES.map(s => <option key={s.id} value={s.id}>{s.title}</option>)}
+                </select>
+              </div>
+              <button type="submit" className="btn btn-gold" style={{ width: '100%', justifyContent: 'center' }}>
+                SUBMIT REQUEST →
+              </button>
+            </form>
+          </div>
         </div>
       )}
 
@@ -442,14 +515,14 @@ export default function ServicesPage() {
 
       <style jsx global>{`
         .services-detailed-page {
-          background: #050508;
+          background: #000000;
           color: #fff;
           overflow-x: hidden;
         }
 
         .services-hero {
-          padding: 160px 0 100px;
-          background: linear-gradient(to bottom, #0a0a0f, #050508);
+          padding: 80px 0 40px;
+          background: linear-gradient(to bottom, #121212, #000000);
           text-align: center;
         }
 
@@ -477,73 +550,140 @@ export default function ServicesPage() {
 
         .sd-num {
           display: block;
-          font-family: serif;
+          font-family: var(--font-poppins);
           font-size: 64px;
           color: rgba(201, 169, 110, 0.1);
           margin-bottom: -10px;
         }
 
-        .sd-title {
-          font-size: 42px;
-          font-family: var(--font-playfair);
+        /* DETAIL MODAL */
+        .detail-modal-overlay {
+          position: fixed;
+          inset: 0;
+          background: rgba(0,0,0,0.95);
+          backdrop-filter: blur(12px);
+          z-index: 9999;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+        }
+
+        .detail-modal-content {
+          background: #121212;
+          width: 100%;
+          max-width: 1100px;
+          max-height: 90vh;
+          overflow-y: auto;
+          position: relative;
+          border: 1px solid rgba(201, 169, 110, 0.2);
+          border-radius: 4px;
+          animation: modalSlide 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes modalSlide {
+          from { opacity: 0; transform: translateY(30px) scale(0.98); }
+          to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .modal-close {
+          position: absolute;
+          top: 24px;
+          right: 24px;
+          background: none;
+          border: none;
           color: #fff;
-          margin-bottom: 8px;
+          cursor: pointer;
+          z-index: 10;
+          transition: transform 0.3s ease;
+        }
+        .modal-close:hover { transform: rotate(90deg); color: var(--gold); }
+
+        .dm-grid {
+          display: grid;
+          grid-template-columns: 1.1fr 1fr;
+          min-height: 400px;
         }
 
-        .sd-subtitle {
-          font-size: 14px;
+        .dm-image {
+          position: relative;
+          background: #000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .dm-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0.85;
+        }
+
+        .dm-info {
+          padding: 40px;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .dm-badge {
+          font-size: 10px;
+          letter-spacing: 0.4em;
           color: var(--gold);
-          letter-spacing: 2px;
-          text-transform: uppercase;
-          margin-bottom: 24px;
-          font-weight: 600;
-        }
-
-        .sd-desc {
-          font-size: 18px;
-          margin-bottom: 24px;
-          line-height: 1.6;
-        }
-
-        .sd-full-desc {
-          color: rgba(232, 224, 212, 0.7);
-          line-height: 1.8;
-          font-size: 15px;
-          margin-bottom: 32px;
-          padding-left: 20px;
-          border-left: 2px solid rgba(201, 169, 110, 0.3);
-        }
-
-        .sd-full-desc p {
           margin-bottom: 20px;
         }
 
-        .sd-benefits ul {
-          list-style: none;
-          padding: 0;
+        .dm-title {
+          font-family: var(--font-display);
+          font-size: 38px;
+          line-height: 1.1;
+          margin-bottom: 8px;
         }
 
-        .sd-benefits li {
+        .dm-subtitle {
+          color: rgba(255,255,255,0.4);
+          font-size: 14px;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          margin-bottom: 24px;
+          font-weight: 500;
+        }
+
+        .dm-desc {
+          color: rgba(232,224,212,0.7);
+          font-size: 15px;
+          line-height: 1.7;
+          margin-bottom: 32px;
+        }
+
+        .dm-features-wrap h4, .dm-benefits-wrap h4 {
+           font-size: 12px;
+           letter-spacing: 0.15em;
+           color: var(--gold);
+           margin-bottom: 16px;
+           margin-top: 24px;
+        }
+
+        .dm-features, .dm-benefits {
+          list-style: none;
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+
+        .dm-features li, .dm-benefits li {
           display: flex;
           align-items: flex-start;
           gap: 12px;
-          margin-bottom: 10px;
-          color: rgba(232, 224, 212, 0.85);
+          font-size: 14px;
+          color: rgba(255,255,255,0.9);
         }
 
-        .sd-features {
-          list-style: none;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 16px;
-          margin-top: 32px;
-          padding-top: 24px;
-          border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .sd-features li {
-          display: flex;
-          align-items: center;
+        @media (max-width: 900px) {
+          .dm-grid { grid-template-columns: 1fr; }
+          .dm-image { height: 300px; }
+          .dm-info { padding: 40px 24px; }
+          .dm-title { font-size: 28px; }
+        }      align-items: center;
           gap: 10px;
           font-size: 14px;
           color: #fff;
@@ -602,7 +742,7 @@ export default function ServicesPage() {
           min-width: 400px;
           opacity: 1;
           transform: translateX(0);
-          background: #0a0a0f;
+          background: #121212;
           border: 1px solid rgba(201, 169, 110, 0.2);
         }
 

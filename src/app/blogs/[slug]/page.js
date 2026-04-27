@@ -52,8 +52,8 @@ function renderContent(contentItems) {
 }
 
 const styles = {
-  h2: { fontFamily: 'var(--font-playfair)', fontSize: 30, color: '#fff', margin: '56px 0 20px', lineHeight: 1.3 },
-  h3: { fontFamily: 'var(--font-playfair)', fontSize: 22, color: '#fff', margin: '36px 0 14px', lineHeight: 1.3 },
+  h2: { fontFamily: 'var(--font-poppins)', fontSize: 30, color: '#fff', margin: '56px 0 20px', lineHeight: 1.3 },
+  h3: { fontFamily: 'var(--font-poppins)', fontSize: 22, color: '#fff', margin: '36px 0 14px', lineHeight: 1.3 },
   p:  { marginBottom: 22, lineHeight: 1.85, color: 'rgba(232,224,212,0.85)', fontSize: 16 },
   list: { marginBottom: 28, paddingLeft: 22, lineHeight: 1.8 },
   li:  { marginBottom: 10, color: 'rgba(232,224,212,0.85)', fontSize: 16 },
@@ -86,7 +86,7 @@ export default async function SingleBlogPage({ params }) {
             </div>
           )}
 
-          <h1 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(32px, 5vw, 54px)', lineHeight: 1.2, color: '#fff', marginBottom: 28 }}>
+          <h1 style={{ fontFamily: 'var(--font-poppins)', fontSize: 'clamp(32px, 5vw, 54px)', lineHeight: 1.2, color: '#fff', marginBottom: 28 }}>
             {blog.title}
           </h1>
 
@@ -107,7 +107,7 @@ export default async function SingleBlogPage({ params }) {
       {/* Content */}
       <div style={{ maxWidth: 780, margin: '0 auto', padding: '72px 28px 120px' }}>
         {blog.excerpt && (
-          <p style={{ fontFamily: 'var(--font-playfair)', fontStyle: 'italic', fontSize: 20, color: '#C9A96E', marginBottom: 48, lineHeight: 1.65, borderLeft: '3px solid #C9A96E', paddingLeft: 20 }}>
+          <p style={{ fontFamily: 'var(--font-poppins)', fontStyle: 'italic', fontSize: 20, color: '#C9A96E', marginBottom: 48, lineHeight: 1.65, borderLeft: '3px solid #C9A96E', paddingLeft: 20 }}>
             {blog.excerpt}
           </p>
         )}
