@@ -13,7 +13,7 @@ import Link from 'next/link'
 const NAV_LINKS = [
   { href: '/services', label: 'Services' },
   { href: '/blogs', label: 'Blogs' },
-  { href: '/#about', label: 'About' },
+  { href: '/about', label: 'About' },
   { href: '/#gallery', label: 'Gallery' },
   { href: '/#process', label: 'Process' },
   { href: '/#pricing', label: 'Pricing' },
@@ -118,7 +118,7 @@ function Navbar() {
           ))}
         </ul>
         <div className="nav-cta">
-          <a href="tel:+919XXXXXXXXX" className="nav-phone">+91 9X-XXXX-XXXX</a>
+          <a href="tel:+919823999414" className="nav-phone">+91 98239 99414</a>
           <a href="/#cta-section" className="nav-btn">
             Free Visit
             <ArrowRight size={14} strokeWidth={3} />
@@ -148,12 +148,12 @@ function Footer() {
             <p className="footer-desc">Pune&apos;s most trusted interior design studio. 850+ projects. 12 years. 45-day delivery guaranteed.</p>
             <div className="fsocial">
               {[
-                { icon: FaInstagram, label: 'Instagram', color: '#E4405F' },
-                { icon: FaFacebookF, label: 'Facebook', color: '#1877F2' },
-                { icon: FaYoutube, label: 'Youtube', color: '#FF0000' },
-                { icon: FaLinkedinIn, label: 'Linkedin', color: '#0A66C2' }
+                { icon: FaInstagram, label: 'Instagram', color: '#E4405F', href: '#' },
+                { icon: FaFacebookF, label: 'Facebook', color: '#1877F2', href: 'https://www.facebook.com/a.r.interiors85' },
+                { icon: FaYoutube, label: 'Youtube', color: '#FF0000', href: '#' },
+                { icon: FaLinkedinIn, label: 'Linkedin', color: '#0A66C2', href: '#' }
               ].map((s, i) => (
-                <a key={i} href="#" className="fsb" aria-label={s.label} style={{ '--brand-color': s.color }}>
+                <a key={i} href={s.href} className="fsb" aria-label={s.label} style={{ '--brand-color': s.color }} target={s.href !== '#' ? '_blank' : undefined} rel={s.href !== '#' ? 'noopener noreferrer' : undefined}>
                   <s.icon size={16} />
                 </a>
               ))}
@@ -174,8 +174,8 @@ function Footer() {
           <div>
             <div className="fh">Office</div>
             <ul className="fl">
-              <li><a href="tel:+919XXXXXXXXX">+91 9X-XXXX-XXXX</a></li>
-              <li><a href="mailto:hello@arinteriors.in">hello@arinteriors.in</a></li>
+              <li><a href="tel:+919823999414">+91 98239 99414</a></li>
+              <li><a href="mailto:a.r.interiors85@gmail.com">a.r.interiors85@gmail.com</a></li>
               <li><a href="#">Pune, Maharashtra</a></li>
             </ul>
           </div>
@@ -192,7 +192,7 @@ function Footer() {
 function FloatingActions({ isFormOpen, setIsFormOpen }) {
   return (
     <div className="floating-actions">
-      {/* <a href="https://wa.me/919XXXXXXXXX" className="swa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+      {/* <a href="https://wa.me/919823999414" className="swa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
         <svg viewBox="0 0 24 24" width="28" height="38" fill="#fff" style={{ padding: '8px' }}>
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>

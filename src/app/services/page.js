@@ -6,7 +6,7 @@ import {
   Layout, Home as HomeIcon, Package, Coffee,
   Briefcase, Star, Search, Plus, X,
   Sofa, CookingPot, Bed, Building2, ShowerHead, UtensilsCrossed,
-  Layers, Wind, Monitor
+  Layers, Wind, Monitor, Leaf, Hammer
 } from 'lucide-react'
 
 import { FaInstagram, FaFacebookF, FaYoutube, FaLinkedinIn } from 'react-icons/fa6'
@@ -50,7 +50,7 @@ function useReveal() {
 // ─── SHARED DATA ──────────────────────────────────────────────────────
 
 const NAV_LINKS = [
-  { href: '/#about', label: 'About' },
+  { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
   { href: '/blogs', label: 'Blogs' },
   { href: '/#gallery', label: 'Gallery' },
@@ -71,6 +71,8 @@ const SERVICE_ICONS = {
   '08': HomeIcon,
   '09': Wind,
   '10': Monitor,
+  '11': Leaf,
+  '12': Hammer,
 }
 
 const SERVICES = [
@@ -84,6 +86,8 @@ const SERVICES = [
   { num: '08', title: 'Full Home Design', desc: 'Complete interior solutions in Pune with a seamless, unified approach.', tag: 'COMPLETE', img: '/fullInterior.jpg', detailedId: 'full-home' },
   { num: '09', title: 'Terrace Design', desc: 'Cozy, well-finished terraces with outdoor seating, BBQ decks, and penthouse styling.', tag: 'SPECIALTY', img: '/terrace.png', detailedId: 'terrace' },
   { num: '10', title: 'Home Theater', desc: 'Sleek, soundproof home theaters with an immersive audio-visual experience.', tag: 'LUXURY', img: '/hometheater.png', detailedId: 'home-theater' },
+  { num: '11', title: 'Gardening Design', desc: 'Beautifully curated green spaces that bring freshness, tranquility, and life to your surroundings.', tag: 'LANDSCAPE', img: '/gardening.png', detailedId: 'gardening-design' },
+  { num: '12', title: 'Renovation Services', desc: 'Transforming existing spaces with smart upgrades, modern designs, and enhanced functionality.', tag: 'REMODEL', img: '/renovation.png', detailedId: 'renovation-services' },
 ]
 
 // ─── SERVICES DATA ───────────────────────────────────────────────────
@@ -228,6 +232,34 @@ const DETAILED_SERVICES = [
       'Superior sound isolation allowing for high-volume viewing without disturbing others.',
       'A versatile entertainment space that adds a significant luxury element to your home.'
     ]
+  },
+  {
+    id: 'gardening-design',
+    title: 'Lush Gardening Designs',
+    subtitle: 'Nature Reimagined for Your Home',
+    desc: 'Bring the serenity of nature into your urban living. We create sustainable, beautiful green spaces that breathe life into your home.',
+    features: ['Vertical Green Walls', 'Automated Irrigation Systems', 'Drought-Tolerant Landscaping', 'Custom Planters & Lighting'],
+    image: '/gardening.png',
+    fullDesc: 'We believe that a well-designed garden is an extension of your home’s soul. Our gardening design service focuses on creating harmonious green retreats that provide psychological tranquility and environmental freshness. We specialize in vertical gardens that maximize small urban spaces and automated irrigation that ensures your plants thrive with minimal effort. Every garden is a bespoke ecosystem designed to flourish in your specific micro-climate.',
+    benefits: [
+      'Significantly improved air quality and natural temperature regulation.',
+      'A private, serene retreat for mental relaxation and stress relief.',
+      'Bespoke landscaping that adds immense aesthetic and monetary value.'
+    ]
+  },
+  {
+    id: 'renovation-services',
+    title: 'Expert Renovation Services',
+    subtitle: 'Modernizing Your Legacy Spaces',
+    desc: 'Breathe new life into your existing property. We specialize in comprehensive structural and aesthetic upgrades that redefine functionality.',
+    features: ['Structural Re-engineering', 'Smart Home Conversions', 'Premium Flooring Upgrades', 'Modern Lighting Integration'],
+    image: '/renovation.png',
+    fullDesc: 'Renovating a home is about more than just a new coat of paint; it’s about reimagining the potential of your existing space. Our renovation services combine structural integrity with modern design sensibilities. We handle everything from wall removals to open up floor plans to the integration of cutting-edge smart home technologies. We specialize in high-end material upgrades like Italian marble flooring and custom-engineered architectural lighting.',
+    benefits: [
+      'Complete transformation of outdated layouts into modern, functional spaces.',
+      'Enhanced property lifespan with high-quality structural and finish upgrades.',
+      'Seamless integration of modern amenities while preserving home character.'
+    ]
   }
 ]
 
@@ -291,7 +323,7 @@ function Navbar() {
           })}
         </ul>
         <div className="nav-cta">
-          <a href="tel:+919XXXXXXXXX" className="nav-phone">+91 9X-XXXX-XXXX</a>
+          <a href="tel:+919823999414" className="nav-phone">+91 98239 99414</a>
           <a href="/#cta-section" className="nav-btn">
             Free Visit
             <ArrowRight size={14} strokeWidth={2.5} />
@@ -312,7 +344,7 @@ function Navbar() {
 function FloatingActions({ isFormOpen, setIsFormOpen }) {
   return (
     <div className="floating-actions">
-      <a href="https://wa.me/919XXXXXXXXX" className="swa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+      <a href="https://wa.me/919823999414" className="swa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
         <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
@@ -364,12 +396,12 @@ function Footer() {
             <p className="footer-desc">Pune&apos;s most trusted interior design studio. 850+ projects. 12 years. 45-day delivery guaranteed.</p>
             <div className="fsocial">
               {[
-                { icon: FaInstagram, label: 'Instagram', color: '#E4405F' },
-                { icon: FaFacebookF, label: 'Facebook', color: '#1877F2' },
-                { icon: FaYoutube, label: 'Youtube', color: '#FF0000' },
-                { icon: FaLinkedinIn, label: 'Linkedin', color: '#0A66C2' }
+                { icon: FaInstagram, label: 'Instagram', color: '#E4405F', href: '#' },
+                { icon: FaFacebookF, label: 'Facebook', color: '#1877F2', href: 'https://www.facebook.com/a.r.interiors85' },
+                { icon: FaYoutube, label: 'Youtube', color: '#FF0000', href: '#' },
+                { icon: FaLinkedinIn, label: 'Linkedin', color: '#0A66C2', href: '#' }
               ].map((s, i) => (
-                <a key={i} href="#" className="fsb" aria-label={s.label} style={{ '--brand-color': s.color }}>
+                <a key={i} href={s.href} className="fsb" aria-label={s.label} style={{ '--brand-color': s.color }} target={s.href !== '#' ? '_blank' : undefined} rel={s.href !== '#' ? 'noopener noreferrer' : undefined}>
                   <s.icon size={16} />
                 </a>
               ))}
@@ -390,8 +422,8 @@ function Footer() {
           <div>
             <div className="fh">Contact</div>
             <ul className="fl">
-              <li><a href="tel:+919XXXXXXXXX">+91 9X-XXXX-XXXX</a></li>
-              <li><a href="mailto:hello@arinteriors.in">hello@arinteriors.in</a></li>
+              <li><a href="tel:+919823999414">+91 98239 99414</a></li>
+              <li><a href="mailto:a.r.interiors85@gmail.com">a.r.interiors85@gmail.com</a></li>
               <li><a href="#">Pune, Maharashtra</a></li>
             </ul>
           </div>

@@ -471,7 +471,7 @@ body {
 }
 
 .nav-phone::before {
-  content: '//';
+  content: '';
   color: rgba(201, 169, 110, 0.35);
   font-family: monospace;
 }

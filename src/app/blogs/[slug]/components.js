@@ -7,7 +7,7 @@ import { FaInstagram, FaFacebookF, FaYoutube, FaLinkedinIn } from 'react-icons/f
 const NAV_LINKS = [
   { href: '/services', label: 'Services' },
   { href: '/blogs', label: 'Blogs' },
-  { href: '/#about', label: 'About' },
+  { href: '/about', label: 'About' },
   { href: '/#gallery', label: 'Gallery' },
   { href: '/#process', label: 'Process' },
   { href: '/#pricing', label: 'Pricing' },
@@ -44,7 +44,7 @@ export function Navbar() {
           ))}
         </ul>
         <div className="nav-cta">
-          <a href="tel:+919XXXXXXXXX" className="nav-phone">+91 9X-XXXX-XXXX</a>
+          <a href="tel:+919823999414" className="nav-phone">+91 98239 99414</a>
           <a href="/#cta-section" className="nav-btn">
             Free Visit
             <ArrowRight size={14} strokeWidth={3} />
@@ -87,8 +87,8 @@ export function Footer() {
           <div>
             <div className="fh">Office</div>
             <ul className="fl">
-              <li><a href="tel:+919XXXXXXXXX">+91 9X-XXXX-XXXX</a></li>
-              <li><a href="mailto:hello@arinteriors.in">hello@arinteriors.in</a></li>
+              <li><a href="tel:+919823999414">+91 98239 99414</a></li>
+              <li><a href="mailto:a.r.interiors85@gmail.com">a.r.interiors85@gmail.com</a></li>
               <li><a href="#">Pune, Maharashtra</a></li>
             </ul>
           </div>

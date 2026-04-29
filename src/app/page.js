@@ -15,7 +15,7 @@ import { motion } from 'framer-motion'
 
 // ─── DATA ───────────────────────────────────────────────────────────
 const NAV_LINKS = [
-  { href: '#about', label: 'About' },
+  { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
   { href: '/blogs', label: 'Blogs' },
   { href: '#gallery', label: 'Gallery' },
@@ -27,12 +27,12 @@ const NAV_LINKS = [
 
 
 const USP_PANELS = [
-  { id: 'USP_01', title: '10-Year Structural Warranty', desc: 'Every piece of woodwork is backed by a decade-long warranty, documented in your handover certificate. No fine print.', fill: 100 },
-  { id: 'USP_02', title: 'Transparent Pricing & Interior Design Packages', desc: 'No hidden costs. Our interior design packages in Pune come with itemized, fixed-price quotations. What we quote is what you pay.', fill: 95 },
-  { id: 'USP_03', title: 'Dedicated Project Manager', desc: 'A single point of contact throughout your project from design consultation to final handover.', fill: 90 },
-  { id: 'USP_04', title: 'Labour Safety', desc: 'As trusted interior contractors in Pune, we follow strict on-site safety protocols, with a fully trained and insured workforce.', fill: 98 },
-  { id: 'USP_05', title: 'Garbage is our responsibility', desc: 'We ensure all debris generated during the project is cleared and taken away by our team, keeping your space clean and hassle-free.', fill: 100 },
-  { id: 'USP_06', title: 'On-Time Project Delivery', desc: 'We follow a well-planned timeline and efficient execution process to ensure your project is completed on schedule without compromising on quality.', fill: 100 },
+  { id: '01', title: '10-Year Structural Warranty', desc: 'Every piece of woodwork is backed by a decade-long warranty, documented in your handover certificate. No fine print.', fill: 100 },
+  { id: '02', title: 'Transparent Pricing & Interior Design Packages', desc: 'No hidden costs. Our interior design packages in Pune come with itemized, fixed-price quotations. What we quote is what you pay.', fill: 95 },
+  { id: '03', title: 'Dedicated Project Manager', desc: 'A single point of contact throughout your project from design consultation to final handover.', fill: 90 },
+  { id: '04', title: 'Labour Safety', desc: 'As trusted interior contractors in Pune, we follow strict on-site safety protocols, with a fully trained and insured workforce.', fill: 98 },
+  { id: '05', title: 'Garbage is our responsibility', desc: 'We ensure all debris generated during the project is cleared and taken away by our team, keeping your space clean and hassle-free.', fill: 100 },
+  { id: '06', title: 'On-Time Project Delivery', desc: 'We follow a well-planned timeline and efficient execution process to ensure your project is completed on schedule without compromising on quality.', fill: 100 },
 ]
 
 const TESTIMONIALS = [
@@ -230,7 +230,7 @@ function Navbar() {
           })}
         </ul>
         <div className="nav-cta">
-          <a href="tel:+919XXXXXXXXX" className="nav-phone">+91 9X-XXXX-XXXX</a>
+          <a href="tel:+919823999414" className="nav-phone">+91 98239 99414</a>
           <a href="#cta-section" className="nav-btn">
             Free Visit
             <ArrowRight size={14} strokeWidth={2.5} />
@@ -399,7 +399,7 @@ function Hero({ isFormOpen, setIsFormOpen }) {
           LIVE · FREE CONSULTATION
         </div>
         <h2 className="form-h">Transform Your Home Today</h2>
-        <p className="form-sub">// No obligation. Free site visit included.</p>
+        <p className="form-sub">No obligation. Free site visit included.</p>
         <form onSubmit={handleSubmit}>
           <div className="form-group"><input type="text" placeholder="Full Name *" required /></div>
           <div className="form-group"><input type="tel" placeholder="Mobile Number *" required /></div>
@@ -431,7 +431,7 @@ function Hero({ isFormOpen, setIsFormOpen }) {
             </button>
           )}
         </form>
-        <div className="form-sep">// OR //</div>
+        <div className="form-sep">OR</div>
         <a href="https://wa.me/919XXXXXXXXX" className="btn btn-wa" target="_blank" rel="noopener noreferrer" style={{ width: '100%', justifyContent: 'center' }}>
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
@@ -496,7 +496,7 @@ function About() {
                 { num: '850', suffix: '+', label: 'Projects Delivered' },
                 { num: '12', suffix: '+', label: 'Years in Business' },
                 { num: '94', suffix: '%', label: 'Client Satisfaction' },
-                { num: '45', suffix: 'd', label: 'Fast Delivery' },
+                { num: '45', suffix: 'd', label: 'Timelines may vary from project to project' },
               ].map((s, i) => (
                 <div className="stat-cube" key={i}>
                   <span className="cube-num" data-target={parseInt(s.num)} data-suffix={s.suffix}>0</span>
@@ -592,9 +592,9 @@ function Gallery() {
                   .filter((_, i) => i % 3 === colIdx)
                   .map((item, i) => (
                     <div key={i} className="gi">
-                      <img 
-                        src={item.src} 
-                        alt={item.title} 
+                      <img
+                        src={item.src}
+                        alt={item.title}
                         loading="lazy"
                         className="gi-img"
                         style={{ height: item.h, objectFit: 'cover' }}
@@ -608,7 +608,7 @@ function Gallery() {
         {!showAll && (
           <div style={{ textAlign: 'center', marginTop: 40 }} className="reveal">
             <p style={{ color: 'rgba(232,224,212,0.35)', fontSize: 12, marginBottom: 14, fontFamily: 'monospace', letterSpacing: '0.06em' }}>
-              // 200+ PROJECTS ACROSS PUNE
+              200+ PROJECTS ACROSS PUNE
             </p>
             <button onClick={() => setShowAll(true)} className="btn btn-gold">VIEW FULL PORTFOLIO →</button>
           </div>
@@ -785,7 +785,7 @@ function Process() {
           {steps.map((s, i) => (
             <div className="ph-step reveal" key={i} style={{ transitionDelay: `${i * 0.15}s` }}>
               <div className="ph-circle">{s.num}</div>
-              <div className="ph-tag">{s.tag}</div>
+              {/* <div className="ph-tag">{s.tag}</div> */}
               <h4 className="ph-title">{s.title}</h4>
               <p className="ph-desc">{s.desc}</p>
             </div>
@@ -885,7 +885,7 @@ function Pricing() {
           {PRICING_PLANS.map((plan) => (
             <div className={`pc reveal${plan.featured ? ' featured' : ''}`} key={plan.id}>
               {plan.badge && <div className="pop-badge">{plan.badge}</div>}
-              <div className="plan-id">{plan.id}</div>
+              <div className="plan-id"></div>
               <div style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,169,110,0.6)', marginBottom: 8 }}>{plan.name}</div>
               <div className="plan-price"><span>Starting</span><br />{plan.price}</div>
               <div className="plan-unit">{plan.unit}</div>
@@ -1124,7 +1124,7 @@ function CTA() {
       <div className="container">
         <div className="cta-wrap reveal">
           <div className="cta-left">
-            <div className="cta-id">CTA_SECTION · BOOK_NOW</div>
+            {/* <div className="cta-id">CTA_SECTION · BOOK_NOW</div> */}
             <h2 className="heading">Ready to Transform Your Space with <em>Pune&apos;s Best Interior Designers?</em></h2>
             <p className="subtext" style={{ marginTop: 14 }}>
               Book your free site visit today. Our professional interior designers near you will visit your home, understand your vision, and present design concepts within 5 working days.
@@ -1144,13 +1144,13 @@ function CTA() {
               ))}
             </div>
             <div className="cta-btns">
-              <a href="tel:+919XXXXXXXXX" className="btn btn-gold">Call Now →</a>
-              <a href="https://wa.me/919XXXXXXXXX" className="btn btn-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a href="tel:+919823999414" className="btn btn-gold">Call Now →</a>
+              <a href="https://wa.me/919823999414" className="btn btn-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             </div>
           </div>
           <div className="cta-right">
             <h3>Book Your Free Visit</h3>
-            <p className="sub">// We call back within 2 hours</p>
+            <p className="sub">We call back within 2 hours</p>
             <form onSubmit={handleSubmit}>
               <div className="form-group"><input type="text" placeholder="Your Name *" required /></div>
               <div className="form-group"><input type="tel" placeholder="Mobile Number *" required /></div>
@@ -1213,12 +1213,12 @@ function Footer() {
             <p className="footer-desc">Pune&apos;s most trusted interior design studio. 850+ projects. 12 years. 45-day delivery guaranteed.</p>
             <div className="fsocial">
               {[
-                { icon: FaInstagram, label: 'Instagram', color: '#E4405F' },
-                { icon: FaFacebookF, label: 'Facebook', color: '#1877F2' },
-                { icon: FaYoutube, label: 'Youtube', color: '#FF0000' },
-                { icon: FaLinkedinIn, label: 'Linkedin', color: '#0A66C2' }
+                { icon: FaInstagram, label: 'Instagram', color: '#E4405F', href: '#' },
+                { icon: FaFacebookF, label: 'Facebook', color: '#1877F2', href: 'https://www.facebook.com/a.r.interiors85' },
+                { icon: FaYoutube, label: 'Youtube', color: '#FF0000', href: '#' },
+                { icon: FaLinkedinIn, label: 'Linkedin', color: '#0A66C2', href: '#' }
               ].map((s, i) => (
-                <a key={i} href="#" className="fsb" aria-label={s.label} style={{ '--brand-color': s.color }}>
+                <a key={i} href={s.href} className="fsb" aria-label={s.label} style={{ '--brand-color': s.color }} target={s.href !== '#' ? '_blank' : undefined} rel={s.href !== '#' ? 'noopener noreferrer' : undefined}>
                   <s.icon size={16} color="currentColor" />
                 </a>
               ))}
@@ -1239,8 +1239,8 @@ function Footer() {
           <div>
             <div className="fh">Contact</div>
             <ul className="fl">
-              <li><a href="tel:+919XXXXXXXXX">+91 9X-XXXX-XXXX</a></li>
-              <li><a href="mailto:hello@arinteriors.in">hello@arinteriors.in</a></li>
+              <li><a href="tel:+919823999414">+91 98239 99414</a></li>
+              <li><a href="mailto:a.r.interiors85@gmail.com">a.r.interiors85@gmail.com</a></li>
               <li><a href="#">Pune, Maharashtra</a></li>
             </ul>
           </div>
