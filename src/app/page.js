@@ -660,7 +660,6 @@ function Gallery() {
           width: 100%;
           height: auto;
           display: block;
-          border-radius: 20px;
           border: 1px solid rgba(255,255,255,0.05);
         }
         @media (max-width: 900px) {
