@@ -7,7 +7,7 @@ import {
   ChevronLeft, ChevronRight,
   MessageCircle, Clock, Award, DollarSign, UserCheck, Eye,
   Sparkles, CircleCheck, CircleDot, MapPin, Mail,
-  Box, Cpu, Droplet, Wind, Zap, Frame, Globe, Monitor, Tv, Video
+  Box, Cpu, Droplet, Wind, Zap, Frame, Globe, Monitor, Tv, Video, MoreHorizontal
 } from 'lucide-react'
 import { FaInstagram, FaFacebookF, FaYoutube, FaLinkedinIn } from 'react-icons/fa6'
 import { motion } from 'framer-motion'
@@ -32,6 +32,7 @@ const USP_PANELS = [
   { id: 'USP_03', title: 'Dedicated Project Manager', desc: 'A single point of contact throughout your project from design consultation to final handover.', fill: 90 },
   { id: 'USP_04', title: 'Labour Safety', desc: 'As trusted interior contractors in Pune, we follow strict on-site safety protocols, with a fully trained and insured workforce.', fill: 98 },
   { id: 'USP_05', title: 'Garbage is our responsibility', desc: 'We ensure all debris generated during the project is cleared and taken away by our team, keeping your space clean and hassle-free.', fill: 100 },
+  { id: 'USP_06', title: 'On-Time Project Delivery', desc: 'We follow a well-planned timeline and efficient execution process to ensure your project is completed on schedule without compromising on quality.', fill: 100 },
 ]
 
 const TESTIMONIALS = [
@@ -541,74 +542,139 @@ function USP() {
 }
 
 const GALLERY_ITEMS = [
-  { cat: 'living', wide: true, title: 'Contemporary Living Room', sub: 'KOTHRUD · 3BHK · ₹3.8L', color: '#0c0c18' },
-  { cat: 'kitchen', wide: false, title: 'Modular Kitchen', sub: 'WAKAD · 2BHK · ₹2.1L', color: '#f0ebe3' },
-  { cat: 'bedroom', wide: false, title: 'Master Bedroom', sub: 'BANER · VILLA · ₹4.2L', color: '#0c0a0e' },
-  { cat: 'dining', wide: false, title: 'Dining Room', sub: 'AUNDH · 3BHK · ₹1.8L', color: '#f7f2ec' },
-  { cat: 'office', wide: false, title: 'Modern Office', sub: 'HINJEWADI · COMMERCIAL', color: '#0c1220' },
+  { src: '/gallery/IMG_1621.jpg', h: '450px', title: 'Luxury Living', sub: 'PUNE · PROJECT 01' },
+  { src: '/gallery/IMG_1622.jpg', h: '320px', title: 'Modern Bedroom', sub: 'WAKAD · 3BHK' },
+  { src: '/gallery/IMG_1623.jpg', h: '500px', title: 'Modular Kitchen', sub: 'BANER · 2BHK' },
+  { src: '/gallery/IMG_1624.jpg', h: '380px', title: 'Dining Concept', sub: 'KOTHRUD · VILLA' },
+  { src: '/gallery/IMG_1630.jpg', h: '420px', title: 'Urban Lounge', sub: 'PUNE · FLAT' },
+  { src: '/gallery/IMG_1631.jpg', h: '350px', title: 'Cosy Bedroom', sub: 'AUNDH · 3BHK' },
+  { src: '/gallery/IMG_1632.jpg', h: '480px', title: 'Grand Hall', sub: 'HINJEWADI · 2BHK' },
+  { src: '/gallery/IMG_1633.jpg', h: '310px', title: 'Kitchen Detail', sub: 'PUNE · RESIDENTIAL' },
+  { src: '/gallery/IMG_1684.jpg', h: '440px', title: 'Living Space', sub: 'WAKAD · VILLA' },
+  { src: '/gallery/IMG_1685.jpg', h: '330px', title: 'Interior Art', sub: 'BANER · 3BHK' },
+  { src: '/gallery/IMG_1686.jpg', h: '490px', title: 'Modern Kitchen', sub: 'KOTHRUD · FLAT' },
+  { src: '/gallery/IMG_1687.jpg', h: '360px', title: 'Master Suite', sub: 'PUNE · PROJECT 02' },
+  { src: '/gallery/IMG_1706.jpg', h: '410px', title: 'Design Corner', sub: 'AUNDH · 2BHK' },
+  { src: '/gallery/IMG_1710.jpg', h: '340px', title: 'Elegant Living', sub: 'HINJEWADI · 3BHK' },
+  { src: '/gallery/modularkitchen1.jpg', h: '510px', title: 'Pro Kitchen', sub: 'PUNE · VILLA' },
+  { src: '/gallery/IMG_2089.JPG.jpeg', h: '300px', title: 'Detail View', sub: 'WAKAD · FLAT' },
+  { src: '/gallery/IMG_2090.JPG.jpeg', h: '430px', title: 'Living Setup', sub: 'BANER · 2BHK' },
+  { src: '/gallery/IMG_2091.JPG.jpeg', h: '370px', title: 'Kitchen View', sub: 'KOTHRUD · 3BHK' },
+  { src: '/gallery/IMG_2092.JPG.jpeg', h: '460px', title: 'Main Hall', sub: 'HINJEWADI · VILLA' },
+  { src: '/gallery/IMG_2093.JPG.jpeg', h: '320px', title: 'Bedroom Art', sub: 'PUNE · RESIDENTIAL' },
+  { src: '/gallery/IMG_2094.JPG.jpeg', h: '400px', title: 'Office Space', sub: 'AUNDH · 2BHK' },
+  { src: '/gallery/IMG_2095.JPG.jpeg', h: '350px', title: 'Compact Design', sub: 'WAKAD · 3BHK' },
+  { src: '/gallery/IMG_2096.JPG.jpeg', h: '470px', title: 'Luxury Corner', sub: 'KOTHRUD · VILLA' },
+  { src: '/gallery/IMG_1729.jpg', h: '440px', title: 'Grand Kitchen', sub: 'PUNE · PROJECT 03' },
 ]
 
 function Gallery() {
-  const [activeFilter, setActiveFilter] = useState('all')
-  const filters = ['all', 'living', 'kitchen', 'bedroom', 'dining', 'office']
+  const [showAll, setShowAll] = useState(false)
+  const items = showAll ? GALLERY_ITEMS : GALLERY_ITEMS.slice(0, 9)
 
   return (
     <section id="gallery" className="section" style={{ background: '#121212' }}>
       <div className="container">
         <div className="gallery-hdr">
           <div className="reveal">
-
             <h2 className="heading">Our <em>Work</em></h2>
           </div>
-          <div className="filter-tabs reveal d2">
-            {filters.map(f => (
-              <button
-                key={f}
-                className={`fb${activeFilter === f ? ' active' : ''}`}
-                onClick={() => setActiveFilter(f)}
-              >
-                {f.toUpperCase()}
-              </button>
+        </div>
+        <div className="gallery-container">
+          <div className="vertical-label reveal">
+            <span className="v-line" />
+            <span className="v-text">GALLERY</span>
+          </div>
+          <div className="masonry-grid">
+            {[0, 1, 2].map((colIdx) => (
+              <div key={colIdx} className="masonry-column">
+                {items
+                  .filter((_, i) => i % 3 === colIdx)
+                  .map((item, i) => (
+                    <div key={i} className="gi">
+                      <img 
+                        src={item.src} 
+                        alt={item.title} 
+                        loading="lazy"
+                        className="gi-img"
+                        style={{ height: item.h, objectFit: 'cover' }}
+                      />
+                    </div>
+                  ))}
+              </div>
             ))}
           </div>
         </div>
-        <div className="gallery-grid">
-          {GALLERY_ITEMS.map((item, i) => (
-            <div
-              key={i}
-              className={`gi${item.wide ? ' gi-wide' : ''}`}
-              data-cat={item.cat}
-              style={{
-                opacity: activeFilter === 'all' || activeFilter === item.cat ? 1 : 0.15,
-                transform: activeFilter === 'all' || activeFilter === item.cat ? 'scale(1)' : 'scale(0.97)',
-                transition: 'all 0.4s ease',
-              }}
-            >
-              <div className="gp" style={{ background: item.color, paddingBottom: item.wide ? '52%' : '68%', position: 'relative' }}>
-                <div style={{
-                  position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontFamily: "'Poppins', sans-serif", fontSize: 'clamp(14px,2vw,22px)', color: 'rgba(201,169,110,0.5)',
-                  letterSpacing: '0.15em', textTransform: 'uppercase',
-                }}>
-                  {item.title}
-                </div>
-              </div>
-              <div className="gov">
-                <div>
-                  <h4>{item.title}</h4>
-                  <p>{item.sub}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div style={{ textAlign: 'center', marginTop: 40 }} className="reveal">
-          <p style={{ color: 'rgba(232,224,212,0.35)', fontSize: 12, marginBottom: 14, fontFamily: 'monospace', letterSpacing: '0.06em' }}>
-            // 200+ PROJECTS ACROSS PUNE
-          </p>
-          <a href="#cta-section" className="btn btn-gold">VIEW FULL PORTFOLIO →</a>
-        </div>
+        {!showAll && (
+          <div style={{ textAlign: 'center', marginTop: 40 }} className="reveal">
+            <p style={{ color: 'rgba(232,224,212,0.35)', fontSize: 12, marginBottom: 14, fontFamily: 'monospace', letterSpacing: '0.06em' }}>
+              // 200+ PROJECTS ACROSS PUNE
+            </p>
+            <button onClick={() => setShowAll(true)} className="btn btn-gold">VIEW FULL PORTFOLIO →</button>
+          </div>
+        )}
       </div>
+      <style jsx>{`
+        .gallery-container {
+          display: flex;
+          gap: 30px;
+          position: relative;
+          padding: 0 4%;
+        }
+        .vertical-label {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+          padding-top: 20px;
+          opacity: 0.3;
+        }
+        .v-line {
+          width: 1px;
+          height: 80px;
+          background: var(--gold);
+        }
+        .v-text {
+          writing-mode: vertical-rl;
+          text-transform: uppercase;
+          font-family: var(--font-body);
+          font-size: 9px;
+          letter-spacing: 0.6em;
+          color: var(--gold);
+        }
+        .masonry-grid {
+          display: flex;
+          gap: 16px;
+          flex: 1;
+        }
+        .masonry-column {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          flex: 1;
+        }
+        .gi {
+          width: 100%;
+        }
+        .gi-img {
+          width: 100%;
+          height: auto;
+          display: block;
+          border-radius: 20px;
+          border: 1px solid rgba(255,255,255,0.05);
+        }
+        @media (max-width: 900px) {
+          .vertical-label { display: none; }
+          .masonry-grid { gap: 10px; }
+          .masonry-column { gap: 10px; }
+        }
+        @media (max-width: 600px) {
+          .masonry-grid {
+            /* On small screens, maybe 2 columns */
+          }
+          .masonry-column:last-child { display: none; }
+        }
+      `}</style>
     </section>
   )
 }
@@ -844,13 +910,12 @@ function Pricing() {
 }
 
 function Testimonials() {
-  const [index, setIndex] = useState(TESTIMONIALS.length * 5) // Start deep in the buffer
+  const [index, setIndex] = useState(TESTIMONIALS.length * 5)
   const [containerWidth, setContainerWidth] = useState(0)
   const carousel = useRef()
   const intervalRef = useRef(null)
 
   const total = TESTIMONIALS.length
-  // Create a massive buffer to avoid any "end" during a session
   const items = Array(10).fill(TESTIMONIALS).flat()
 
   useEffect(() => {
@@ -859,7 +924,6 @@ function Testimonials() {
         setContainerWidth(carousel.current.offsetWidth)
       }
     }
-
     handleResize()
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
@@ -869,7 +933,7 @@ function Testimonials() {
     stopAutoSlide()
     intervalRef.current = setInterval(() => {
       setIndex(prev => prev + 1)
-    }, 5000)
+    }, 4000)
   }
 
   const stopAutoSlide = () => {
@@ -881,24 +945,30 @@ function Testimonials() {
     return () => stopAutoSlide()
   }, [])
 
-  // If we ever get too far in either direction, snap back toward the middle 
-  // with a non-animated update that preserves the visual state.
+  const [transition, setTransition] = useState({ type: 'spring', damping: 30, stiffness: 100 })
+
   useEffect(() => {
-    if (index > total * 8) {
+    if (index >= total * 9) {
+      setTransition({ duration: 0 })
       setIndex(total * 4)
-    } else if (index < total) {
+      setTimeout(() => setTransition({ type: 'spring', damping: 30, stiffness: 100 }), 50)
+    } else if (index <= total) {
+      setTransition({ duration: 0 })
       setIndex(total * 5)
+      setTimeout(() => setTransition({ type: 'spring', damping: 30, stiffness: 100 }), 50)
     }
   }, [index, total])
 
   const handleNext = () => {
     stopAutoSlide()
+    setTransition({ type: 'spring', damping: 30, stiffness: 100 })
     setIndex(prev => prev + 1)
     startAutoSlide()
   }
 
   const handlePrev = () => {
     stopAutoSlide()
+    setTransition({ type: 'spring', damping: 30, stiffness: 100 })
     setIndex(prev => prev - 1)
     startAutoSlide()
   }
@@ -906,11 +976,11 @@ function Testimonials() {
   const getX = () => {
     if (typeof window === 'undefined') return 0
     const isMobile = window.innerWidth <= 768
-    const cardW = isMobile ? 320 : 440
-    const gap = 24
+    const cardW = isMobile ? window.innerWidth : 440
+    const gap = isMobile ? 0 : 24
     const step = cardW + gap
 
-    const offset = (containerWidth / 2) - (cardW / 2)
+    const offset = isMobile ? 0 : (containerWidth / 2) - (cardW / 2)
     return offset - (index * step)
   }
 
@@ -923,50 +993,45 @@ function Testimonials() {
         </div>
 
         <div className="carousel-wrapper">
-          <button onClick={handlePrev} className="sc-btn left" aria-label="Previous"><ChevronLeft size={24} /></button>
-          <button onClick={handleNext} className="sc-btn right" aria-label="Next"><ChevronRight size={24} /></button>
-
           <motion.div ref={carousel} className="test-carousel" onMouseEnter={stopAutoSlide} onMouseLeave={startAutoSlide}>
             <motion.div
               drag="x"
-              dragConstraints={{ left: getX() - 1, right: getX() + 1 }} // Loosely constrained to allow snap
+              dragConstraints={{ left: getX() - 1, right: getX() + 1 }}
               onDragEnd={(e, { offset, velocity }) => {
                 const swipeThreshold = 50
                 if (offset.x < -swipeThreshold) handleNext()
                 else if (offset.x > swipeThreshold) handlePrev()
               }}
               animate={{ x: getX() }}
-              transition={{ type: 'spring', damping: 30, stiffness: 100 }}
+              transition={transition}
               className="test-inner"
             >
               {items.map((t, i) => {
-                const isCenter = index === i
                 return (
                   <div
-                    className={`tc ${isCenter ? 'active-slide' : ''}`}
+                    className="tc"
                     key={i}
                     style={{
-                      opacity: isCenter ? 1 : 0.15,
-                      scale: isCenter ? 1 : 0.9,
-                      background: isCenter ? '#08080f' : 'transparent',
-                      borderColor: isCenter ? 'rgba(201, 169, 110, 0.4)' : 'rgba(255, 255, 255, 0.05)',
-                      boxShadow: isCenter ? '0 15px 50px rgba(0,0,0,0.6), 0 0 1px rgba(201,169,110,0.3)' : 'none',
-                      transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                      width: 'var(--card-width)',
+                      flexShrink: 0,
+                      opacity: 1,
+                      scale: 1,
+                      background: '#08080f',
+                      borderColor: 'rgba(201, 169, 110, 0.2)',
+                      boxShadow: '0 10px 30px rgba(0,0,0,0.4)',
+                      transition: 'all 0.4s ease',
                       cursor: 'grab'
                     }}
                   >
                     <div className="stars">★★★★★</div>
-                    <p className="tc-text" style={{
-                      color: isCenter ? 'rgba(232, 224, 212, 0.95)' : 'rgba(232, 224, 212, 0.35)',
-                      fontWeight: isCenter ? 500 : 400
-                    }}>&ldquo;{t.text}&rdquo;</p>
+                    <p className="tc-text" style={{ color: 'rgba(232, 224, 212, 0.95)', fontWeight: 400 }}>&ldquo;{t.text}&rdquo;</p>
                     <div className="tc-author">
                       <div className="tc-av">{t.initials}</div>
                       <div>
                         <div className="tc-name">{t.name}</div>
                         <div className="tc-loc">{t.loc}</div>
                       </div>
-                      <span className="v-badge" style={{ opacity: isCenter ? 1 : 0.4, transform: isCenter ? 'scale(1)' : 'scale(0.9)' }}>VERIFIED</span>
+                      <span className="v-badge">VERIFIED</span>
                     </div>
                   </div>
                 )
@@ -974,6 +1039,20 @@ function Testimonials() {
             </motion.div>
           </motion.div>
 
+          <div className="dots-container">
+            {TESTIMONIALS.map((_, i) => (
+              <button
+                key={i}
+                className={`dot ${index % total === i ? 'active' : ''}`}
+                onClick={() => {
+                  stopAutoSlide()
+                  setIndex(Math.floor(index / total) * total + i)
+                  startAutoSlide()
+                }}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
@@ -981,56 +1060,53 @@ function Testimonials() {
         .carousel-wrapper {
           position: relative;
           width: 100%;
+          --card-width: 440px;
+          --gap: 24px;
         }
-        .sc-btn {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 60px;
-          height: 60px;
-          border: 1px solid rgba(201, 169, 110, 0.2);
-          background: rgba(5, 5, 8, 0.9);
-          backdrop-filter: blur(12px);
-          color: var(--gold);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-          border-radius: 50%;
-          z-index: 100;
-        }
-        .sc-btn:hover {
-          background: var(--gold);
-          color: #050508;
-          border-color: var(--gold);
-          box-shadow: 0 0 40px rgba(201, 169, 110, 0.4);
-          transform: translateY(-50%) scale(1.1);
-        }
-        .sc-btn.left { left: 20px; }
-        .sc-btn.right { right: 20px; }
-        
         .test-carousel {
           overflow: visible;
         }
         .test-inner {
           display: flex;
-          gap: 24px;
+          gap: var(--gap);
           padding: 40px 0;
         }
-        
-        @media (max-width: 1200px) {
-          .sc-btn.left { left: 10px; }
-          .sc-btn.right { right: 10px; }
+        .tc {
+          padding: 30px;
+          border: 1px solid;
+          border-radius: 0;
+          position: relative;
+        }
+        .dots-container {
+          display: flex;
+          justify-content: center;
+          gap: 12px;
+          margin-top: 20px;
+        }
+        .dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: rgba(201, 169, 110, 0.2);
+          border: none;
+          cursor: pointer;
+          padding: 0;
+        }
+        .dot.active {
+          background: var(--gold);
         }
         @media (max-width: 768px) {
-          .sc-btn {
-            width: 44px;
-            height: 44px;
-            background: rgba(5, 5, 8, 0.7);
+          .carousel-wrapper {
+            --card-width: 100vw;
+            --gap: 0px;
           }
-          .sc-btn.left { left: 5px; }
-          .sc-btn.right { right: 5px; }
+          .test-inner { padding: 20px 0; }
+          .tc { 
+            padding: 24px; 
+            border-left: none;
+            border-right: none;
+          }
+          .dots-container { margin-top: 10px; }
         }
       `}</style>
     </section>

@@ -80,10 +80,10 @@ const SERVICES = [
   { num: '04', title: 'Office Interiors', desc: 'Smart, productive workspaces that align with your brand identity.', tag: 'COMMERCIAL', img: '/Office.jpg', detailedId: 'office-interior' },
   { num: '05', title: 'Bathroom Design', desc: 'Premium, well-designed bathrooms with modern fixtures and efficient storage.', tag: 'RESIDENTIAL', img: '/Bathroom.jpg', detailedId: 'bathroom-design' },
   { num: '06', title: 'Dining Room', desc: 'Thoughtfully designed spaces that make every meal special.', tag: 'RESIDENTIAL', img: '/Dinningroom.jpg', detailedId: 'dining-room' },
-  { num: '07', title: 'False Ceiling', desc: 'Innovative ceiling designs that enhance the look of every room.', tag: 'SPECIALTY', img: '/False Ceiling.jpg', detailedId: 'false-ceiling' },
+  { num: '07', title: 'False Ceiling', desc: 'Innovative ceiling designs that enhance the look of every room.', tag: 'SPECIALTY', img: '/false-ceiling.png', detailedId: 'false-ceiling' },
   { num: '08', title: 'Full Home Design', desc: 'Complete interior solutions in Pune with a seamless, unified approach.', tag: 'COMPLETE', img: '/fullInterior.jpg', detailedId: 'full-home' },
-  { num: '09', title: 'Terrace Design', desc: 'Cozy, well-finished terraces with outdoor seating, BBQ decks, and penthouse styling.', tag: 'SPECIALTY', img: '/terrace.jpg', detailedId: 'terrace' },
-  { num: '10', title: 'Home Theater', desc: 'Sleek, soundproof home theaters with an immersive audio-visual experience.', tag: 'LUXURY', img: '/hometheater.jpg', detailedId: 'home-theater' },
+  { num: '09', title: 'Terrace Design', desc: 'Cozy, well-finished terraces with outdoor seating, BBQ decks, and penthouse styling.', tag: 'SPECIALTY', img: '/terrace.png', detailedId: 'terrace' },
+  { num: '10', title: 'Home Theater', desc: 'Sleek, soundproof home theaters with an immersive audio-visual experience.', tag: 'LUXURY', img: '/hometheater.png', detailedId: 'home-theater' },
 ]
 
 // ─── SERVICES DATA ───────────────────────────────────────────────────
@@ -179,7 +179,7 @@ const DETAILED_SERVICES = [
     subtitle: 'Elevating the Fifth Wall',
     desc: 'Transform plain ceilings into architectural masterpieces. Experience intricate false ceiling designs engineered to enhance both lighting and acoustics.',
     features: ['Intricate Cove Lighting', 'Acoustic Sound Baffling', 'Luxury Drop Chandeliers', 'Climate-Control Concealment'],
-    image: '/False Ceiling.jpg',
+    image: '/false-ceiling.png',
     fullDesc: 'The ceiling—often called the fifth wall—provides an immense opportunity to impact the feel of a room without utilizing floor space. Our designers specialize in creating dimensional false ceiling structures that intelligently conceal wiring, ductwork, and HVAC systems while delivering stunning visual interest. Integrated, multi-layered warm LED strip lighting highlights elegant geometric or organic ceiling contours, adding dramatic depth.',
     benefits: [
       'Dramatic enhancement of room height perception and architectural depth.',
@@ -199,6 +199,34 @@ const DETAILED_SERVICES = [
       'A completely cohesive design language that flows perfectly from room to room.',
       'Zero-stress execution with a single point of professional contact.',
       'Absolute control over budget and precisely guaranteed delivery timelines.'
+    ]
+  },
+  {
+    id: 'terrace',
+    title: 'Bespoke Terrace Designs',
+    subtitle: 'Elevate Your Outdoor Living',
+    desc: 'Turn your rooftop into a private oasis. We specialize in luxury terrace transformations featuring BBQ decks, mood lighting, and weather-resistant seating.',
+    features: ['Custom BBQ & Bar Decks', 'Weatherproof Outdoor Furniture', 'Automated Mood Lighting', 'Vertical Gardens & Planters'],
+    image: '/terrace.png',
+    fullDesc: 'We believe your terrace is the ultimate luxury space in an urban environment. Our terrace designs are crafted to provide a seamless transition from indoor comfort to outdoor freedom. We use high-quality, weather-resistant materials for our custom-built BBQ stations and bar decks, ensuring they look great year-round. Our lighting designs create a magical atmosphere at night, while our selection of outdoor furniture and greenery creates a lush, private sanctuary high above the city.',
+    benefits: [
+      'Increased property value with highly functional and beautiful outdoor space.',
+      'A perfect venue for hosting private gatherings, parties, and family dinners.',
+      'A personal retreat for relaxation that feels miles away from the city hustle.'
+    ]
+  },
+  {
+    id: 'home-theater',
+    title: 'Immersive Home Theaters',
+    subtitle: 'The Ultimate Cinematic Experience',
+    desc: 'Experience the magic of the big screen at home. Our theaters feature professional acoustics, 4K projection, and plush comfort for the ultimate movie night.',
+    features: ['Professional Acoustic Paneling', '4K Laser Projection Systems', '7.1 Surround Sound Architecture', 'Luxury Recliner Seating'],
+    image: '/hometheater.png',
+    fullDesc: 'We bring the professional cinema experience into the intimacy of your home. Our home theater designs focus on the perfect synergy between advanced technology and luxurious comfort. We employ precise acoustic engineering to ensure perfect sound isolation and clarity, using custom wall paneling that complements the aesthetic. With integrated smart controls, you can manage lighting, sound, and projection with a single touch, creating an immersive experience for every screening.',
+    benefits: [
+      'A private cinema experience tailored to your exact audio-visual preferences.',
+      'Superior sound isolation allowing for high-volume viewing without disturbing others.',
+      'A versatile entertainment space that adds a significant luxury element to your home.'
     ]
   }
 ]
