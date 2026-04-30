@@ -863,7 +863,7 @@ body {
   font-family: var(--font-display);
   font-size: clamp(40px, 6.5vw, 84px);
   font-weight: 700;
-  line-height: 1.05;
+  line-height: 1.25; /* Increased for safe descender clearance */
   color: #fff;
   margin-bottom: 32px;
 }
@@ -871,6 +871,8 @@ body {
 .title-line {
   display: block;
   overflow: hidden;
+  padding-bottom: 0.25em; /* Create space for descenders inside the hidden container */
+  margin-bottom: -0.25em; /* Pull next line up to compensate for padding */
 }
 
 .title-line-inner {
@@ -2704,7 +2706,7 @@ footer {
     font-size: clamp(34px, 10vw, 56px);
     margin-bottom: 20px;
     letter-spacing: -0.02em;
-    line-height: 1.1;
+    line-height: 1.25;
   }
 
 

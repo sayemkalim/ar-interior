@@ -373,7 +373,7 @@ function Hero({ isFormOpen, setIsFormOpen }) {
             <span className="title-line"><span className="title-line-inner">That <em>Tell Your Story</em></span></span>
           </h1>
           <p className="hero-body reveal">
-            Pune&apos;s most trusted home interior design services studio. We have transformed 850+ homes across Pune from compact 1 BHKs to sprawling bungalows with modern, functional, and beautiful interiors.
+            Pune&apos;s most trusted home interior design services studio. We have transformed 500+ homes across Pune from compact 1 BHKs to sprawling bungalows with modern, functional, and beautiful interiors.
           </p>
 
 
@@ -450,9 +450,9 @@ function Hero({ isFormOpen, setIsFormOpen }) {
 
 function TrustBar() {
   const items = [
-    '✦ 850+ Projects Completed', '✦ 45-Day Delivery Guaranteed', '✦ 10-Year Woodwork Warranty',
+    '✦ 500+ Projects Completed', '✦ 45-Day Delivery Guaranteed', '✦ 10-Year Woodwork Warranty',
     '✦ Free Site Visit', '✦ Transparent Pricing', '✦ 12 Years Experience', '✦ 94% Client Satisfaction',
-    '✦ 850+ Projects Completed', '✦ 45-Day Delivery Guaranteed', '✦ 10-Year Woodwork Warranty',
+    '✦ 500+ Projects Completed', '✦ 45-Day Delivery Guaranteed', '✦ 10-Year Woodwork Warranty',
     '✦ Free Site Visit', '✦ Transparent Pricing', '✦ 12 Years Experience', '✦ 94% Client Satisfaction',
   ]
   return (
@@ -480,7 +480,7 @@ function About() {
             <h2 className="heading">12 Years of <em>Crafting</em> Dream Homes in Pune</h2>
             <div className="divider" />
             <p className="subtext">
-              A R Interiors is Pune&apos;s most trusted name in home interior design services. Since 2012, our team of 35+ designers, project managers, and skilled craftsmen has delivered modern home interiors in Pune across 850+ projects from compact 2 and 3 BHK apartments to expansive villas.
+              A R Interiors is Pune&apos;s most trusted name in home interior design services. Since 2012, our team of 35+ designers, project managers, and skilled craftsmen has delivered modern home interiors in Pune across 500+ projects from compact 2 and 3 BHK apartments to expansive villas.
             </p>
             <p className="subtext" style={{ marginTop: 12 }}>
               Whether you&apos;re looking for low cost interior designers in Pune or a premium full-home transformation, our team delivers on time, on budget, and beyond expectations. Every project comes with a dedicated project manager, fixed timeline, and our legendary 10-year woodwork warranty.
@@ -1210,7 +1210,7 @@ function Footer() {
         <div className="footer-grid">
           <div>
             <img src="/logo.png" alt="AR Interiors" style={{ height: '36px', width: 'auto', marginBottom: 14, opacity: 0.9, display: 'block' }} />
-            <p className="footer-desc">Pune&apos;s most trusted interior design studio. 850+ projects. 12 years. 45-day delivery guaranteed.</p>
+            <p className="footer-desc">Pune&apos;s most trusted interior design studio. 500+ projects. 12 years. 45-day delivery guaranteed.</p>
             <div className="fsocial">
               {[
                 { icon: FaInstagram, label: 'Instagram', color: '#E4405F', href: '#' },

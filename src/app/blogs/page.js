@@ -145,7 +145,7 @@ function Footer() {
         <div className="footer-grid">
           <div>
             <img src="/logo.png" alt="AR Interiors" style={{ height: '36px', width: 'auto', marginBottom: 14, opacity: 0.9, display: 'block' }} />
-            <p className="footer-desc">Pune&apos;s most trusted interior design studio. 850+ projects. 12 years. 45-day delivery guaranteed.</p>
+            <p className="footer-desc">Pune&apos;s most trusted interior design studio. 500+ projects. 12 years. 45-day delivery guaranteed.</p>
             <div className="fsocial">
               {[
                 { icon: FaInstagram, label: 'Instagram', color: '#E4405F', href: '#' },

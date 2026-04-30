@@ -108,7 +108,7 @@ function Footer() {
         <div className="footer-grid">
           <div>
             <img src="/logo.png" alt="AR Interiors" style={{ height: '36px', width: 'auto', marginBottom: 14, opacity: 0.9, display: 'block' }} />
-            <p className="footer-desc">Pune&apos;s most trusted interior design studio. 850+ projects. 12 years. 45-day delivery guaranteed.</p>
+            <p className="footer-desc">Pune&apos;s most trusted interior design studio. 500+ projects. 12 years. 45-day delivery guaranteed.</p>
             <div className="fsocial">
               {[
                 { icon: FaInstagram, label: 'Instagram', color: '#E4405F', href: '#' },
@@ -176,7 +176,7 @@ export default function AboutPage() {
                 <div className="story-stats-overlay">
                   <div className="so-glass" />
                   <div className="so-item">
-                    <span className="so-num">850+</span>
+                    <span className="so-num">500+</span>
                     <span className="so-lab">Projects</span>
                   </div>
                   <div className="so-sep" />
@@ -214,7 +214,7 @@ export default function AboutPage() {
                   </p>
 
                   <p>
-                    Since 2012, we’ve delivered 850+ projects across Pune, transforming everything from compact 2 & 3 BHK apartments to expansive villas.
+                    Since 2012, we’ve delivered 500+ projects across Pune, transforming everything from compact 2 & 3 BHK apartments to expansive villas.
                     Our approach is simple: understand your space, respect your budget, and deliver beyond expectations.
                   </p>
 
@@ -244,7 +244,7 @@ export default function AboutPage() {
               </div>
               <div className="stat-card reveal d2">
                 <Users className="stat-icon" />
-                <h3>850+ Happy Homes</h3>
+                <h3>500+ Happy Homes</h3>
                 <p>From cozy apartments to sprawling villas, we've touched lives across the city.</p>
               </div>
               <div className="stat-card reveal d3">
