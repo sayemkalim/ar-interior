@@ -2,7 +2,7 @@ import React from 'react';
 import dbConnect from '@/lib/mongoose';
 import Blog from '@/models/Blog';
 import { notFound } from 'next/navigation';
-import { Navbar, Footer } from './components';
+import { Navbar, Footer, FloatingActions } from './components';
 import { Clock, User, Calendar, ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
 
@@ -122,6 +122,7 @@ export default async function SingleBlogPage({ params }) {
       </div>
 
       <Footer />
+      <FloatingActions />
     </div>
   );
 }

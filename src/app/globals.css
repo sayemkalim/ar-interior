@@ -863,7 +863,8 @@ body {
   font-family: var(--font-display);
   font-size: clamp(40px, 6.5vw, 84px);
   font-weight: 700;
-  line-height: 1.25; /* Increased for safe descender clearance */
+  line-height: 1.25;
+  /* Increased for safe descender clearance */
   color: #fff;
   margin-bottom: 32px;
 }
@@ -871,8 +872,10 @@ body {
 .title-line {
   display: block;
   overflow: hidden;
-  padding-bottom: 0.25em; /* Create space for descenders inside the hidden container */
-  margin-bottom: -0.25em; /* Pull next line up to compensate for padding */
+  padding-bottom: 0.25em;
+  /* Create space for descenders inside the hidden container */
+  margin-bottom: -0.25em;
+  /* Pull next line up to compensate for padding */
 }
 
 .title-line-inner {
@@ -2760,6 +2763,18 @@ footer {
     padding: 28px 16px;
   }
 
+  .hero-form.closed {
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+
+  .hero-form .form-close {
+    display: none !important;
+  }
+
   .form-h {
     font-size: 18px;
   }
@@ -2980,6 +2995,18 @@ footer {
 
   .nav-phone {
     display: none;
+  }
+
+  .hero-form.closed {
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+
+  .hero-form .form-close {
+    display: none !important;
   }
 
   .nav-btn {
