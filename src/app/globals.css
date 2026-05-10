@@ -1568,7 +1568,7 @@ body {
 
 .cube-num {
   font-family: var(--font-display);
-  font-size: 48px;
+  font-size: 34px;
   font-weight: 700;
   line-height: 1;
   color: var(--gold);
@@ -1592,7 +1592,7 @@ body {
 }
 
 .cube-big .cube-num {
-  font-size: 56px;
+  font-size: 34px;
   color: #f5f0e8;
 }
 
@@ -2812,7 +2812,7 @@ footer {
   }
 
   .cube-num {
-    font-size: 36px;
+    font-size: 28px;
   }
 
   .stat-cube {
@@ -2824,7 +2824,7 @@ footer {
   }
 
   .cube-big .cube-num {
-    font-size: 42px;
+    font-size: 34px;
   }
 
   /* USP */
@@ -3129,15 +3129,15 @@ footer {
 
   /* About */
   .cube-num {
-    font-size: 30px;
+    font-size: 24px;
   }
 
   .cube-lbl {
-    font-size: 9px;
+    font-size: 8px;
   }
 
   .cube-big .cube-num {
-    font-size: 36px;
+    font-size: 30px;
   }
 
   .stat-cube {

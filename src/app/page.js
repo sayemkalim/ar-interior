@@ -87,11 +87,11 @@ const PRICING_PLANS = [
     price: '₹10 Lakh',
     unit: 'onwards',
     features: [
-      { text: 'Modular kitchen + wardrobes', on: true },
-      { text: 'False ceiling in living & master bedroom', on: true },
-      { text: 'Premium laminate finish', on: true },
-      { text: 'Dedicated project manager', on: true },
-      { text: 'Custom furniture pieces', on: true },
+      { text: 'Curated kitchen & wardrobe designs', on: true },
+      { text: 'Signature ceiling detailing', on: true },
+      { text: 'Luxe laminate finishes', on: true },
+      { text: 'White-glove project handling', on: true },
+      { text: 'Handcrafted furniture', on: true },
     ],
     featured: false,
   },
@@ -102,12 +102,12 @@ const PRICING_PLANS = [
     unit: 'onwards',
     badge: 'MOST POPULAR',
     features: [
-      { text: 'Complete home interior design', on: true },
-      { text: 'Custom furniture & joinery', on: true },
+      { text: 'End-to-end home interior design', on: true },
+      { text: 'Bespoke furniture & joinery', on: true },
       { text: 'Premium Italian laminates', on: true },
-      { text: 'Dedicated project manager', on: true },
-      { text: 'Lighting design & installation', on: true },
-      { text: 'Smart home integration', on: true },
+      { text: 'Dedicated project leadership', on: true },
+      { text: 'Integrated lighting design', on: true },
+      { text: 'Smart home solutions', on: true },
     ],
     featured: true,
   },
@@ -117,12 +117,12 @@ const PRICING_PLANS = [
     price: '₹30 Lakh',
     unit: 'onwards',
     features: [
-      { text: 'Full luxury interior package', on: true },
-      { text: 'Imported materials & finishes', on: true },
-      { text: 'Smart home integration', on: true },
+      { text: 'Complete luxury interior experience', on: true },
+      { text: 'Imported materials & refined finishes', on: true },
+      { text: 'Integrated smart home solutions', on: true },
       { text: 'Bespoke furniture design', on: true },
       { text: 'Art curation & styling', on: true },
-      { text: 'Post-handover support (1yr)', on: true },
+      { text: '1-year post-handover support', on: true },
     ],
     featured: false,
   },
@@ -497,7 +497,7 @@ function About() {
                 { num: '500', suffix: '+', label: 'Projects Delivered' },
                 { num: '12', suffix: '+', label: 'Years in Business' },
                 { num: '94', suffix: '%', label: 'Client Satisfaction' },
-                { num: '45', suffix: 'd', label: 'Timelines may vary from project to project', prefix: '*' },
+                { num: '45', suffix: 'd *', label: 'Timelines may vary from project to project', },
               ].map((s, i) => (
                 <div className="stat-cube" key={i}>
                   <span className="cube-num" data-target={parseInt(s.num)} data-suffix={s.suffix} data-prefix={s.prefix || ''}>0</span>
@@ -505,7 +505,7 @@ function About() {
                 </div>
               ))}
               <div className="stat-cube cube-big">
-                <span className="cube-num">10</span>
+                <span className="cube-num">10 *</span>
                 <span className="cube-lbl">Year Woodwork Warranty — Industry&apos;s Best</span>
               </div>
             </div>
@@ -1039,6 +1039,15 @@ function Testimonials() {
             </motion.div>
           </motion.div>
 
+          <div className="test-nav-arrows">
+            <button className="test-nav-btn prev" onClick={handlePrev} aria-label="Previous">
+              <ChevronLeft size={20} />
+            </button>
+            <button className="test-nav-btn next" onClick={handleNext} aria-label="Next">
+              <ChevronRight size={20} />
+            </button>
+          </div>
+
           <div className="dots-container">
             {TESTIMONIALS.map((_, i) => (
               <button
@@ -1081,7 +1090,7 @@ function Testimonials() {
           display: flex;
           justify-content: center;
           gap: 12px;
-          margin-top: 20px;
+          margin-top: 30px;
         }
         .dot {
           width: 8px;
@@ -1091,9 +1100,52 @@ function Testimonials() {
           border: none;
           cursor: pointer;
           padding: 0;
+          transition: all 0.3s ease;
         }
         .dot.active {
           background: var(--gold);
+          transform: scale(1.2);
+        }
+        .test-nav-arrows {
+          position: absolute;
+          top: 50%;
+          left: -140px;
+          right: -140px;
+          transform: translateY(-50%);
+          display: flex;
+          justify-content: space-between;
+          pointer-events: none;
+          z-index: 20;
+        }
+        .test-nav-btn {
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          background: #08080f;
+          border: 1px solid rgba(201, 169, 110, 0.2);
+          color: var(--gold);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          pointer-events: auto;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+        .test-nav-btn:hover {
+          background: var(--gold);
+          color: #050508;
+          border-color: var(--gold);
+          transform: scale(1.1);
+        }
+        @media (max-width: 1280px) {
+          .test-nav-arrows {
+            left: 10px;
+            right: 10px;
+          }
+          .test-nav-btn {
+            background: rgba(8, 8, 15, 0.9);
+          }
         }
         @media (max-width: 768px) {
           .carousel-wrapper {
@@ -1106,7 +1158,15 @@ function Testimonials() {
             border-left: none;
             border-right: none;
           }
-          .dots-container { margin-top: 10px; }
+          .dots-container { margin-top: 20px; }
+          .test-nav-btn {
+            width: 36px;
+            height: 36px;
+          }
+          .test-nav-arrows {
+            left: 5px;
+            right: 5px;
+          }
         }
       `}</style>
     </section>
