@@ -231,7 +231,7 @@ function Navbar() {
           })}
         </ul>
         <div className="nav-cta">
-          <a href="tel:+919823999414" className="nav-phone">+91 98239 99414</a>
+          <a href="tel:+919822998986" className="nav-phone">+91 98229 98986</a>
           <a href="#cta-section" className="nav-btn">
             Free Visit
             <ArrowRight size={14} strokeWidth={2.5} />
@@ -251,6 +251,15 @@ function Navbar() {
 
 function Hero({ isFormOpen, setIsFormOpen }) {
   const [formStatus, setFormStatus] = useState('')
+  const [bgIndex, setBgIndex] = useState(0)
+  const images = ['/background/website 1.png', '/background/webiste 2.png']
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setBgIndex((prev) => (prev + 1) % images.length)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [images.length])
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -260,109 +269,16 @@ function Hero({ isFormOpen, setIsFormOpen }) {
 
   return (
     <section id="hero">
-      <div className="hero-mesh" />
-      <div className="hero-grid" />
-      <div className="particles" id="particles" />
-      <div className="orb orb1" /><div className="orb orb2" /><div className="orb orb3" />
-      <div className="bracket bracket-tl" /><div className="bracket bracket-tr" />
-      <div className="bracket bracket-bl" /><div className="bracket bracket-br" />
-
-      {/* Isometric Room Wireframe Background */}
-      <div className="hero-visual">
-        <div className="room-wireframe">
-          <svg viewBox="0 0 700 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* Floor */}
-            <polygon points="50,320 350,480 650,320 350,160" fill="rgba(201,169,110,0.05)" stroke="rgba(201,169,110,0.35)" strokeWidth="1" />
-            {/* Floor grid lines */}
-            <line x1="150" y1="267" x2="550" y2="267" stroke="rgba(201,169,110,0.15)" strokeWidth="0.6" />
-            <line x1="50" y1="320" x2="650" y2="320" stroke="rgba(201,169,110,0.15)" strokeWidth="0.6" />
-            <line x1="200" y1="374" x2="500" y2="214" stroke="rgba(201,169,110,0.12)" strokeWidth="0.6" />
-            <line x1="350" y1="160" x2="350" y2="480" stroke="rgba(201,169,110,0.12)" strokeWidth="0.6" />
-            <line x1="250" y1="107" x2="250" y2="427" stroke="rgba(201,169,110,0.08)" strokeWidth="0.6" />
-            <line x1="450" y1="107" x2="450" y2="427" stroke="rgba(201,169,110,0.08)" strokeWidth="0.6" />
-            {/* Left wall */}
-            <polygon points="50,60 50,320 350,480 350,220" fill="rgba(201,169,110,0.04)" stroke="rgba(201,169,110,0.3)" strokeWidth="1" />
-            {/* Left wall panels */}
-            <line x1="50" y1="130" x2="350" y2="290" stroke="rgba(201,169,110,0.18)" strokeWidth="0.6" />
-            <line x1="50" y1="200" x2="350" y2="360" stroke="rgba(201,169,110,0.18)" strokeWidth="0.6" />
-            <line x1="50" y1="270" x2="350" y2="430" stroke="rgba(201,169,110,0.18)" strokeWidth="0.6" />
-            <line x1="150" y1="60" x2="150" y2="320" stroke="rgba(201,169,110,0.1)" strokeWidth="0.6" />
-            <line x1="250" y1="60" x2="250" y2="320" stroke="rgba(201,169,110,0.1)" strokeWidth="0.6" />
-            {/* Right wall */}
-            <polygon points="350,220 650,60 650,320 350,480" fill="rgba(201,169,110,0.03)" stroke="rgba(201,169,110,0.25)" strokeWidth="1" />
-            {/* Right wall panels */}
-            <line x1="350" y1="290" x2="650" y2="130" stroke="rgba(201,169,110,0.15)" strokeWidth="0.6" />
-            <line x1="350" y1="360" x2="650" y2="200" stroke="rgba(201,169,110,0.15)" strokeWidth="0.6" />
-            <line x1="450" y1="220" x2="450" y2="480" stroke="rgba(201,169,110,0.1)" strokeWidth="0.6" />
-            <line x1="550" y1="220" x2="550" y2="480" stroke="rgba(201,169,110,0.1)" strokeWidth="0.6" />
-            {/* Sofa wireframe */}
-            <polygon points="160,340 280,400 340,370 220,310" fill="rgba(201,169,110,0.1)" stroke="rgba(201,169,110,0.5)" strokeWidth="1.2" />
-            <polygon points="160,310 280,370 280,400 160,340" fill="rgba(201,169,110,0.08)" stroke="rgba(201,169,110,0.4)" strokeWidth="1" />
-            <polygon points="160,310 280,370 340,345 220,285" fill="rgba(201,169,110,0.12)" stroke="rgba(201,169,110,0.45)" strokeWidth="1" />
-            <polygon points="160,340 280,400 340,370 220,310" fill="none" stroke="rgba(201,169,110,0.8)" strokeWidth="0.5" filter="url(#glow)" />
-            {/* Coffee table */}
-            <polygon points="260,370 330,405 380,382 310,347" fill="rgba(201,169,110,0.1)" stroke="rgba(201,169,110,0.45)" strokeWidth="1" />
-            <line x1="260" y1="370" x2="265" y2="390" stroke="rgba(201,169,110,0.4)" strokeWidth="0.8" />
-            <line x1="380" y1="382" x2="385" y2="402" stroke="rgba(201,169,110,0.4)" strokeWidth="0.8" />
-            {/* Floor lamp */}
-            <line x1="490" y1="200" x2="500" y2="360" stroke="rgba(201,169,110,0.4)" strokeWidth="1.2" />
-            <ellipse cx="495" cy="200" rx="18" ry="8" fill="none" stroke="rgba(201,169,110,0.5)" strokeWidth="1" />
-            <circle cx="495" cy="200" r="30" fill="none" stroke="rgba(201,169,110,0.08)" strokeWidth="1" />
-            <circle cx="495" cy="200" r="50" fill="none" stroke="rgba(201,169,110,0.04)" strokeWidth="1" />
-            {/* Window */}
-            <polygon points="350,60 470,0 470,160 350,220" fill="rgba(100,160,255,0.04)" stroke="rgba(201,169,110,0.2)" strokeWidth="1" />
-            <line x1="410" y1="30" x2="410" y2="190" stroke="rgba(201,169,110,0.12)" strokeWidth="0.8" />
-            <line x1="350" y1="140" x2="470" y2="80" stroke="rgba(201,169,110,0.12)" strokeWidth="0.8" />
-            {/* Plant */}
-            <line x1="105" y1="190" x2="112" y2="280" stroke="rgba(201,169,110,0.3)" strokeWidth="1.2" />
-            <circle cx="108" cy="185" r="22" fill="rgba(100,180,100,0.05)" stroke="rgba(100,200,100,0.2)" strokeWidth="1" />
-            <circle cx="90" cy="198" r="14" fill="none" stroke="rgba(100,200,100,0.15)" strokeWidth="1" />
-            <circle cx="125" cy="195" r="14" fill="none" stroke="rgba(100,200,100,0.15)" strokeWidth="1" />
-            {/* Ceiling light */}
-            <line x1="350" y1="0" x2="350" y2="60" stroke="rgba(201,169,110,0.2)" strokeWidth="1" />
-            <circle cx="350" cy="60" r="8" fill="none" stroke="rgba(201,169,110,0.4)" strokeWidth="1" />
-            <circle cx="350" cy="60" r="20" fill="none" stroke="rgba(201,169,110,0.12)" strokeWidth="0.8" />
-            <line x1="350" y1="70" x2="200" y2="220" stroke="rgba(201,169,110,0.05)" strokeWidth="0.5" />
-            <line x1="350" y1="70" x2="500" y2="220" stroke="rgba(201,169,110,0.05)" strokeWidth="0.5" />
-            <line x1="350" y1="70" x2="350" y2="350" stroke="rgba(201,169,110,0.04)" strokeWidth="0.5" />
-            {/* Art frame */}
-            <polygon points="510,115 580,80 580,155 510,190" fill="rgba(201,169,110,0.03)" stroke="rgba(201,169,110,0.2)" strokeWidth="0.8" />
-            {/* Measurement lines */}
-            <line x1="50" y1="40" x2="350" y2="200" stroke="rgba(201,169,110,0.08)" strokeWidth="0.5" strokeDasharray="4,6" />
-            <circle cx="50" cy="40" r="2" fill="rgba(201,169,110,0.4)" />
-            <circle cx="350" cy="200" r="2" fill="rgba(201,169,110,0.4)" />
-            <line x1="650" y1="40" x2="350" y2="200" stroke="rgba(201,169,110,0.08)" strokeWidth="0.5" strokeDasharray="4,6" />
-            <circle cx="650" cy="40" r="2" fill="rgba(201,169,110,0.4)" />
-            {/* Labels */}
-            <text x="62" y="36" fontSize="8" fill="rgba(201,169,110,0.5)" fontFamily="monospace" letterSpacing="0.5">3.2m</text>
-            <text x="656" y="36" fontSize="8" fill="rgba(201,169,110,0.5)" fontFamily="monospace" letterSpacing="0.5">3.2m</text>
-            <text x="356" y="56" fontSize="8" fill="rgba(201,169,110,0.5)" fontFamily="monospace" letterSpacing="0.5">2.8m</text>
-            <text x="195" y="315" fontSize="7" fill="rgba(201,169,110,0.4)" fontFamily="monospace">SOFA_01</text>
-            <text x="265" y="353" fontSize="7" fill="rgba(201,169,110,0.4)" fontFamily="monospace">TABLE_01</text>
-            <text x="472" y="198" fontSize="7" fill="rgba(201,169,110,0.4)" fontFamily="monospace">LAMP_01</text>
-            {/* Corner dots */}
-            <circle cx="50" cy="60" r="3" fill="rgba(201,169,110,0.6)" />
-            <circle cx="50" cy="320" r="3" fill="rgba(201,169,110,0.6)" />
-            <circle cx="350" cy="480" r="3" fill="rgba(201,169,110,0.6)" />
-            <circle cx="650" cy="320" r="3" fill="rgba(201,169,110,0.6)" />
-            <circle cx="350" cy="160" r="3" fill="rgba(201,169,110,0.6)" />
-            <circle cx="650" cy="60" r="3" fill="rgba(201,169,110,0.6)" />
-            {/* Animated scan dot */}
-            <circle r="3" fill="rgba(201,169,110,0.8)">
-              <animateMotion dur="6s" repeatCount="indefinite" path="M50,320 L350,160 L650,320 L350,480 Z" />
-            </circle>
-            {/* Glow filter */}
-            <defs>
-              <filter id="glow">
-                <feGaussianBlur stdDeviation="3" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
-          </svg>
-        </div>
+      {/* BACKGROUND SLIDER */}
+      <div className="hero-bg-slider">
+        {images.map((img, i) => (
+          <div
+            key={i}
+            className={`hero-bg-img ${bgIndex === i ? 'active' : ''}`}
+            style={{ backgroundImage: `url("${img}")` }}
+          />
+        ))}
+        <div className="hero-bg-overlay" />
       </div>
 
       {/* LEFT CONTENT */}
@@ -425,7 +341,7 @@ function Hero({ isFormOpen, setIsFormOpen }) {
             </select>
           </div>
           {formStatus ? (
-            <div style={{ padding: '12px 15px', background: 'rgba(100,180,100,0.85)', color: '#050508', fontSize: 12, fontWeight: 600, borderRadius: 1 }}>{formStatus}</div>
+            <div style={{ padding: '12px 15px', background: 'rgba(100,180,100,0.85)', color: '#000000', fontSize: 12, fontWeight: 600, borderRadius: 1 }}>{formStatus}</div>
           ) : (
             <button type="submit" className="btn btn-gold" style={{ width: '100%', justifyContent: 'center' }}>
               BOOK FREE SITE VISIT →
@@ -433,7 +349,7 @@ function Hero({ isFormOpen, setIsFormOpen }) {
           )}
         </form>
         <div className="form-sep">OR</div>
-        <a href="https://wa.me/919823999414?text=Hi,%20I'm%20interested%20in%20your%20design%20services.%20What%20are%20your%20packages?" className="btn btn-wa" target="_blank" rel="noopener noreferrer" style={{ width: '100%', justifyContent: 'center' }}>
+        <a href="https://wa.me/919822998986?text=Hi,%20I'm%20interested%20in%20your%20design%20services.%20What%20are%20your%20packages?" className="btn btn-wa" target="_blank" rel="noopener noreferrer" style={{ width: '100%', justifyContent: 'center' }}>
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
           </svg>
@@ -473,7 +389,7 @@ function TrustBar() {
 
 function About() {
   return (
-    <section id="about" className="section" style={{ background: '#121212' }}>
+    <section id="about" className="section" style={{ background: '#000000' }}>
       <div className="container">
         <div className="about-grid">
           <div className="reveal">
@@ -574,7 +490,7 @@ function Gallery() {
   const items = showAll ? GALLERY_ITEMS : GALLERY_ITEMS.slice(0, 9)
 
   return (
-    <section id="gallery" className="section" style={{ background: '#121212' }}>
+    <section id="gallery" className="section" style={{ background: '#000000' }}>
       <div className="container">
         <div className="gallery-hdr">
           <div className="reveal">
@@ -775,7 +691,7 @@ function Process() {
     { num: '05', tag: '// DONE . WARRANTY', title: 'Handover', desc: 'Walkthrough, snag-fixing, and 10-year warranty docs. Move in!' },
   ]
   return (
-    <section id="process" className="section" style={{ background: '#121212' }}>
+    <section id="process" className="section" style={{ background: '#000000' }}>
       <div className="container">
         <div className="reveal" style={{ textAlign: 'center', maxWidth: 740, margin: '0 auto', marginBottom: 80 }}>
 
@@ -825,7 +741,7 @@ function Process() {
           height: 80px;
           border-radius: 50%;
           border: 1px solid rgba(201, 169, 110, 0.3);
-          background: #121212;
+          background: #000000;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -901,6 +817,9 @@ function Pricing() {
               <a href="#cta-section" className={`btn ${plan.featured ? 'btn-gold' : 'btn-outline'}`} style={{ width: '100%', justifyContent: 'center' }}>
                 Get Quote →
               </a>
+              <p style={{ fontSize: '9px', color: 'rgba(232, 224, 212, 0.35)', marginTop: '16px', fontStyle: 'italic', lineHeight: '1.4', textAlign: 'center' }}>
+                * Pricing may vary depending on project scope, services, and specific requirements.
+              </p>
             </div>
           ))}
         </div>
@@ -985,7 +904,7 @@ function Testimonials() {
   }
 
   return (
-    <section id="testimonials" className="section" style={{ background: '#121212', overflow: 'hidden' }}>
+    <section id="testimonials" className="section" style={{ background: '#000000', overflow: 'hidden' }}>
       <div className="container">
         <div className="reveal" style={{ textAlign: 'center', maxWidth: 740, margin: '0 auto 60px' }}>
           <h2 className="heading">What Pune Homeowners Say About Our <em>Interior Design Services</em></h2>
@@ -1016,7 +935,7 @@ function Testimonials() {
                       flexShrink: 0,
                       opacity: 1,
                       scale: 1,
-                      background: '#08080f',
+                      background: '#000000',
                       borderColor: 'rgba(201, 169, 110, 0.2)',
                       boxShadow: '0 10px 30px rgba(0,0,0,0.4)',
                       transition: 'all 0.4s ease',
@@ -1121,7 +1040,7 @@ function Testimonials() {
           width: 44px;
           height: 44px;
           border-radius: 50%;
-          background: #08080f;
+          background: #000000;
           border: 1px solid rgba(201, 169, 110, 0.2);
           color: var(--gold);
           display: flex;
@@ -1134,7 +1053,7 @@ function Testimonials() {
         }
         .test-nav-btn:hover {
           background: var(--gold);
-          color: #050508;
+          color: #000000;
           border-color: var(--gold);
           transform: scale(1.1);
         }
@@ -1205,8 +1124,8 @@ function CTA() {
               ))}
             </div>
             <div className="cta-btns">
-              <a href="tel:+919823999414" className="btn btn-gold">Call Now →</a>
-              <a href="https://wa.me/919823999414?text=Hi%20AR%20Interiors,%20I'm%20interested%20in%20a%20free%20design%20consultation." className="btn btn-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a href="tel:+919822998986" className="btn btn-gold">Call Now →</a>
+              <a href="https://wa.me/919822998986?text=Hi%20AR%20Interiors,%20I'm%20interested%20in%20a%20free%20design%20consultation." className="btn btn-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             </div>
           </div>
           <div className="cta-right">
@@ -1222,7 +1141,7 @@ function CTA() {
                 </select>
               </div>
               {formStatus ? (
-                <div style={{ padding: '12px', background: 'rgba(100,180,100,0.85)', color: '#050508', fontSize: 12, fontWeight: 600 }}>{formStatus}</div>
+                <div style={{ padding: '12px', background: 'rgba(100,180,100,0.85)', color: '#000000', fontSize: 12, fontWeight: 600 }}>{formStatus}</div>
               ) : (
                 <button type="submit" className="btn btn-gold" style={{ width: '100%', justifyContent: 'center' }}>
                   BOOK FREE VISIT →
@@ -1239,7 +1158,7 @@ function CTA() {
 function FAQ() {
   const [openIdx, setOpenIdx] = useState(null)
   return (
-    <section id="faq" className="section" style={{ background: '#121212' }}>
+    <section id="faq" className="section" style={{ background: '#000000' }}>
       <div className="container">
         <div className="reveal" style={{ textAlign: 'center', maxWidth: 740, margin: '0 auto' }}>
 
@@ -1300,7 +1219,7 @@ function Footer() {
           <div>
             <div className="fh">Contact</div>
             <ul className="fl">
-              <li><a href="tel:+919823999414">+91 98239 99414</a></li>
+              <li><a href="tel:+919822998986">+91 98229 98986</a></li>
               <li><a href="mailto:a.r.interiors85@gmail.com">a.r.interiors85@gmail.com</a></li>
               <li><a href="#">Pune, Maharashtra</a></li>
             </ul>
@@ -1318,10 +1237,13 @@ function Footer() {
 function FloatingActions({ isFormOpen, setIsFormOpen }) {
   return (
     <div className="floating-actions">
-      <a href="https://wa.me/919823999414?text=Hi%20AR%20Interiors,%20I'm%20interested%20in%20a%20free%20design%20consultation." className="swa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+      <a href="https://wa.me/919822998986?text=Hi%20AR%20Interiors,%20I'm%20interested%20in%20a%20free%20design%20consultation." className="swa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
         <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
+      </a>
+      <a href="tel:+919822998986" className="call-float" aria-label="Call Us">
+        <Phone size={26} fill="currentColor" />
       </a>
       {!isFormOpen && (
         <button className="bottom-quote-btn" onClick={() => setIsFormOpen(true)} aria-label="Open form">
