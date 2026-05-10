@@ -163,7 +163,11 @@ function Footer() {
           <div>
             <div className="fh">Quick Links</div>
             <ul className="fl">
-              {['Home', 'Services', 'Blogs', 'About Us', 'Contact'].map(l => <li key={l}><a href={l === 'Home' ? '/' : `/${l.toLowerCase()}`}>{l}</a></li>)}
+              <li><a href="/privacy-policy">Privacy Policy</a></li>
+              <li><a href="/terms-and-conditions">Terms & Conditions</a></li>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/services">Services</a></li>
+              <li><a href="/blogs">Blog</a></li>
             </ul>
           </div>
           <div>
