@@ -55,7 +55,7 @@ const NAV_LINKS = [
   { href: '/services', label: 'Services' },
   { href: '/#process', label: 'Process' },
   { href: '/#pricing', label: 'Price' },
-  { href: '/#gallery', label: 'Gallery' },
+  { href: '//portfolio', label: 'Gallery' },
   { href: '/#testimonials', label: 'Review' },
   { href: '/blogs', label: 'Blog' },
   { href: '/#faq', label: 'FAQ' },

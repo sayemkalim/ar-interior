@@ -201,7 +201,7 @@ export default function PrivacyPolicy() {
             <main className="legal-main">
               <div className="legal-card">
                 <div className="intro">
-                  <p>Welcome to AR Interiors Official. Your privacy is important to us, and we are committed to protecting the personal information you share with us through our website and communication channels.</p>
+                  <p>Welcome to <a href="https://www.arinteriorsofficial.com" style={{ color: 'var(--gold)', textDecoration: 'underline' }}>AR Interiors Official</a>. Your privacy is important to us, and we are committed to protecting the personal information you share with us through our website and communication channels.</p>
                   <p>This Privacy Policy explains how AR Interiors collects, uses, stores, and protects your information when you visit our website or interact with our services.</p>
                 </div>
 
@@ -289,7 +289,7 @@ export default function PrivacyPolicy() {
                 </div>
 
                 <div className="contact-footer">
-                  <p>For any privacy-related concerns or queries, please contact us through the official contact details mentioned on AR Interiors Official.</p>
+                  <p>For any privacy-related concerns or queries, please contact us through the official contact details mentioned on <a href="https://www.arinteriorsofficial.com" style={{ color: 'var(--gold)', textDecoration: 'underline' }}>AR Interiors Official</a>.</p>
                 </div>
               </div>
             </main>

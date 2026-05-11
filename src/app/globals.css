@@ -652,7 +652,7 @@ body {
 }
 
 .hero-bg-img.active {
-  opacity: 0.6;
+  opacity: 1;
   transform: scale(1);
 }
 

@@ -20,7 +20,7 @@ const NAV_LINKS = [
   { href: '/services', label: 'Services' },
   { href: '#process', label: 'Process' },
   { href: '#pricing', label: 'Price' },
-  { href: '#gallery', label: 'Gallery' },
+  { href: '/portfolio', label: 'Gallery' },
   { href: '#testimonials', label: 'Review' },
   { href: '/blogs', label: 'Blog' },
   { href: '#faq', label: 'FAQ' },
@@ -252,7 +252,7 @@ function Navbar() {
 function Hero({ isFormOpen, setIsFormOpen }) {
   const [formStatus, setFormStatus] = useState('')
   const [bgIndex, setBgIndex] = useState(0)
-  const images = ['/background/website 1.png', '/background/webiste 2.png']
+  const images = ['/background/website.jpg', '/background/webiste 2.png']
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -278,7 +278,6 @@ function Hero({ isFormOpen, setIsFormOpen }) {
             style={{ backgroundImage: `url("${img}")` }}
           />
         ))}
-        <div className="hero-bg-overlay" />
       </div>
 
       {/* LEFT CONTENT */}
@@ -300,7 +299,7 @@ function Hero({ isFormOpen, setIsFormOpen }) {
               <ArrowRight size={14} strokeWidth={2.5} />
               GET FREE ESTIMATE
             </a>
-            <a href="#gallery" className="btn btn-outline">VIEW PORTFOLIO</a>
+            <a href="/portfolio" className="btn btn-outline">VIEW PORTFOLIO</a>
           </div>
         </div>
 
@@ -459,35 +458,14 @@ function USP() {
 }
 
 const GALLERY_ITEMS = [
-  { src: '/gallery/IMG_1621.jpg', h: '450px', title: 'Luxury Living', sub: 'PUNE · PROJECT 01' },
-  { src: '/gallery/IMG_1622.jpg', h: '320px', title: 'Modern Bedroom', sub: 'WAKAD · 3BHK' },
-  { src: '/gallery/IMG_1623.jpg', h: '500px', title: 'Modular Kitchen', sub: 'BANER · 2BHK' },
-  { src: '/gallery/IMG_1624.jpg', h: '380px', title: 'Dining Concept', sub: 'KOTHRUD · VILLA' },
-  { src: '/gallery/IMG_1630.jpg', h: '420px', title: 'Urban Lounge', sub: 'PUNE · FLAT' },
-  { src: '/gallery/IMG_1631.jpg', h: '350px', title: 'Cosy Bedroom', sub: 'AUNDH · 3BHK' },
-  { src: '/gallery/IMG_1632.jpg', h: '480px', title: 'Grand Hall', sub: 'HINJEWADI · 2BHK' },
-  { src: '/gallery/IMG_1633.jpg', h: '310px', title: 'Kitchen Detail', sub: 'PUNE · RESIDENTIAL' },
-  { src: '/gallery/IMG_1684.jpg', h: '440px', title: 'Living Space', sub: 'WAKAD · VILLA' },
-  { src: '/gallery/IMG_1685.jpg', h: '330px', title: 'Interior Art', sub: 'BANER · 3BHK' },
-  { src: '/gallery/IMG_1686.jpg', h: '490px', title: 'Modern Kitchen', sub: 'KOTHRUD · FLAT' },
-  { src: '/gallery/IMG_1687.jpg', h: '360px', title: 'Master Suite', sub: 'PUNE · PROJECT 02' },
-  { src: '/gallery/IMG_1706.jpg', h: '410px', title: 'Design Corner', sub: 'AUNDH · 2BHK' },
-  { src: '/gallery/IMG_1710.jpg', h: '340px', title: 'Elegant Living', sub: 'HINJEWADI · 3BHK' },
-  { src: '/gallery/modularkitchen1.jpg', h: '510px', title: 'Pro Kitchen', sub: 'PUNE · VILLA' },
-  { src: '/gallery/IMG_2089.JPG.jpeg', h: '300px', title: 'Detail View', sub: 'WAKAD · FLAT' },
-  { src: '/gallery/IMG_2090.JPG.jpeg', h: '430px', title: 'Living Setup', sub: 'BANER · 2BHK' },
-  { src: '/gallery/IMG_2091.JPG.jpeg', h: '370px', title: 'Kitchen View', sub: 'KOTHRUD · 3BHK' },
-  { src: '/gallery/IMG_2092.JPG.jpeg', h: '460px', title: 'Main Hall', sub: 'HINJEWADI · VILLA' },
-  { src: '/gallery/IMG_2093.JPG.jpeg', h: '320px', title: 'Bedroom Art', sub: 'PUNE · RESIDENTIAL' },
-  { src: '/gallery/IMG_2094.JPG.jpeg', h: '400px', title: 'Office Space', sub: 'AUNDH · 2BHK' },
-  { src: '/gallery/IMG_2095.JPG.jpeg', h: '350px', title: 'Compact Design', sub: 'WAKAD · 3BHK' },
-  { src: '/gallery/IMG_2096.JPG.jpeg', h: '470px', title: 'Luxury Corner', sub: 'KOTHRUD · VILLA' },
-  { src: '/gallery/IMG_1729.jpg', h: '440px', title: 'Grand Kitchen', sub: 'PUNE · PROJECT 03' },
+  { src: '/gallery/1.png', h: '450px', title: 'Luxury Living', sub: 'PUNE · PROJECT 01' },
+  { src: '/gallery/2.png', h: '320px', title: 'Modern Bedroom', sub: 'WAKAD · 3BHK' },
+  { src: '/gallery/3.png', h: '500px', title: 'Modular Kitchen', sub: 'BANER · 2BHK' },
+  { src: '/gallery/4.jpg', h: '380px', title: 'Dining Concept', sub: 'KOTHRUD · VILLA' },
 ]
 
 function Gallery() {
-  const [showAll, setShowAll] = useState(false)
-  const items = showAll ? GALLERY_ITEMS : GALLERY_ITEMS.slice(0, 9)
+  const featuredItems = GALLERY_ITEMS.slice(0, 4)
 
   return (
     <section id="gallery" className="section" style={{ background: '#000000' }}>
@@ -497,98 +475,80 @@ function Gallery() {
             <h2 className="heading">Our <em>Work</em></h2>
           </div>
         </div>
-        <div className="gallery-container">
-          <div className="vertical-label reveal">
-            <span className="v-line" />
-            <span className="v-text">GALLERY</span>
-          </div>
-          <div className="masonry-grid">
-            {[0, 1, 2].map((colIdx) => (
-              <div key={colIdx} className="masonry-column">
-                {items
-                  .filter((_, i) => i % 3 === colIdx)
-                  .map((item, i) => (
-                    <div key={i} className="gi">
-                      <img
-                        src={item.src}
-                        alt={item.title}
-                        loading="lazy"
-                        className="gi-img"
-                        style={{ height: item.h, objectFit: 'cover' }}
-                      />
-                    </div>
-                  ))}
+        <div className="gallery-grid">
+          {featuredItems.map((item, i) => (
+            <div key={i} className="gi reveal" style={{ animationDelay: `${i * 0.1}s` }}>
+              <div className="gi-inner">
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  loading="lazy"
+                  className="gi-img"
+                  style={{ height: '350px', objectFit: 'cover' }}
+                />
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-        {!showAll && (
-          <div style={{ textAlign: 'center', marginTop: 40 }} className="reveal">
-            <p style={{ color: 'rgba(232,224,212,0.35)', fontSize: 12, marginBottom: 14, fontFamily: 'monospace', letterSpacing: '0.06em' }}>
-              200+ PROJECTS ACROSS PUNE
-            </p>
-            <button onClick={() => setShowAll(true)} className="btn btn-gold">VIEW FULL PORTFOLIO →</button>
-          </div>
-        )}
+        <div style={{ textAlign: 'center', marginTop: 60 }} className="reveal">
+          <p style={{ color: 'rgba(232,224,212,0.35)', fontSize: 12, marginBottom: 14, fontFamily: 'monospace', letterSpacing: '0.06em' }}>
+            200+ PROJECTS ACROSS PUNE
+          </p>
+          <a href="/portfolio" className="btn btn-gold">VIEW FULL PORTFOLIO →</a>
+        </div>
       </div>
       <style jsx>{`
-        .gallery-container {
-          display: flex;
-          gap: 30px;
-          position: relative;
-          padding: 0 4%;
-        }
-        .vertical-label {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
+        .gallery-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
           gap: 20px;
-          padding-top: 20px;
-          opacity: 0.3;
-        }
-        .v-line {
-          width: 1px;
-          height: 80px;
-          background: var(--gold);
-        }
-        .v-text {
-          writing-mode: vertical-rl;
-          text-transform: uppercase;
-          font-family: var(--font-body);
-          font-size: 9px;
-          letter-spacing: 0.6em;
-          color: var(--gold);
-        }
-        .masonry-grid {
-          display: flex;
-          gap: 16px;
-          flex: 1;
-        }
-        .masonry-column {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-          flex: 1;
+          padding: 0 2%;
         }
         .gi {
+          position: relative;
+          cursor: pointer;
+          overflow: hidden;
+          border-radius: 4px;
+        }
+        .gi-inner {
+          position: relative;
           width: 100%;
         }
         .gi-img {
           width: 100%;
-          height: auto;
           display: block;
-          border: 1px solid rgba(255,255,255,0.05);
+          transition: filter 0.6s;
         }
-        @media (max-width: 900px) {
-          .vertical-label { display: none; }
-          .masonry-grid { gap: 10px; }
-          .masonry-column { gap: 10px; }
+        .gi-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
+          opacity: 0;
+          transition: opacity 0.4s;
+          display: flex;
+          align-items: flex-end;
+          padding: 24px;
+        }
+        .gi:hover .gi-overlay {
+          opacity: 1;
+        }
+        .gi-sub {
+          display: block;
+          font-size: 10px;
+          color: var(--gold);
+          letter-spacing: 0.1em;
+          margin-bottom: 6px;
+        }
+        .gi-title {
+          font-size: 16px;
+          color: #fff;
+          font-weight: 500;
+        }
+        @media (max-width: 1024px) {
+          .gallery-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 600px) {
-          .masonry-grid {
-            /* On small screens, maybe 2 columns */
-          }
-          .masonry-column:last-child { display: none; }
+          .gallery-grid { grid-template-columns: 1fr; }
         }
       `}</style>
     </section>

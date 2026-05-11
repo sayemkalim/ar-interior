@@ -201,7 +201,7 @@ export default function TermsAndConditions() {
             <main className="legal-main">
               <div className="legal-card">
                 <div className="intro">
-                  <p>Welcome to AR Interiors Official. By accessing our website and availing our services, you agree to comply with the following Terms & Conditions. Please read them carefully before proceeding with any enquiry, booking, or service confirmation.</p>
+                  <p>Welcome to <a href="https://www.arinteriorsofficial.com" style={{ color: 'var(--gold)', textDecoration: 'underline' }}>AR Interiors Official</a>. By accessing our website and availing our services, you agree to comply with the following Terms & Conditions. Please read them carefully before proceeding with any enquiry, booking, or service confirmation.</p>
                 </div>
 
                 <div id="general" className="clause">
