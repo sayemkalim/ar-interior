@@ -1651,6 +1651,15 @@ body {
   display: block;
 }
 
+.cube-tc {
+  font-size: 8px;
+  font-style: italic;
+  color: rgba(232, 224, 212, 0.25);
+  margin-top: 6px;
+  display: block;
+  letter-spacing: 0.05em;
+}
+
 .cube-big {
   grid-column: 1/3;
   background: rgba(201, 169, 110, 0.04);
@@ -3359,13 +3368,20 @@ footer {
   .floating-actions {
     bottom: 12px;
     right: 12px;
-    gap: 8px;
+    gap: 6px;
   }
 
   .swa,
+  .call-float,
   .bottom-quote-btn {
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
+  }
+  .swa svg,
+  .call-float svg,
+  .bottom-quote-btn svg {
+    width: 18px !important;
+    height: 18px !important;
   }
 }
 

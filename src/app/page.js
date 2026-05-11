@@ -412,16 +412,18 @@ function About() {
                 { num: '500', suffix: '+', label: 'Projects Delivered' },
                 { num: '12', suffix: '+', label: 'Years in Business' },
                 { num: '94', suffix: '%', label: 'Client Satisfaction' },
-                { num: '45', suffix: 'd *', label: 'Timelines may vary from project to project', },
+                { num: '45', suffix: 'd *', label: 'Timelines may vary from project to project', tc: 'Terms and conditions applied' },
               ].map((s, i) => (
                 <div className="stat-cube" key={i}>
                   <span className="cube-num" data-target={parseInt(s.num)} data-suffix={s.suffix} data-prefix={s.prefix || ''}>0</span>
                   <span className="cube-lbl">{s.label}</span>
+                  {s.tc && <span className="cube-tc">{s.tc}</span>}
                 </div>
               ))}
               <div className="stat-cube cube-big">
                 <span className="cube-num">10 *</span>
                 <span className="cube-lbl">Year Woodwork Warranty — Industry&apos;s Best</span>
+                <span className="cube-tc">Terms and conditions applied</span>
               </div>
             </div>
           </div>
