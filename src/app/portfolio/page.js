@@ -33,11 +33,11 @@ const GALLERY_IMAGES = [
   { src: '/gallery/hall- Edited.png', h: '340px', title: 'Elegant Living', sub: 'HINJEWADI · 3BHK' },
   { src: '/gallery/Imag.png', h: '510px', title: 'Pro Kitchen', sub: 'PUNE · VILLA' },
   { src: '/gallery/Image_Edited.png', h: '300px', title: 'Detail View', sub: 'WAKAD · FLAT' },
-  { src: '/gallery/20231225_200955.jpg.png', h: '430px', title: 'Living Setup', sub: 'BANER · 2BHK' },
-  { src: '/gallery/20231226_204917.jpg.png', h: '370px', title: 'Kitchen View', sub: 'KOTHRUD · 3BHK' },
-  { src: '/gallery/20240416_133814.jpg.png', h: '460px', title: 'Main Hall', sub: 'HINJEWADI · VILLA' },
-  { src: '/gallery/20240425_182012.jpg.png', h: '320px', title: 'Bedroom Art', sub: 'PUNE · RESIDENTIAL' },
-  { src: '/gallery/20240515_164422.jpg.png', h: '400px', title: 'Office Space', sub: 'AUNDH · 2BHK' },
+  { src: '/gallery/20231225_200955.jpg.png', h: '430px', title: 'Living Setup', sub: 'BANER · 2BHK', rotate: true },
+  { src: '/gallery/20231226_204917.jpg.png', h: '370px', title: 'Kitchen View', sub: 'KOTHRUD · 3BHK', rotate: true },
+  { src: '/gallery/20240416_133814.jpg.png', h: '460px', title: 'Main Hall', sub: 'HINJEWADI · VILLA', rotate: true },
+  { src: '/gallery/20240425_182012.jpg.png', h: '320px', title: 'Bedroom Art', sub: 'PUNE · RESIDENTIAL', rotate: true },
+  { src: '/gallery/20240515_164422.jpg.png', h: '400px', title: 'Office Space', sub: 'AUNDH · 2BHK', rotate: true },
 ]
 
 function Navbar() {
@@ -185,7 +185,11 @@ export default function PortfolioPage() {
                           alt={item.title}
                           loading="lazy"
                           className="gi-img"
-                          style={{ height: item.h, objectFit: 'cover' }}
+                          style={{ 
+                            height: item.h, 
+                            objectFit: 'cover',
+                            transform: item.rotate ? 'rotate(90deg)' : 'none'
+                          }}
                         />
                       </div>
                     </div>
@@ -199,7 +203,17 @@ export default function PortfolioPage() {
       {selectedImg && (
         <div className="lightbox" onClick={() => setSelectedImg(null)}>
           <button className="close-btn"><X size={32} /></button>
-          <img src={selectedImg.src} alt={selectedImg.title} className="lightbox-img" onClick={e => e.stopPropagation()} />
+          <img 
+            src={selectedImg.src} 
+            alt={selectedImg.title} 
+            className="lightbox-img" 
+            onClick={e => e.stopPropagation()} 
+            style={{ 
+              transform: selectedImg.rotate ? 'rotate(90deg)' : 'none',
+              maxWidth: selectedImg.rotate ? '50vh' : '90%', // Adjusting max-width for rotated images
+              maxHeight: selectedImg.rotate ? '80vw' : '80vh'
+            }}
+          />
           <div className="lightbox-info">
             <h3>{selectedImg.title}</h3>
             <p>{selectedImg.sub}</p>
