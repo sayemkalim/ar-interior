@@ -238,74 +238,47 @@ export default function AboutPage() {
         {/* CONTENT SECTION */}
         <section className="about-content section">
           <div className="container">
-            <div className="about-story-split">
-              <div className="story-img-col reveal">
-                <div className="story-img-frame">
-                  <div className="story-img-deco-lines" />
-                  <img src="/about-content.png" alt="AR Interiors Design" className="story-main-img" />
-                  <div className="story-img-border" />
-                </div>
-
-                <div className="story-stats-overlay">
-                  <div className="so-glass" />
-                  <div className="so-item">
-                    <span className="so-num">500+</span>
-                    <span className="so-lab">Projects</span>
-                  </div>
-                  <div className="so-sep" />
-                  <div className="so-item">
-                    <span className="so-num">12+</span>
-                    <span className="so-lab">Years</span>
-                  </div>
-                </div>
-
-                <div className="founder-badge reveal d2">
-                  <div className="fb-content">
-                    <span className="fb-title">Founder's Vision</span>
-                    <span className="fb-name">Mr. Parvez Shaikh</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="story-text-col reveal d1">
-                <div className="section-label">THE JOURNEY</div>
-                <h2 className="heading">Every brand has a <em>beginning</em>, and ours starts with a vision.</h2>
-                <div className="story-body">
+            <div className="about-story-centered reveal" style={{ maxWidth: '900px', margin: '0 auto 120px', textAlign: 'center' }}>
+              <div className="story-text-col">
+                <div className="section-label" style={{ textAlign: 'center' }}>THE JOURNEY</div>
+                <h2 className="heading" style={{ textAlign: 'center' }}>Every brand has a <em>beginning</em>, and ours starts with a vision.</h2>
+                <div className="divider" style={{ margin: '24px auto 40px' }} />
+                <div className="story-body" style={{ textAlign: 'left' }}>
                   <p>
                     Before A R Interiors became one of Pune’s most trusted names in home interior design, it was a dream nurtured by <strong>Mr. Parvez Shaikh</strong>.
                     Starting his journey working for others in the industry, he gained hands-on experience, understood client expectations, and witnessed the gaps that often went unnoticed, especially when it came to affordability, transparency, and service quality.
                   </p>
-
-                  <div className="vision-quote">
+                  <div className="vision-quote" style={{ margin: '40px auto' }}>
                     <span className="quote-mark">"</span>
                     <p>Why not build something better? A space where quality interiors aren’t a luxury, but accessible to every homeowner.</p>
                   </div>
-
                   <p>
                     Driven by this vision, Mr. Parvez Shaikh founded A R Interiors with a clear purpose to offer affordable pricing without compromising on design, quality, or customer experience.
                     What began as a small step has today grown into a team of designers, project managers, and skilled craftsmen.
                   </p>
-
                   <p>
                     Since 2012, we’ve delivered 500+ projects across Pune, transforming everything from compact 2 & 3 BHK apartments to expansive villas.
                     Our approach is simple: understand your space, respect your budget, and deliver beyond expectations.
                   </p>
-
                   <p>
                     Whether you’re looking for cost-effective interiors or a premium full-home transformation, we ensure every project is handled with precision.
                     With a dedicated project manager, fixed timelines, transparent pricing, and our signature 10-year woodwork warranty, we don’t just design homes, we build trust that lasts.
                   </p>
-
-                  {/* <div className="story-features">
-                    <div className="sf-item"><Check size={14} /> 10-Year Warranty</div>
-                    <div className="sf-item"><Check size={14} /> Fixed Timelines</div>
-                    <div className="sf-item"><Check size={14} /> Transparent Pricing</div>
-                  </div> */}
-
-                  <p className="closing-quote">
+                  <p className="closing-quote" style={{ textAlign: 'center' }}>
                     At A R Interiors, every home tells a story. And we’re here to help you create yours.
                   </p>
                 </div>
+              </div>
+
+              <div className="video-wrapper reveal" style={{ marginTop: '80px', position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '4px', border: '1px solid rgba(201, 169, 110, 0.2)', boxShadow: '0 20px 50px rgba(0,0,0,0.5)' }}>
+                <iframe 
+                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                  title="YouTube video player" 
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowFullScreen
+                ></iframe>
               </div>
             </div>
             <div className="about-values-grid">

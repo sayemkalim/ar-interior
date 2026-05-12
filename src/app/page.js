@@ -252,7 +252,7 @@ function Navbar() {
 function Hero({ isFormOpen, setIsFormOpen }) {
   const [formStatus, setFormStatus] = useState('')
   const [bgIndex, setBgIndex] = useState(0)
-  const images = ['/background/website.jpg', '/background/webiste 2.png']
+  const images = ['/background/website 1.png', '/background/webiste 2.png']
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -278,6 +278,7 @@ function Hero({ isFormOpen, setIsFormOpen }) {
             style={{ backgroundImage: `url("${img}")` }}
           />
         ))}
+        <div className="hero-bg-overlay" />
       </div>
 
       {/* LEFT CONTENT */}
@@ -460,10 +461,10 @@ function USP() {
 }
 
 const GALLERY_ITEMS = [
-  { src: '/gallery/1.png', h: '450px', title: 'Luxury Living', sub: 'PUNE · PROJECT 01' },
-  { src: '/gallery/2.png', h: '320px', title: 'Modern Bedroom', sub: 'WAKAD · 3BHK' },
-  { src: '/gallery/3.png', h: '500px', title: 'Modular Kitchen', sub: 'BANER · 2BHK' },
-  { src: '/gallery/4.jpg', h: '380px', title: 'Dining Concept', sub: 'KOTHRUD · VILLA' },
+  { src: '/gallery/Our Work 1.png', h: '450px', title: 'Luxury Living', sub: 'PUNE · PROJECT 01' },
+  { src: '/gallery/Our Work 2.png', h: '320px', title: 'Modern Bedroom', sub: 'WAKAD · 3BHK' },
+  { src: '/gallery/Our work 3.png', h: '500px', title: 'Modular Kitchen', sub: 'BANER · 2BHK' },
+  { src: '/gallery/Our Work 4.png', h: '380px', title: 'Dining Concept', sub: 'KOTHRUD · VILLA' },
 ]
 
 function Gallery() {
