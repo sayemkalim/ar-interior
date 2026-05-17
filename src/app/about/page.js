@@ -271,12 +271,11 @@ export default function AboutPage() {
               </div>
 
               <div className="video-wrapper reveal" style={{ marginTop: '80px', position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '4px', border: '1px solid rgba(201, 169, 110, 0.2)', boxShadow: '0 20px 50px rgba(0,0,0,0.5)' }}>
-                <iframe 
+                <iframe
                   style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                  title="YouTube video player" 
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  src="https://www.youtube.com/embed/bh-h6z6bIqA?si=JpcXPRw6l_sHsRG3" title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 ></iframe>
               </div>
