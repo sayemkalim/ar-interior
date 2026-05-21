@@ -77,7 +77,7 @@ export default function AdminLoginPage() {
       <div style={{ width: '100%', maxWidth: 420 }}>
         <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(201,169,110,0.15)', borderRadius: 8, padding: '48px 40px' }}>
           <div style={{ textAlign: 'center', marginBottom: 32 }}>
-            <img src="/logo.png" alt="AR Interiors" style={{ height: 38, width: 'auto', opacity: 0.9 }} />
+            <img src="/newlogo.png" alt="AR Interiors" style={{ height: 38, width: 'auto', opacity: 0.9 }} />
           </div>
           <div style={{ textAlign: 'center', marginBottom: 36 }}>
             <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#C9A96E' }}>// SECURE ACCESS</span>

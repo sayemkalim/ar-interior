@@ -217,7 +217,7 @@ function Navbar() {
       <div className="nav-inner">
         {/* Logo as SVG text since base64 is embedded in original */}
         <a href="/" className="nav-logo" style={{ textDecoration: 'none' }}>
-          <img src="/logo.png" alt="AR Interiors" style={{ height: '40px', width: 'auto', display: 'block' }} />
+          <img src="/newlogo.png" alt="AR Interiors" style={{ height: '40px', width: 'auto', display: 'block' }} />
         </a>
         <div className="nav-sep" />
         <ul className={`nav-links${menuOpen ? ' mobile-open' : ''}`}>
@@ -1152,7 +1152,7 @@ function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div>
-            <img src="/logo.png" alt="AR Interiors" style={{ height: '36px', width: 'auto', marginBottom: 14, opacity: 0.9, display: 'block' }} />
+            <img src="/newlogo.png" alt="AR Interiors" style={{ height: '36px', width: 'auto', marginBottom: 14, opacity: 0.9, display: 'block' }} />
             <p className="footer-desc">Pune&apos;s most trusted interior design studio. Design Spaces,That Tell Your Story</p>
             <div className="fsocial">
               {[
