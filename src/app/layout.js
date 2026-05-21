@@ -25,13 +25,14 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${poppins.variable}`}>
       <head>
         {/* Google Analytics */}
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-0G7MDLLY8E" strategy="afterInteractive" />
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-FRLLHZ1W61" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-0G7MDLLY8E');
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FRLLHZ1W61');
+
           `}
         </Script>
 

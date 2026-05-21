@@ -180,7 +180,7 @@ function Footer() {
             <div className="fh">Office</div>
             <ul className="fl">
               <li><a href="tel:+919822998986">+91 98229 98986</a></li>
-              <li><a href="mailto:a.r.interiors85@gmail.com">a.r.interiors85@gmail.com</a></li>
+              <li><a href="mailto:arinteriorsofficialpune@gmail.com">arinteriorsofficialpune@gmail.com</a></li>
               <li><a href="#">Pune, Maharashtra</a></li>
             </ul>
           </div>

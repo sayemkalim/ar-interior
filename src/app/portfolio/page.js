@@ -26,7 +26,7 @@ const GALLERY_IMAGES = [
   { src: '/gallery/7.png', h: '480px', title: 'Grand Hall', sub: 'HINJEWADI · 2BHK' },
   { src: '/gallery/8.png', h: '310px', title: 'Kitchen Detail', sub: 'PUNE · RESIDENTIAL' },
   { src: '/gallery/9.png', h: '440px', title: 'Living Space', sub: 'WAKAD · VILLA' },
-  { src: '/gallery/10.png', h: '330px', title: 'Interior Art', sub: 'BANER · 3BHK' },
+  { src: '/gallery/office.jpeg', h: '330px', title: 'Interior Art', sub: 'BANER · 3BHK' },
   { src: '/gallery/11.png', h: '490px', title: 'Modern Kitchen', sub: 'KOTHRUD · FLAT' },
   { src: '/gallery/12.png', h: '360px', title: 'Master Suite', sub: 'PUNE · PROJECT 02' },
   { src: '/gallery/bedroom - Edited.png', h: '410px', title: 'Design Corner', sub: 'AUNDH · 2BHK' },
@@ -119,7 +119,7 @@ function Footer() {
             <div className="fh">Contact</div>
             <ul className="fl">
               <li><a href="tel:+919822998986">+91 98229 98986</a></li>
-              <li><a href="mailto:a.r.interiors85@gmail.com">a.r.interiors85@gmail.com</a></li>
+              <li><a href="mailto:arinteriorsofficialpune@gmail.com">arinteriorsofficialpune@gmail.com</a></li>
               <li><a href="#">Pune, Maharashtra</a></li>
             </ul>
           </div>
@@ -185,8 +185,8 @@ export default function PortfolioPage() {
                           alt={item.title}
                           loading="lazy"
                           className="gi-img"
-                          style={{ 
-                            height: item.h, 
+                          style={{
+                            height: item.h,
                             objectFit: 'cover',
                             transform: item.rotate ? 'rotate(90deg)' : 'none'
                           }}
@@ -203,12 +203,12 @@ export default function PortfolioPage() {
       {selectedImg && (
         <div className="lightbox" onClick={() => setSelectedImg(null)}>
           <button className="close-btn"><X size={32} /></button>
-          <img 
-            src={selectedImg.src} 
-            alt={selectedImg.title} 
-            className="lightbox-img" 
-            onClick={e => e.stopPropagation()} 
-            style={{ 
+          <img
+            src={selectedImg.src}
+            alt={selectedImg.title}
+            className="lightbox-img"
+            onClick={e => e.stopPropagation()}
+            style={{
               transform: selectedImg.rotate ? 'rotate(90deg)' : 'none',
               maxWidth: selectedImg.rotate ? '50vh' : '90%', // Adjusting max-width for rotated images
               maxHeight: selectedImg.rotate ? '80vw' : '80vh'
