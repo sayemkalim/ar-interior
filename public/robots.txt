@@ -1,0 +1,36 @@
+User-agent: *
+Allow: /
+
+# Important Pages
+Allow: /services/
+Allow: /blog/
+Allow: /about-us/
+Allow: /#cta-section?
+
+# Block Low Value Pages
+Disallow: /wp-admin/
+Disallow: /thank-you/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /privacy-policy/
+
+# AI Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://www.arinteriorsofficial.com/sitemap.xml
