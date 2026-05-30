@@ -111,11 +111,10 @@ function Footer() {
             <img src="/newlogo.png" alt="AR Interiors" style={{ height: '36px', width: 'auto', marginBottom: 14, opacity: 0.9, display: 'block' }} />
             <p className="footer-desc">Pune&apos;s most trusted interior design studio. Design Spaces,That Tell Your Story</p>
             <div className="fsocial">
-              {[
-                { icon: FaInstagram, label: 'Instagram', color: '#E4405F', href: '#' },
+             {[
+                { icon: FaInstagram, label: 'Instagram', color: '#E4405F', href: 'https://www.instagram.com/arinteriorsofficial?igsh=MW9idzBzcXg1bTlmdw==' },
                 { icon: FaFacebookF, label: 'Facebook', color: '#1877F2', href: 'https://www.facebook.com/a.r.interiors85' },
-                { icon: FaYoutube, label: 'Youtube', color: '#FF0000', href: '#' },
-                { icon: FaLinkedinIn, label: 'Linkedin', color: '#0A66C2', href: '#' }
+                { icon: FaYoutube, label: 'Youtube', color: '#FF0000', href: 'https://youtube.com/@arinteriorsofficialpune?si=grndGBYtPcioYzJm' },
               ].map((s, i) => (
                 <a key={i} href={s.href} className="fsb" aria-label={s.label} style={{ '--brand-color': s.color }} target={s.href !== '#' ? '_blank' : undefined} rel={s.href !== '#' ? 'noopener noreferrer' : undefined}>
                   <s.icon size={16} color="currentColor" />
