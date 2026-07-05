@@ -35,12 +35,12 @@ function renderContent(contentItems) {
           </div>
         );
         case 'ul': return (
-          <ul key={idx} style={styles.list}>
+          <ul key={idx} style={styles.listUl}>
             {item.items?.map((li, i) => <li key={i} style={styles.li}>{li}</li>)}
           </ul>
         );
         case 'ol': return (
-          <ol key={idx} style={styles.list}>
+          <ol key={idx} style={styles.listOl}>
             {item.items?.map((li, i) => <li key={i} style={styles.li}>{li}</li>)}
           </ol>
         );
@@ -55,7 +55,8 @@ const styles = {
   h2: { fontFamily: 'var(--font-poppins)', fontSize: 30, color: '#fff', margin: '56px 0 20px', lineHeight: 1.3 },
   h3: { fontFamily: 'var(--font-poppins)', fontSize: 22, color: '#fff', margin: '36px 0 14px', lineHeight: 1.3 },
   p:  { marginBottom: 22, lineHeight: 1.85, color: 'rgba(232,224,212,0.85)', fontSize: 16 },
-  list: { marginBottom: 28, paddingLeft: 22, lineHeight: 1.8 },
+  listUl: { marginBottom: 28, paddingLeft: 22, lineHeight: 1.8, listStyleType: 'disc' },
+  listOl: { marginBottom: 28, paddingLeft: 22, lineHeight: 1.8, listStyleType: 'decimal' },
   li:  { marginBottom: 10, color: 'rgba(232,224,212,0.85)', fontSize: 16 },
 };
 
@@ -107,11 +108,39 @@ export default async function SingleBlogPage({ params }) {
       {/* Content */}
       <div style={{ maxWidth: 780, margin: '0 auto', padding: '72px 28px 120px' }}>
         {blog.excerpt && (
-          <p style={{ fontFamily: 'var(--font-poppins)', fontStyle: 'italic', fontSize: 20, color: '#C9A96E', marginBottom: 48, lineHeight: 1.65, borderLeft: '3px solid #C9A96E', paddingLeft: 20 }}>
+          <p style={{ fontFamily: 'var(--font-playfair)', fontStyle: 'italic', fontSize: 20, color: '#C9A96E', marginBottom: 48, lineHeight: 1.65, borderLeft: '3px solid #C9A96E', paddingLeft: 20 }}>
             {blog.excerpt}
           </p>
         )}
-        {renderContent(blog.content)}
+
+        {/* Rich HTML from WYSIWYG editor (new posts) */}
+        {blog.htmlContent ? (
+          <div
+            className="blog-rich-content"
+            dangerouslySetInnerHTML={{ __html: blog.htmlContent }}
+          />
+        ) : (
+          /* Legacy block-based content (old posts) */
+          renderContent(blog.content)
+        )}
+
+        <style>{`
+          .blog-rich-content p { margin: 0 0 20px; font-size: 16px; line-height: 1.85; color: rgba(232,224,212,0.85); }
+          .blog-rich-content h1 { font-family: var(--font-playfair); font-size: 34px; color: #fff; margin: 52px 0 18px; }
+          .blog-rich-content h2 { font-family: var(--font-playfair); font-size: 28px; color: #fff; margin: 44px 0 16px; }
+          .blog-rich-content h3 { font-family: var(--font-playfair); font-size: 22px; color: #fff; margin: 34px 0 12px; }
+          .blog-rich-content ul { padding-left: 22px; margin-bottom: 20px; list-style-type: disc; }
+          .blog-rich-content ol { padding-left: 22px; margin-bottom: 20px; list-style-type: decimal; }
+          .blog-rich-content li { margin-bottom: 10px; font-size: 16px; color: rgba(232,224,212,0.85); }
+          .blog-rich-content ul li::marker { color: #C9A96E; }
+          .blog-rich-content blockquote { border-left: 3px solid #C9A96E; padding: 6px 0 6px 20px; margin: 30px 0; color: rgba(201,169,110,0.85); font-style: italic; font-family: var(--font-playfair); font-size: 18px; line-height: 1.6; }
+          .blog-rich-content hr { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 36px 0; }
+          .blog-rich-content strong { color: #fff; font-weight: 700; }
+          .blog-rich-content em { font-style: italic; }
+          .blog-rich-content u { text-decoration-color: rgba(201,169,110,0.5); }
+          .blog-rich-content a { color: #C9A96E; text-decoration: underline; text-decoration-color: rgba(201,169,110,0.4); text-underline-offset: 3px; transition: color 0.2s; }
+          .blog-rich-content a:hover { color: #e0c88a; }
+        `}</style>
 
         {/* Back link at bottom */}
         <div style={{ marginTop: 72, paddingTop: 40, borderTop: '1px solid rgba(255,255,255,0.06)' }}>

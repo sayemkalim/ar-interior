@@ -1,14 +1,5 @@
 import mongoose from "mongoose";
 
-const ContentSchema = new mongoose.Schema(
-  {
-    type: { type: String }, // "h2", "p", "ul", etc.
-    text: { type: String }, // for headings & paragraphs
-    items: [{ type: String }], // for lists
-  },
-  { _id: false }
-);
-
 const BlogSchema = new mongoose.Schema(
   {
     slug: { type: String, required: true, unique: true },
@@ -24,12 +15,11 @@ const BlogSchema = new mongoose.Schema(
     seoDescription: { type: String },
     seoKeywords: [{ type: String }],
 
-    // Content Array → supports Strings + Objects
-    content: [
-      {
-        type: mongoose.Schema.Types.Mixed, // allows string or object
-      },
-    ],
+    // Rich HTML body from WYSIWYG editor
+    htmlContent: { type: String },
+
+    // Legacy block-based content (kept for backward compat)
+    content: [{ type: mongoose.Schema.Types.Mixed }],
   },
   { timestamps: true }
 );

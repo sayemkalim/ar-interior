@@ -7,12 +7,22 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seed": "node scripts/seed.js"
+    "seed": "node scripts/seed.js",
+    "migrate": "node scripts/migrate-content.js",
+    "import-blog": "node scripts/import-blog-from-doc.js"
   },
   "dependencies": {
+    "@tiptap/extension-blockquote": "^3.27.1",
+    "@tiptap/extension-link": "^3.27.1",
+    "@tiptap/extension-placeholder": "^3.27.1",
+    "@tiptap/extension-underline": "^3.27.1",
+    "@tiptap/pm": "^3.27.1",
+    "@tiptap/react": "^3.27.1",
+    "@tiptap/starter-kit": "^3.27.1",
     "bcryptjs": "^3.0.3",
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.7.0",
+    "mammoth": "^1.12.0",
     "mongoose": "^8.23.1",
     "next": "16.2.2",
     "react": "19.2.4",
